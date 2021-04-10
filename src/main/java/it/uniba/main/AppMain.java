@@ -1,9 +1,9 @@
 package it.uniba.main;
 
 import it.uniba.main.gioco.GameController;
+import it.uniba.main.gioco.GameModel;
 import it.uniba.main.parser.Comando;
 import it.uniba.main.utilities.Strings;
-import it.uniba.main.utilities.Utilities;
 
 /**
  * The main class for the project. It must be customized to meet the project
@@ -31,7 +31,7 @@ public final class AppMain
     {
         System.out.println(Strings.BENVENUTO);
 
-        if (args.length > 0 && Comando.getComando(args[0]) == Comando.Help)
+        if (args.length > 0 && Comando.getComando(args[0]) == Comando.help)
         {
             System.out.println(Strings.HELP_MSG);
         }
@@ -40,7 +40,9 @@ public final class AppMain
             System.out.println(Strings.SUGGERIMENTO_HELP);
         }
 
-        GameController gameController = new GameController();
+        GameModel gameModel = new GameModel();
+
+        GameController gameController = new GameController(gameModel);
     }
 
 }
