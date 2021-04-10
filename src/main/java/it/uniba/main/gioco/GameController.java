@@ -1,5 +1,6 @@
 package it.uniba.main.gioco;
 
+import it.uniba.main.gioco.damiera.*;
 import it.uniba.main.parser.Comando;
 import it.uniba.main.utilities.Strings;
 import it.uniba.main.utilities.Utilities;
@@ -28,7 +29,6 @@ public class GameController
         }
     }
 
-
     private void avviaNuovaPartita()
     {
         gameModel.startGame();
@@ -39,7 +39,7 @@ public class GameController
     {
         Boolean risultato = null;
         System.out.println(Strings.CONFERMA_ABBANDONO);
-        while(risultato == null)
+        while (risultato == null)
         {
             String conferma = Utilities.getStringaDaTastiera();
             Utilities.pulisciStringa(conferma);
@@ -61,19 +61,56 @@ public class GameController
         }
     }
 
+    private void stampaDamiera()
+    {
+        Casella[][] dama = gameModel.getDamiera();
+        String stringa = "   ";
+        stringa += "\n ";
+        for (int i = 0; i < dama.length; i++)
+        {
+            if (i == 0)
+            {
+                stringa += " ";
+            }
+            stringa += "+---";
+        }
+        stringa += "+\n";
+        for (int riga = dama.length - 1; riga >= 0; riga--)
+        {
+            stringa += "  | ";
+            for (int colonna = 0; colonna < dama.length; colonna++)
+            {
+                stringa += dama[riga][colonna].toString();
+                stringa += " | ";
+            }
+
+            stringa += "\n  ";
+            for (int i = 0; i < dama.length; i++)
+            {
+                stringa += "+---";
+            }
+            stringa += "+\n";
+        }
+        System.out.println(stringa);
+    }
+
     private void comandiInGioco(Comando cmd)
     {
         if (cmd == Comando.help)
         {
             System.out.println(Strings.HELP_MSG);
         }
-        else if(cmd == Comando.abbandona)
+        else if (cmd == Comando.abbandona)
         {
             gestioneAbbandona();
         }
+        else if (cmd == Comando.damiera)
+        {
+            stampaDamiera();
+        }
         else
         {
-            System.out.println(Strings.ERRORE_COMANDO_GENERICO);
+            System.out.println(Strings.ERRORE_COMANDO_FUORI_GIOCO);
         }
     }
 
@@ -89,7 +126,7 @@ public class GameController
         }
         else
         {
-            System.out.println(Strings.ERRORE_COMANDO_GENERICO);
+            System.out.println(Strings.ERRORE_COMANDO_IN_GIOCO);
         }
     }
 
@@ -100,7 +137,11 @@ public class GameController
 
     private void controlloComando(Comando cmd)
     {
-        if (gameModel.getIsPlaying())
+        if (cmd == null)
+        {
+            System.out.println(Strings.COMANDO_ERRATO);
+        }
+        else if (gameModel.getIsPlaying())
         {
             comandiInGioco(cmd);
         }

@@ -1,5 +1,7 @@
 package it.uniba.main.gioco.damiera;
 
+import it.uniba.main.utilities.Strings;
+
 public class Casella {
     public enum TipoCasella {
         bianca,
@@ -31,4 +33,15 @@ public class Casella {
         this.pedina = pedina;
     }
 
+    @Override
+    public String toString()
+    {
+        String result = "";
+        if (pedina != null)
+        {
+            result += pedina.toString();
+        }
+        else result += Strings.CASELLA_VUOTA;
+        return result;
+    }
 }

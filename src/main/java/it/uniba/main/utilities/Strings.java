@@ -6,9 +6,9 @@ public class Strings
     public static final char PEDINA_REGINA_BIANCA = 0x26C1;
     public static final char PEDINA_NERA = 0x26C2;
     public static final char PEDINA_REGINA_NERA = 0x26C3;
+    public static final char CASELLA_VUOTA = 0x2003;
 
-    public static final String BENVENUTO =
-            PEDINA_REGINA_BIANCA + " Benvenuto nella Dama Italiana " + PEDINA_REGINA_NERA + "\n";
+    public static final String BENVENUTO = PEDINA_REGINA_BIANCA + " Benvenuto nella Dama Italiana " + PEDINA_REGINA_NERA + "\n";
 
     // stringhe per msg help
     private static final String HELP = "help\t\tmostra la lista dei comandi disponibili\n";
@@ -21,12 +21,12 @@ public class Strings
 
 
     public static final String HELP_MSG = "Comandi disponibili:\n" + HELP + GIOCA + ABBANDONA + ESCI + NUMERI + DAMIERA + TEMPO;
-    public static final String SUGGERIMENTO_HELP = "Digitare un comando o scrivere 'help' per visualizzare la lista " +
-            "dei comandi disponibili\n";
+    public static final String SUGGERIMENTO_HELP = "Digitare un comando o scrivere 'help' per visualizzare la lista " + "dei comandi disponibili\n";
 
     public static final String ERRORE_COMANDO_GENERICO = "Non puoi esegurie questo comando adesso\n";
     public static final String COMANDO_ERRATO = "Comando errato";
-
+    public static final String ERRORE_COMANDO_FUORI_GIOCO = "Questo comando può essere utilizzato solamente fuori dalla partita";
+    public static final String ERRORE_COMANDO_IN_GIOCO = "Questo comando può essere utilizzato solamente durante la partita\nInserire comando 'gioca' per iniziare una nuova partita";
 
     // stringhe in gioco
     public static final String GIOCATORE_BIANCO = "giocatore bianco";
