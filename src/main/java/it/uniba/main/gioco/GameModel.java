@@ -2,12 +2,14 @@ package it.uniba.main.gioco;
 
 import it.uniba.main.gioco.damiera.Casella;
 import it.uniba.main.gioco.damiera.Damiera;
+import it.uniba.main.utilities.Strings;
 import it.uniba.main.utilities.Subject;
 
 public class GameModel
 {
     private Damiera damiera;
     private boolean isPlaying;
+    private boolean isTurnoBianco;
 
     private Status status;
     private Subject<Status> onStatusChanged;
@@ -23,14 +25,22 @@ public class GameModel
 
     public void startGame()
     {
-        setStatus(Status.partita_iniziata);
         damiera = new Damiera(8);
         isPlaying = true;
+        isTurnoBianco = true;
+        setStatus(Status.partita_iniziata);
+    }
+
+    public void abbandonaPartita()
+    {
+        Status.partita_terminata.setMsg(isTurnoBianco ? Strings.GIOCATORE_NERO : Strings.GIOCATORE_BIANCO);
+        setStatus(Status.partita_terminata);
+        isPlaying = false;
     }
 
     public void setStatus(Status status)
     {
-        status = Status.partita_iniziata;
+        this.status = status;
         onStatusChanged.notifyObservers(status);
     }
 
@@ -47,4 +57,5 @@ public class GameModel
     {
         return damiera.getDamiera();
     }
+
 }

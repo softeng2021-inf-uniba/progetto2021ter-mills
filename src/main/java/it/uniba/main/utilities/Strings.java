@@ -25,9 +25,18 @@ public class Strings
             "dei comandi disponibili\n";
 
     public static final String ERRORE_COMANDO_GENERICO = "Non puoi esegurie questo comando adesso\n";
+    public static final String COMANDO_ERRATO = "Comando errato";
 
 
     // stringhe in gioco
+    public static final String GIOCATORE_BIANCO = "giocatore bianco";
+    public static final String GIOCATORE_NERO = "giocatore nero";
     public static final String INIZIO_PARTITA = "Partita iniziata ...";
+    public static final String FINE_PARTITA = "Partita finita. Vince: ";
+
+    //stringhe per abbandono
+    public static final String CONFERMA_ABBANDONO = "Vuoi veramente abbandonare? [si/no]";
+    public static final String PARTITA_ABBANDONATA = "Hai abbandonato la partita";
+    public static final String PARTITA_NON_ABBANDONATA = "La partita continua...";
 
 }
