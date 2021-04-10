@@ -2,7 +2,8 @@ package it.uniba.main.parser;
 
 public enum Comando
 {
-    Help(new String[]{"-h","--help","help"});
+    help(new String[]{"-h","--help","help"}),
+    gioca(new String[]{"gioca","play"});
 
 
     private String[] aliasList;
