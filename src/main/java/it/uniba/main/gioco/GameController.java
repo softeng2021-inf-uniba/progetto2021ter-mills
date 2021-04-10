@@ -35,13 +35,42 @@ public class GameController
         //TODO
     }
 
+    private void gestioneAbbandona()
+    {
+        Boolean risultato = null;
+        System.out.println(Strings.CONFERMA_ABBANDONO);
+        while(risultato == null)
+        {
+            String conferma = Utilities.getStringaDaTastiera();
+            Utilities.pulisciStringa(conferma);
+            if (conferma.equalsIgnoreCase("si"))
+            {
+                System.out.println(Strings.PARTITA_ABBANDONATA);
+                gameModel.abbandonaPartita();
+                risultato = true;
+            }
+            else if (conferma.equalsIgnoreCase("no"))
+            {
+                System.out.println(Strings.PARTITA_NON_ABBANDONATA);
+                risultato = false;
+            }
+            else
+            {
+                System.out.println(Strings.COMANDO_ERRATO);
+            }
+        }
+    }
+
     private void comandiInGioco(Comando cmd)
     {
         if (cmd == Comando.help)
         {
             System.out.println(Strings.HELP_MSG);
         }
-
+        else if(cmd == Comando.abbandona)
+        {
+            gestioneAbbandona();
+        }
         else
         {
             System.out.println(Strings.ERRORE_COMANDO_GENERICO);

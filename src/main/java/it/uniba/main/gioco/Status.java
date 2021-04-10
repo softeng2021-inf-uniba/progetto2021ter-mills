@@ -4,7 +4,8 @@ import it.uniba.main.utilities.Strings;
 
 public enum Status
 {
-    partita_iniziata(Strings.INIZIO_PARTITA);
+    partita_iniziata(Strings.INIZIO_PARTITA),
+    partita_terminata(Strings.FINE_PARTITA);
     
     private final String msg1;
     private String msg2;
