@@ -7,7 +7,8 @@ public enum Comando
     abbandona(new String[]{"abbandona","quit"}),
     damiera(new String[]{"damiera"}),
     numeri(new String[]{"numeri"}),
-    esci(new String[]{"esci","exit"});
+    esci(new String[]{"esci","exit"}),
+    tempo(new String[]{"tempo","time"});
 
     private String[] aliasList;
     Comando(String[] aliasList)
