@@ -146,6 +146,10 @@ public class GameController
         {
             avviaNuovaPartita();
         }
+        else if (cmd == Comando.numeri)
+        {
+            stampaNumeri();
+        }
         else
         {
             System.out.println(Strings.ERRORE_COMANDO_IN_GIOCO);
