@@ -29,8 +29,6 @@ public class GameController
             controlloComando(cmd);
         }
 
-
-
     }
 
     private void avviaNuovaPartita()
@@ -134,6 +132,10 @@ public class GameController
         {
             stampaNumeri();
         }
+        else if (cmd == Comando.tempo)
+        {
+            stampaTempoGiocatori();
+        }
         else
         {
             System.out.println(Strings.ERRORE_COMANDO_FUORI_GIOCO);
@@ -162,6 +164,15 @@ public class GameController
         {
             System.out.println(Strings.ERRORE_COMANDO_IN_GIOCO);
         }
+    }
+
+    private void stampaTempoGiocatori()
+    {
+        long tempoBianco = gameModel.getCronometroBianco().getTempoTrascorsoMillis();
+        long tempoNero = gameModel.getCronometroNero().getTempoTrascorsoMillis();
+        String tempo = "Tempo " + Strings.GIOCATORE_BIANCO + " " + Utilities.getStringaTempo(tempoBianco);
+        tempo += "\nTempo " + Strings.GIOCATORE_NERO + " " + Utilities.getStringaTempo(tempoNero);
+        System.out.println(tempo);
     }
 
     private void esciDalGioco()

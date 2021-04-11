@@ -35,7 +35,7 @@ public class Strings
             ANSI_BRIGHT_WHITE_BG + " nella Dama " +
             ANSI_RED_BG + " Italiana " +
             ANSI_RESET + ANSI_BLACK_FG + ANSI_RED_BG + (char) 0x26C3 +
-            ANSI_RESET;
+            ANSI_RESET + " ";
 
     // stringhe per msg help
     private static final String HELP = "help\t\tmostra la lista dei comandi disponibili\n";
@@ -69,4 +69,6 @@ public class Strings
     //stringhe per uscita
     public static final String CONFERMA_USCITA = "Vuoi veramente chiudere il gioco? [si/no]";
     public static final String USCITA_NON_ESEGUITA = "Uscita non eseguita...";
+
+
 }

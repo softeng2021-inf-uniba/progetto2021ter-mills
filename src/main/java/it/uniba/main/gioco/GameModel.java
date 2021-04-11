@@ -2,6 +2,7 @@ package it.uniba.main.gioco;
 
 import it.uniba.main.gioco.damiera.Casella;
 import it.uniba.main.gioco.damiera.Damiera;
+import it.uniba.main.utilities.Cronometro;
 import it.uniba.main.utilities.Strings;
 import it.uniba.main.utilities.Subject;
 
@@ -10,6 +11,8 @@ public class GameModel
     private Damiera damiera;
     private boolean isPlaying;
     private boolean isTurnoBianco;
+    private Cronometro cronometroBianco;
+    private Cronometro cronometroNero;
 
 
     private int dimDamiera;
@@ -30,8 +33,19 @@ public class GameModel
     public void startGame()
     {
         damiera = new Damiera(dimDamiera);
-        isPlaying = true;
+        if(cronometroBianco != null)
+        {
+            cronometroBianco.stop();
+            cronometroNero.stop();
+        }
+        else
+        {
+            cronometroBianco = new Cronometro();
+            cronometroNero = new Cronometro();
+        }
         isTurnoBianco = true;
+        isPlaying = true;
+        cronometroBianco.start();
         setStatus(Status.partita_iniziata);
     }
 
@@ -65,6 +79,16 @@ public class GameModel
     public int getDimDamiera()
     {
         return dimDamiera;
+    }
+
+    public Cronometro getCronometroBianco()
+    {
+        return cronometroBianco;
+    }
+
+    public Cronometro getCronometroNero()
+    {
+        return cronometroNero;
     }
 
 }
