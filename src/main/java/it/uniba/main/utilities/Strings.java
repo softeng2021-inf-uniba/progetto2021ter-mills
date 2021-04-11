@@ -2,13 +2,40 @@ package it.uniba.main.utilities;
 
 public class Strings
 {
-    public static final char PEDINA_BIANCA = 0x26C0;
-    public static final char PEDINA_REGINA_BIANCA = 0x26C1;
-    public static final char PEDINA_NERA = 0x26C2;
-    public static final char PEDINA_REGINA_NERA = 0x26C3;
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_BOLD = "\u001B[1m";
+    public static final String ANSI_ITALIC = "\u001B[3m";
+
+    public static final String ANSI_GREEN_BG = "\u001B[42m";
+    public static final String ANSI_BRIGHT_WHITE_BG = "\u001B[107m";
+    public static final String ANSI_RED_BG = "\u001B[41m";
+
+    public static final String ANSI_BLACK_FG = "\u001B[30m";
+
+    public static final String RGB_CREMA = "\u001B[48;2;255;255;202m";
+    public static final String RGB_INDACO = "\u001B[48;2;102;117;189m";
+    public static final String RGB_GIALLO = "\u001B[38;2;247;217;23m";
+    public static final String RGB_VIOLA = "\u001B[38;2;75;0;120m";
+
+    public static final String PADDING_CASELLA_SX = "\u200A\u2006";
+    public static final String PADDING_CASELLA_DX = "\u2009\u2006";
+    public static final String PADDING_LETTERA_COLONNA = PADDING_CASELLA_DX + "\u200A";
+    public static final String PADDING_NUMERO_RIGA = "\u2002";
+
+    public static final String PEDINA_BIANCA = RGB_GIALLO + (char) 0x26C2;
+    public static final String PEDINA_REGINA_BIANCA = RGB_GIALLO + (char) 0x26C3;
+    public static final String PEDINA_NERA = RGB_VIOLA + (char) 0x26C2;
+    public static final String PEDINA_REGINA_NERA = RGB_VIOLA + (char) 0x26C3;
     public static final char CASELLA_VUOTA = 0x2003;
 
-    public static final String BENVENUTO = PEDINA_REGINA_BIANCA + " Benvenuto nella Dama Italiana " + PEDINA_REGINA_NERA + "\n";
+    public static final String BENVENUTO = ANSI_RESET +
+            ANSI_BLACK_FG + ANSI_GREEN_BG + "" + (char) 0x26C3 +
+            ANSI_BOLD + ANSI_ITALIC +
+            ANSI_GREEN_BG + " Benvenuto " +
+            ANSI_BRIGHT_WHITE_BG + " nella Dama " +
+            ANSI_RED_BG + " Italiana " +
+            ANSI_RESET + ANSI_BLACK_FG + ANSI_RED_BG + (char) 0x26C3 +
+            ANSI_RESET;
 
     // stringhe per msg help
     private static final String HELP = "help\t\tmostra la lista dei comandi disponibili\n";

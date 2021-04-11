@@ -64,33 +64,32 @@ public class GameController
     private void stampaDamiera()
     {
         Casella[][] dama = gameModel.getDamiera();
-        String stringa = "   ";
-        stringa += "\n ";
-        for (int i = 0; i < dama.length; i++)
+        String stringa = "";
+        stringa += " "+(char)0x2002;
+        for (int i = 0; i < dama.length; ++i)
         {
-            if (i == 0)
-            {
-                stringa += " ";
-            }
-            stringa += "+---";
+            stringa += Strings.PADDING_LETTERA_COLONNA +(char)(0x0041+i%26)+Strings.PADDING_LETTERA_COLONNA;
         }
-        stringa += "+\n";
+        stringa += "\n";
+
         for (int riga = dama.length - 1; riga >= 0; riga--)
         {
-            stringa += "  | ";
+            stringa += (riga+1)%10+Strings.PADDING_NUMERO_RIGA;
+
             for (int colonna = 0; colonna < dama.length; colonna++)
             {
                 stringa += dama[riga][colonna].toString();
-                stringa += " | ";
             }
-
-            stringa += "\n  ";
-            for (int i = 0; i < dama.length; i++)
-            {
-                stringa += "+---";
-            }
-            stringa += "+\n";
+            stringa += Strings.PADDING_NUMERO_RIGA+(riga+1)%10;
+            stringa += "\n";
         }
+        stringa += " "+(char)0x2002;
+        for (int i = 0; i < dama.length; ++i)
+        {
+            stringa += Strings.PADDING_LETTERA_COLONNA +(char)(0x0041+i%26)+Strings.PADDING_LETTERA_COLONNA;
+        }
+        stringa += "\n";
+
         System.out.println(stringa);
     }
 
