@@ -42,6 +42,8 @@ public final class AppMain
         GameModel gameModel = new GameModel(8);
 
         GameController gameController = new GameController(gameModel);
+
+        System.exit(0);
     }
 
 }
