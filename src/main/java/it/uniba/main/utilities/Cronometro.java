@@ -2,14 +2,13 @@ package it.uniba.main.utilities;
 
 public class Cronometro implements Runnable
 {
-    private long ultimoTempoGettato;
+    private long ultimoTempoLetto;
     private long tempoTrascorso;
 
     private boolean started;
     private boolean isPlaying;
 
     Thread thread;
-
 
     public Cronometro() { }
 
@@ -22,7 +21,7 @@ public class Cronometro implements Runnable
         {
             isPlaying = true;
 
-            ultimoTempoGettato = System.currentTimeMillis();
+            ultimoTempoLetto = System.currentTimeMillis();
 
             result = true;
         }
@@ -69,7 +68,7 @@ public class Cronometro implements Runnable
             tempoTrascorso = 0;
             started = true;
             isPlaying = true;
-            ultimoTempoGettato = System.currentTimeMillis();
+            ultimoTempoLetto = System.currentTimeMillis();
 
             Thread thread = new Thread(this);
             thread.start();
@@ -96,8 +95,8 @@ public class Cronometro implements Runnable
             {
                 if (isPlaying)
                 {
-                    tempoTrascorso += System.currentTimeMillis() - ultimoTempoGettato;
-                    ultimoTempoGettato = System.currentTimeMillis();
+                    tempoTrascorso += System.currentTimeMillis() - ultimoTempoLetto;
+                    ultimoTempoLetto = System.currentTimeMillis();
                 }
 
                 Thread.sleep(500);
