@@ -9,6 +9,7 @@ public class GameController
 {
     GameModel gameModel;
     ObserverStatus observerStatus = status -> stampaNuvoStato(status);
+    boolean uscitaRichiesta = false;
 
     public GameController(GameModel gameModel)
     {
@@ -18,7 +19,7 @@ public class GameController
 
         Comando cmd = null;
 
-        while (true)
+        while (!uscitaRichiesta)
         {
             String str = Utilities.getStringaDaTastiera();
             str = Utilities.pulisciStringa(str);
@@ -27,6 +28,9 @@ public class GameController
 
             controlloComando(cmd);
         }
+
+
+
     }
 
     private void avviaNuovaPartita()
@@ -146,10 +150,44 @@ public class GameController
         {
             avviaNuovaPartita();
         }
+        else if (cmd == Comando.numeri)
+        {
+            stampaNumeri();
+        }
+        else if (cmd == Comando.esci)
+        {
+            esciDalGioco();
+        }
         else
         {
             System.out.println(Strings.ERRORE_COMANDO_IN_GIOCO);
         }
+    }
+
+    private void esciDalGioco()
+    {
+        Boolean risultato = null;
+
+        System.out.println(Strings.CONFERMA_USCITA);
+        while (risultato == null)
+        {
+            String conferma = Utilities.getStringaDaTastiera();
+            Utilities.pulisciStringa(conferma);
+            if (conferma.equalsIgnoreCase("si"))
+            {
+                risultato = true;
+            }
+            else if (conferma.equalsIgnoreCase("no"))
+            {
+                System.out.println(Strings.USCITA_NON_ESEGUITA);
+                risultato = false;
+            }
+            else
+            {
+                System.out.println(Strings.COMANDO_ERRATO);
+            }
+        }
+        uscitaRichiesta = risultato;
     }
 
     private void stampaNuvoStato(Status status)
