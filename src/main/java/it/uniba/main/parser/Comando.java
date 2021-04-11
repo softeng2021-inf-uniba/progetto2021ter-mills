@@ -5,7 +5,8 @@ public enum Comando
     help(new String[]{"-h","--help","help"}),
     gioca(new String[]{"gioca","play"}),
     abbandona(new String[]{"abbandona","quit"}),
-    damiera(new String[]{"damiera"});
+    damiera(new String[]{"damiera"}),
+    numeri(new String[]{"numeri"});
 
     private String[] aliasList;
     Comando(String[] aliasList)

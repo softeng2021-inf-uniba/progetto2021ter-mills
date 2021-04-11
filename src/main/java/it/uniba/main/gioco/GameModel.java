@@ -11,21 +11,25 @@ public class GameModel
     private boolean isPlaying;
     private boolean isTurnoBianco;
 
+
+    private int dimDamiera;
+
     private Status status;
     private Subject<Status> onStatusChanged;
 
 
 
-    public GameModel()
+    public GameModel(int dimDamiera)
     {
         onStatusChanged = new Subject<>();
+        this.dimDamiera = dimDamiera;
         //TODO
     }
 
 
     public void startGame()
     {
-        damiera = new Damiera(8);
+        damiera = new Damiera(dimDamiera);
         isPlaying = true;
         isTurnoBianco = true;
         setStatus(Status.partita_iniziata);
@@ -56,6 +60,11 @@ public class GameModel
     public Casella[][] getDamiera()
     {
         return damiera.getDamiera();
+    }
+
+    public int getDimDamiera()
+    {
+        return dimDamiera;
     }
 
 }

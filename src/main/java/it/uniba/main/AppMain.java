@@ -1,9 +1,8 @@
 package it.uniba.main;
 
-import it.uniba.main.gioco.GameController;
-import it.uniba.main.gioco.GameModel;
-import it.uniba.main.parser.Comando;
-import it.uniba.main.utilities.Strings;
+import it.uniba.main.gioco.*;
+import it.uniba.main.parser.*;
+import it.uniba.main.utilities.*;
 
 /**
  * The main class for the project. It must be customized to meet the project
@@ -40,7 +39,7 @@ public final class AppMain
             System.out.println(Strings.SUGGERIMENTO_HELP);
         }
 
-        GameModel gameModel = new GameModel();
+        GameModel gameModel = new GameModel(8);
 
         GameController gameController = new GameController(gameModel);
     }

@@ -65,31 +65,50 @@ public class GameController
     {
         Casella[][] dama = gameModel.getDamiera();
         String stringa = "";
-        stringa += " "+(char)0x2002;
-        for (int i = 0; i < dama.length; ++i)
-        {
-            stringa += Strings.PADDING_LETTERA_COLONNA +(char)(0x0041+i%26)+Strings.PADDING_LETTERA_COLONNA;
-        }
-        stringa += "\n";
 
         for (int riga = dama.length - 1; riga >= 0; riga--)
         {
-            stringa += (riga+1)%10+Strings.PADDING_NUMERO_RIGA;
-
             for (int colonna = 0; colonna < dama.length; colonna++)
             {
                 stringa += dama[riga][colonna].toString();
             }
-            stringa += Strings.PADDING_NUMERO_RIGA+(riga+1)%10;
             stringa += "\n";
         }
-        stringa += " "+(char)0x2002;
-        for (int i = 0; i < dama.length; ++i)
-        {
-            stringa += Strings.PADDING_LETTERA_COLONNA +(char)(0x0041+i%26)+Strings.PADDING_LETTERA_COLONNA;
-        }
-        stringa += "\n";
+        stringa += " " + (char) 0x2002;
 
+        System.out.println(stringa);
+    }
+
+    private void stampaNumeri()
+    {
+        int DIM = gameModel.getDimDamiera();
+        String stringa = "";
+        int contatore = 1;
+        int numCaselleNere = (int)Math.floor(Math.log10((DIM * DIM) / 2));
+        for (int i = 0; i < DIM; i++)
+        {
+            for (int j = 0; j < DIM; j++)
+            {
+                if (((i * (DIM + 1) + j) % 2) == 0)
+                {
+                    stringa += Strings.RGB_INDACO + Strings.ANSI_BLACK_FG + contatore;
+                    for (int k = 0; k < numCaselleNere - Math.floor(Math.log10(contatore)); k++)
+                    {
+                        stringa += " ";
+                    }
+                    contatore++;
+                }
+                else
+                {
+                    stringa += Strings.RGB_CREMA;
+                    for (int k = 0; k <= numCaselleNere; k++)
+                    {
+                        stringa += " ";
+                    }
+                }
+            }
+            stringa += Strings.ANSI_RESET + "\n";
+        }
         System.out.println(stringa);
     }
 
@@ -106,6 +125,10 @@ public class GameController
         else if (cmd == Comando.damiera)
         {
             stampaDamiera();
+        }
+        else if (cmd == Comando.numeri)
+        {
+            stampaNumeri();
         }
         else
         {
