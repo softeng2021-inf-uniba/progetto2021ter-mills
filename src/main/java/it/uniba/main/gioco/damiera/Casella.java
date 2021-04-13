@@ -44,7 +44,7 @@ public class Casella
     {
         String result = "";
 
-        result += (tipo == TipoCasella.bianca) ? Strings.RGB_CREMA : Strings.RGB_INDACO;
+        result += (tipo == TipoCasella.bianca) ? Strings.RGB_CREMA_BG : Strings.RGB_INDACO_BG;
         result += Strings.PADDING_CASELLA_SX;
         result += (pedina != null) ? pedina.toString() : Strings.CASELLA_VUOTA;
         result += Strings.PADDING_CASELLA_DX;

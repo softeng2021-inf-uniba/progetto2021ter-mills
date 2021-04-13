@@ -93,20 +93,23 @@ public class GameController
             {
                 if (((i * (DIM + 1) + j) % 2) == 0)
                 {
-                    stringa += Strings.RGB_INDACO + Strings.ANSI_BLACK_FG + contatore;
+                    stringa += Strings.RGB_INDACO_BG + Strings.ANSI_BLACK_FG + Strings.PADDING_NUMERI + contatore;
+
                     for (int k = 0; k < numCaselleNere - Math.floor(Math.log10(contatore)); k++)
                     {
-                        stringa += " ";
+                        stringa += Strings.RGB_INDACO_BG + Strings.RGB_INDACO_FG +"_";
                     }
+                    stringa += Strings.PADDING_NUMERI;
                     contatore++;
                 }
                 else
                 {
-                    stringa += Strings.RGB_CREMA;
+                    stringa += Strings.RGB_CREMA_BG + Strings.PADDING_NUMERI;;
                     for (int k = 0; k <= numCaselleNere; k++)
                     {
-                        stringa += " ";
+                        stringa += Strings.RGB_CREMA_BG + Strings.RGB_CREMA_FG +"_";
                     }
+                    stringa += Strings.PADDING_NUMERI;
                 }
             }
             stringa += Strings.ANSI_RESET + "\n";

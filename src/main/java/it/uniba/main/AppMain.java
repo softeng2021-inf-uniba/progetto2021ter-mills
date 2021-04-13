@@ -4,6 +4,9 @@ import it.uniba.main.gioco.*;
 import it.uniba.main.parser.*;
 import it.uniba.main.utilities.*;
 
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
+
 /**
  * The main class for the project. It must be customized to meet the project
  * assignment specifications.
@@ -28,6 +31,13 @@ public final class AppMain
      */
     public static void main(final String[] args)
     {
+        try
+        {
+            System.setOut(new PrintStream(System.out,true, "UTF-8"));
+        } catch (UnsupportedEncodingException e)
+        {
+            e.printStackTrace();
+        }
         System.out.println(Strings.BENVENUTO);
 
         if (args.length > 0 && Comando.getComando(args[0]) == Comando.help)

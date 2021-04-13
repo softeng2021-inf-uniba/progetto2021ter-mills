@@ -39,12 +39,12 @@ public class Pedina
         String result = "";
         if (isDama)
         {
-            result += (tipo == TipoPedina.bianca) ? "B " : "N "; //Utilities.PEDINA_REGINA_BIANCA : Utilities
+            //Utilities.PEDINA_REGINA_BIANCA : Utilities
             // .PEDINA_REGINA_NERA;
         }
         else
         {
-            //result = (tipo == TipoPedina.bianca) ? "b " : "n "; //Utilities.PEDINA_BIANCA : Utilities.PEDINA_NERA;
+           //Utilities.PEDINA_BIANCA : Utilities.PEDINA_NERA;
             result += (tipo == TipoPedina.bianca) ? Strings.PEDINA_BIANCA : Strings.PEDINA_NERA; //Utilities.PEDINA_BIANCA : Utilities.PEDINA_NERA;
         }
         return result;
