@@ -21,7 +21,7 @@ public enum Comando
     {
         Comando comandoTrovato = null;
 
-        Comando[]listaComandi = Comando.values();
+        Comando[] listaComandi = Comando.values();
 
         for (int i = 0; i<listaComandi.length && comandoTrovato == null; ++i)
         {
