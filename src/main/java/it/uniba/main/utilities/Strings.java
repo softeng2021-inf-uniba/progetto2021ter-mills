@@ -20,8 +20,7 @@ public class Strings
     public static final String RGB_GIALLO_FG = "\u001B[38;2;247;217;23m";
     public static final String RGB_VIOLA_FG = "\u001B[38;2;75;0;120m";
 
-    public static final String PADDING_CASELLA_SX = "\u200A\u2006";
-    public static final String PADDING_CASELLA_DX = "\u2009\u2006";
+
 //    public static final String PADDING_LETTERA_COLONNA = PADDING_CASELLA_DX + "\u200A";
     public static final String PADDING_NUMERI = "\u2002";
 

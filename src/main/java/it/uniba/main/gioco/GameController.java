@@ -76,7 +76,6 @@ public class GameController
             }
             stringa += "\n";
         }
-        stringa += " " + (char) 0x2002;
 
         System.out.println(stringa);
     }
