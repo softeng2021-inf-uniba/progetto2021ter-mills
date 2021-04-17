@@ -5,7 +5,7 @@ public class Cronometro implements Runnable
     private long ultimoTempoLetto;
     private long tempoTrascorso;
 
-    private boolean started;
+    private boolean isStarted;
     private boolean isPlaying;
 
     Thread thread;
@@ -17,12 +17,10 @@ public class Cronometro implements Runnable
     {
         boolean result = false;
 
-        if (started)
+        if (getStarted())
         {
-            isPlaying = true;
-
-            ultimoTempoLetto = System.currentTimeMillis();
-
+            setUltimoTempoLetto(System.currentTimeMillis());
+            setIsPlaying(true);
             result = true;
         }
 
@@ -34,10 +32,9 @@ public class Cronometro implements Runnable
     {
         boolean result = false;
 
-        if (started)
+        if (getStarted())
         {
-            isPlaying = false;
-
+            setIsPlaying(false);
             result = true;
         }
 
@@ -47,15 +44,14 @@ public class Cronometro implements Runnable
 
     public void stop()
     {
-        started = false;
-        isPlaying = false;
-        tempoTrascorso = 0;
+        setStarted(false);
+        setIsPlaying(false);
+        setTempoTrascorso(0);
 
         if (thread != null)
         {
             thread.stop();
         }
-
     }
 
 
@@ -63,12 +59,12 @@ public class Cronometro implements Runnable
     {
         boolean result = false;
 
-        if (!started)
+        if (!getStarted())
         {
-            tempoTrascorso = 0;
-            started = true;
-            isPlaying = true;
-            ultimoTempoLetto = System.currentTimeMillis();
+            setTempoTrascorso(0);
+            setUltimoTempoLetto(System.currentTimeMillis());
+            setStarted(true);
+            setIsPlaying(true);
 
             Thread thread = new Thread(this);
             thread.start();
@@ -80,32 +76,68 @@ public class Cronometro implements Runnable
     }
 
 
-    public long getTempoTrascorsoMillis()
-    {
-        return tempoTrascorso;
-    }
-
 
     @Override
     public void run()
     {
-        while(started)
+        long temp;
+        long newTempoTrascorso;
+
+        while (getStarted())
         {
             try
             {
-                if (isPlaying)
+                if (getIsPlaying())
                 {
-                    tempoTrascorso += System.currentTimeMillis() - ultimoTempoLetto;
-                    ultimoTempoLetto = System.currentTimeMillis();
+                    temp = System.currentTimeMillis();
+                    newTempoTrascorso = (temp - ultimoTempoLetto) + tempoTrascorso;
+                    setTempoTrascorso(newTempoTrascorso);
+                    setUltimoTempoLetto(temp);
                 }
 
                 Thread.sleep(500);
-            }
-            catch (Exception e)
+
+            } catch (Exception e)
             {
                 e.printStackTrace();
             }
 
         }
+    }
+
+
+    public long getTempoTrascorsoMillis()
+    {
+        return tempoTrascorso;
+    }
+
+    private boolean getStarted()
+    {
+        return isStarted;
+    }
+
+    private boolean getIsPlaying()
+    {
+        return isPlaying;
+    }
+
+    private synchronized void setIsPlaying(boolean value)
+    {
+        isPlaying = value;
+    }
+
+    private synchronized void setStarted(boolean value)
+    {
+        isStarted = value;
+    }
+
+    private synchronized void setTempoTrascorso(long value)
+    {
+        tempoTrascorso = value;
+    }
+
+    private synchronized void setUltimoTempoLetto(long value)
+    {
+        ultimoTempoLetto = value;
     }
 }
