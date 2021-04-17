@@ -19,10 +19,11 @@ public class Strings
     public static final String RGB_INDACO_FG = "\u001B[38;2;102;117;189m";
     public static final String RGB_GIALLO_FG = "\u001B[38;2;247;217;23m";
     public static final String RGB_VIOLA_FG = "\u001B[38;2;75;0;120m";
+    public static final String RGB_NERO_FG = "\u001B[38;2;0;0;0m";
 
 
 //    public static final String PADDING_LETTERA_COLONNA = PADDING_CASELLA_DX + "\u200A";
-    public static final String PADDING_NUMERI = "\u2002";
+
 
     public static final String PEDINA_BIANCA = RGB_GIALLO_FG + (char) 0x26C2;
 //    public static final String PEDINA_REGINA_BIANCA = RGB_GIALLO_FG + (char) 0x26C3;
@@ -31,12 +32,12 @@ public class Strings
     public static final char CASELLA_VUOTA = 0x2003;
 
     public static final String BENVENUTO = ANSI_RESET +
-            ANSI_BLACK_FG + ANSI_GREEN_BG + "" + (char) 0x26C3 +
+            RGB_NERO_FG + ANSI_GREEN_BG + "" + (char) 0x26C3 +
             ANSI_BOLD + ANSI_ITALIC +
             ANSI_GREEN_BG + " Benvenuto " +
             ANSI_BRIGHT_WHITE_BG + " nella Dama " +
             ANSI_RED_BG + " Italiana " +
-            ANSI_RESET + ANSI_BLACK_FG + ANSI_RED_BG + (char) 0x26C3 +
+            ANSI_RESET + RGB_NERO_FG + ANSI_RED_BG + (char) 0x26C3 +
             ANSI_RESET + " ";
 
     // stringhe per msg help
