@@ -2,20 +2,23 @@ package it.uniba.main.gioco;
 
 import it.uniba.main.gioco.damiera.*;
 import it.uniba.main.parser.Comando;
+import it.uniba.main.utilities.Posizione;
 import it.uniba.main.utilities.Strings;
 import it.uniba.main.utilities.Utilities;
 
 public class GameController
 {
-    GameModel gameModel;
-    ObserverStatus observerStatus = status -> stampaNuvoStato(status);
-    boolean uscitaRichiesta = false;
+    private GameModel gameModel;
+    private ObserverStatus observerStatus = status -> stampaNuovoStato(status);
+    private ObserverMessages observerMessages = msg -> stampaNuovoMessaggio(msg);
+    private boolean uscitaRichiesta = false;
 
     public GameController(GameModel gameModel)
     {
         this.gameModel = gameModel;
 
         gameModel.getOnStatusChanged().register(observerStatus);
+        gameModel.getOnMessagesCalled().register(observerMessages);
 
         Comando cmd = null;
 
@@ -58,7 +61,7 @@ public class GameController
             }
             else
             {
-                System.out.println(Strings.COMANDO_ERRATO);
+                System.out.println(Strings.RISPOSTA_ERRATA);
             }
         }
     }
@@ -68,7 +71,7 @@ public class GameController
         Casella[][] dama = gameModel.getDamiera();
         String stringa = "";
 
-        for (int riga = dama.length - 1; riga >= 0; riga--)
+        for (int riga = 0; riga < dama.length; riga++)
         {
             for (int colonna = 0; colonna < dama.length; colonna++)
             {
@@ -116,6 +119,12 @@ public class GameController
         System.out.println(stringa);
     }
 
+    void spostamentoSemplice(String arg)
+    {
+        String caselle[] = arg.split("-");
+        gameModel.eseguiSpostamentoSemplice(Integer.parseInt(caselle[0]), Integer.parseInt(caselle[1]));
+    }
+
     private void comandiInGioco(Comando cmd)
     {
         if (cmd == Comando.help)
@@ -137,6 +146,10 @@ public class GameController
         else if (cmd == Comando.tempo)
         {
             stampaTempoGiocatori();
+        }
+        else if(cmd == Comando.spostamentoSemplice)
+        {
+            spostamentoSemplice(cmd.argComando);
         }
         else
         {
@@ -203,9 +216,14 @@ public class GameController
         uscitaRichiesta = risultato;
     }
 
-    private void stampaNuvoStato(Status status)
+    private void stampaNuovoStato(Status status)
     {
         System.out.println(status.getMsg());
+    }
+
+    private void stampaNuovoMessaggio(Messaggio msg)
+    {
+        System.out.println(msg.getMsg());
     }
 
     private void controlloComando(Comando cmd)

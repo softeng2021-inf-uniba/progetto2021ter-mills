@@ -8,8 +8,10 @@ public enum Comando
     damiera(new String[]{"damiera"}),
     numeri(new String[]{"numeri"}),
     esci(new String[]{"esci","exit"}),
-    tempo(new String[]{"tempo","time"});
+    tempo(new String[]{"tempo","time"}),
+    spostamentoSemplice(new String[]{"(\\d+)-(\\d+)"});
 
+    public String argComando;
     private String[] aliasList;
     Comando(String[] aliasList)
     {
@@ -28,12 +30,19 @@ public enum Comando
             Comando cmd = listaComandi[i];
             for (int j = 0; j<cmd.aliasList.length && comandoTrovato == null; ++j)
             {
-                if(str.toLowerCase().equals(cmd.aliasList[j]))
+                if(str.toLowerCase().matches("^" + cmd.aliasList[j] + "$"))
                 {
                     comandoTrovato = cmd;
                 }
             }
         }
+
+        if (comandoTrovato != null)
+        {
+            String strings[] = str.split("\\s+");
+            comandoTrovato.argComando = strings.length > 1 ? strings[1] : strings[0];
+        }
+
         return comandoTrovato;
     }
 }
