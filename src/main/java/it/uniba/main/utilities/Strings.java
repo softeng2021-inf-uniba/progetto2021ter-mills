@@ -2,6 +2,7 @@ package it.uniba.main.utilities;
 
 public class Strings
 {
+    //colori
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BOLD = "\u001B[1m";
     public static final String ANSI_ITALIC = "\u001B[3m";
@@ -22,7 +23,6 @@ public class Strings
     public static final String RGB_NERO_FG = "\u001B[38;2;0;0;0m";
 
 
-//    public static final String PADDING_LETTERA_COLONNA = PADDING_CASELLA_DX + "\u200A";
 
 
     public static final String PEDINA_BIANCA = RGB_GIALLO_FG + (char) 0x26C2;
@@ -39,6 +39,9 @@ public class Strings
             ANSI_RED_BG + " Italiana " +
             ANSI_RESET + RGB_NERO_FG + ANSI_RED_BG + (char) 0x26C3 +
             ANSI_RESET + " ";
+
+
+    public static final String ERRORE_GENERICO = "Errore: ";
 
     // stringhe per msg help
     private static final String HELP = "help\t\tmostra la lista dei comandi disponibili\n";
@@ -63,6 +66,12 @@ public class Strings
     public static final String GIOCATORE_NERO = "giocatore nero";
     public static final String INIZIO_PARTITA = "Partita iniziata ...";
     public static final String FINE_PARTITA = "Partita finita. Vince: ";
+    public static final String MOSSA_ESEGUITA = "Mossa eseguita";
+    public static final String CAMBIO_TURNO = "È il turno del ";
+    public static final String POSIZIONE_OUT_OF_RANGE = "Hai inserito una posizione al di fuori della damiera";
+    public static final String SPOSTAMENTO_ERRATO = "Non puoi fare questo spostamento";
+    public static final String MSG_CASELLA_VUOTA = "Hai selezionato una casella vuota";
+    public static final String PEDINA_AVVERSARIA = "Hai selezionato una pedina avversaria";
 
     //stringhe per abbandono
     public static final String CONFERMA_ABBANDONO = "Vuoi veramente abbandonare? [si/no]";

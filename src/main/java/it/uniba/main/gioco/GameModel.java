@@ -3,10 +3,8 @@ package it.uniba.main.gioco;
 import it.uniba.main.gioco.damiera.Casella;
 import it.uniba.main.gioco.damiera.Damiera;
 import it.uniba.main.gioco.damiera.Pedina;
-import it.uniba.main.utilities.Cronometro;
-import it.uniba.main.utilities.Posizione;
-import it.uniba.main.utilities.Strings;
-import it.uniba.main.utilities.Subject;
+import it.uniba.main.utilities.*;
+
 
 public class GameModel
 {
@@ -21,12 +19,13 @@ public class GameModel
 
     private Status status;
     private Subject<Status> onStatusChanged;
-
+    private Subject<Messaggio> onMessagesCalled;
 
 
     public GameModel(int dimDamiera)
     {
         onStatusChanged = new Subject<>();
+        onMessagesCalled = new Subject<>();
         this.dimDamiera = dimDamiera;
         //TODO
     }
@@ -35,7 +34,7 @@ public class GameModel
     public void startGame()
     {
         damiera = new Damiera(dimDamiera);
-        if(cronometroBianco != null)
+        if (cronometroBianco != null)
         {
             cronometroBianco.stop();
             cronometroNero.stop();
@@ -49,37 +48,76 @@ public class GameModel
         isPlaying = true;
         cronometroBianco.start();
         setStatus(Status.partita_iniziata);
+
+        Messaggio.cambio_giocatore.setMsg(Strings.GIOCATORE_BIANCO);
+        notificaMessaggio(Messaggio.cambio_giocatore);
     }
 
-    /*private Pedina tryGetPedina(Posizione posPedina)
+    private Pedina tryGetPedina(Posizione posPedina)
     {
         Pedina pedina = null;
-        if (posPedina == null)
-        {
-            notificaMessaggio(Messaggio.comando_errato);
-        }
-        else
+        try
         {
             if (damiera.isPosizioneValida(posPedina))
             {
                 pedina = damiera.getPedina(posPedina);
-                if (!damiera.isPedinaValida(pedina, isTurnoBianco))
+                if(pedina == null)
+                {
+                    notificaMessaggio(Messaggio.casella_vuota);
+                }
+                else if (!damiera.isPedinaValida(pedina, isTurnoBianco))
                 {
                     pedina = null;
-                    notificaMessaggio(Messaggio.inserimento_errato);
+                    notificaMessaggio(Messaggio.pedina_avversaria);
                 }
             }
             else
             {
                 notificaMessaggio(Messaggio.posizione_out_of_range);
             }
+        } catch (Exception e)
+        {
+            Messaggio.errore_generico.setMsg(e.toString());
+            notificaMessaggio(Messaggio.errore_generico);
         }
         return pedina;
-    }*/
+    }
 
-    public void eseguiMossa(Posizione partenza, Posizione arrivo)
+    public void eseguiSpostamentoSemplice(int partenza, int arrivo)
     {
+        Posizione posPartenza = Utilities.convertiPosizione(partenza, dimDamiera);
+        Posizione posArrivo = Utilities.convertiPosizione(arrivo, dimDamiera);
 
+
+
+        if (damiera.isPosizioneValida(posArrivo))
+        {
+            Pedina pedina = tryGetPedina(posPartenza);
+            if (pedina != null)
+            {
+                boolean isSpostata = damiera.trySpostamentoSemplice(pedina, posArrivo);
+                if (isSpostata)
+                {
+                    notificaMessaggio(Messaggio.eseguita);
+                    cambioTurno();
+                }
+                else
+                {
+                    notificaMessaggio(Messaggio.spostamento_errato);
+                }
+            }
+        }
+        else
+        {
+            notificaMessaggio(Messaggio.posizione_out_of_range);
+        }
+    }
+
+    private void cambioTurno()
+    {
+        isTurnoBianco = !isTurnoBianco;
+        Messaggio.cambio_giocatore.setMsg(isTurnoBianco ? Strings.GIOCATORE_BIANCO : Strings.GIOCATORE_NERO);
+        notificaMessaggio(Messaggio.cambio_giocatore);
     }
 
     public void abbandonaPartita()
@@ -95,13 +133,25 @@ public class GameModel
         onStatusChanged.notifyObservers(status);
     }
 
-    public boolean getIsPlaying(){
+    private void notificaMessaggio(Messaggio message)
+    {
+        onMessagesCalled.notifyObservers(message);
+    }
+
+
+    public boolean getIsPlaying()
+    {
         return isPlaying;
     }
 
     public Subject<Status> getOnStatusChanged()
     {
         return onStatusChanged;
+    }
+
+    public Subject<Messaggio> getOnMessagesCalled()
+    {
+        return onMessagesCalled;
     }
 
     public Casella[][] getDamiera()

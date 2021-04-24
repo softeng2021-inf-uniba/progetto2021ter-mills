@@ -8,15 +8,17 @@ import it.uniba.main.utilities.Utilities;
 
 public class GameController
 {
-    GameModel gameModel;
-    ObserverStatus observerStatus = status -> stampaNuvoStato(status);
-    boolean uscitaRichiesta = false;
+    private GameModel gameModel;
+    private ObserverStatus observerStatus = status -> stampaNuovoStato(status);
+    private ObserverMessages observerMessages = msg -> stampaNuovoMessaggio(msg);
+    private boolean uscitaRichiesta = false;
 
     public GameController(GameModel gameModel)
     {
         this.gameModel = gameModel;
 
         gameModel.getOnStatusChanged().register(observerStatus);
+        gameModel.getOnMessagesCalled().register(observerMessages);
 
         Comando cmd = null;
 
@@ -69,7 +71,7 @@ public class GameController
         Casella[][] dama = gameModel.getDamiera();
         String stringa = "";
 
-        for (int riga = dama.length - 1; riga >= 0; riga--)
+        for (int riga = 0; riga < dama.length; riga++)
         {
             for (int colonna = 0; colonna < dama.length; colonna++)
             {
@@ -120,13 +122,7 @@ public class GameController
     void spostamentoSemplice(String arg)
     {
         String caselle[] = arg.split("-");
-        int partenza = Integer.parseInt(caselle[0]);
-        int arrivo = Integer.parseInt(caselle[1]);
-
-        Posizione posizionePartenza = Utilities.convertiPosizione(partenza, gameModel.getDimDamiera());
-        Posizione poszioneArrivo = Utilities.convertiPosizione(arrivo, gameModel.getDimDamiera());
-
-
+        gameModel.eseguiSpostamentoSemplice(Integer.parseInt(caselle[0]), Integer.parseInt(caselle[1]));
     }
 
     private void comandiInGioco(Comando cmd)
@@ -220,9 +216,14 @@ public class GameController
         uscitaRichiesta = risultato;
     }
 
-    private void stampaNuvoStato(Status status)
+    private void stampaNuovoStato(Status status)
     {
         System.out.println(status.getMsg());
+    }
+
+    private void stampaNuovoMessaggio(Messaggio msg)
+    {
+        System.out.println(msg.getMsg());
     }
 
     private void controlloComando(Comando cmd)

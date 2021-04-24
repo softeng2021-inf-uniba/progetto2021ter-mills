@@ -30,7 +30,7 @@ public class Pedina
 
     public int getDirezione()
     {
-        return tipo == TipoPedina.bianca ? 1 : -1;
+        return tipo == TipoPedina.bianca ? -1 : 1;
     }
 
     @Override
