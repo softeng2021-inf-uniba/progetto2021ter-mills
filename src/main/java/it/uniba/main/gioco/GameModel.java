@@ -2,7 +2,9 @@ package it.uniba.main.gioco;
 
 import it.uniba.main.gioco.damiera.Casella;
 import it.uniba.main.gioco.damiera.Damiera;
+import it.uniba.main.gioco.damiera.Pedina;
 import it.uniba.main.utilities.Cronometro;
+import it.uniba.main.utilities.Posizione;
 import it.uniba.main.utilities.Strings;
 import it.uniba.main.utilities.Subject;
 
@@ -47,6 +49,37 @@ public class GameModel
         isPlaying = true;
         cronometroBianco.start();
         setStatus(Status.partita_iniziata);
+    }
+
+    /*private Pedina tryGetPedina(Posizione posPedina)
+    {
+        Pedina pedina = null;
+        if (posPedina == null)
+        {
+            notificaMessaggio(Messaggio.comando_errato);
+        }
+        else
+        {
+            if (damiera.isPosizioneValida(posPedina))
+            {
+                pedina = damiera.getPedina(posPedina);
+                if (!damiera.isPedinaValida(pedina, isTurnoBianco))
+                {
+                    pedina = null;
+                    notificaMessaggio(Messaggio.inserimento_errato);
+                }
+            }
+            else
+            {
+                notificaMessaggio(Messaggio.posizione_out_of_range);
+            }
+        }
+        return pedina;
+    }*/
+
+    public void eseguiMossa(Posizione partenza, Posizione arrivo)
+    {
+
     }
 
     public void abbandonaPartita()

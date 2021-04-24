@@ -2,6 +2,7 @@ package it.uniba.main.gioco;
 
 import it.uniba.main.gioco.damiera.*;
 import it.uniba.main.parser.Comando;
+import it.uniba.main.utilities.Posizione;
 import it.uniba.main.utilities.Strings;
 import it.uniba.main.utilities.Utilities;
 
@@ -116,6 +117,18 @@ public class GameController
         System.out.println(stringa);
     }
 
+    void spostamentoSemplice(String arg)
+    {
+        String caselle[] = arg.split("-");
+        int partenza = Integer.parseInt(caselle[0]);
+        int arrivo = Integer.parseInt(caselle[1]);
+
+        Posizione posizionePartenza = Utilities.convertiPosizione(partenza, gameModel.getDimDamiera());
+        Posizione poszioneArrivo = Utilities.convertiPosizione(arrivo, gameModel.getDimDamiera());
+
+
+    }
+
     private void comandiInGioco(Comando cmd)
     {
         if (cmd == Comando.help)
@@ -137,6 +150,10 @@ public class GameController
         else if (cmd == Comando.tempo)
         {
             stampaTempoGiocatori();
+        }
+        else if(cmd == Comando.spostamentoSemplice)
+        {
+            spostamentoSemplice(cmd.argComando);
         }
         else
         {

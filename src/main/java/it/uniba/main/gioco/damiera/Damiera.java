@@ -71,8 +71,23 @@ public class Damiera
         }
     }
 
+    private boolean isPosizioneValida(Posizione posizione)
+    {
+        return posizione.x >= 0 && posizione.x < DIM && posizione.y >= 0 && posizione.y < DIM;
+    }
 
-    public Casella[][] getDamiera(){
+    public Pedina getPedina(Posizione pos)
+    {
+        Pedina pedina = null;
+        if (isPosizioneValida(pos))
+        {
+            pedina = damiera[pos.x][pos.y].getPedina();
+        }
+        return pedina;
+    }
+
+    public Casella[][] getDamiera()
+    {
         return damiera;
     }
 

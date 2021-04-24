@@ -2,15 +2,14 @@ package it.uniba.main.utilities;
 
 public class Posizione
 {
-    public int riga;
-    public int colonna;
+    public int x;
+    public int y;
 
-    public Posizione(int riga, int colonna)
+    public Posizione(int x, int y)
     {
-        this.riga = riga;
-        this.colonna = colonna;
+        this.x = x;
+        this.y = y;
     }
-
 
     @Override
     public boolean equals(Object o)
@@ -22,7 +21,7 @@ public class Posizione
 
         if (o instanceof Posizione)
         {
-            if (riga == ((Posizione) o).riga && colonna == ((Posizione) o).colonna)
+            if (x == ((Posizione) o).x && y == ((Posizione) o).y)
             {
                 return true;
             }
