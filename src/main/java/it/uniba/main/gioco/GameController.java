@@ -58,7 +58,7 @@ public class GameController
             }
             else
             {
-                System.out.println(Strings.COMANDO_ERRATO);
+                System.out.println(Strings.RISPOSTA_ERRATA);
             }
         }
     }

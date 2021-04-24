@@ -68,6 +68,7 @@ public class Strings
     public static final String CONFERMA_ABBANDONO = "Vuoi veramente abbandonare? [si/no]";
     public static final String PARTITA_ABBANDONATA = "Hai abbandonato la partita";
     public static final String PARTITA_NON_ABBANDONATA = "La partita continua...";
+    public static final String RISPOSTA_ERRATA = "Risposta non permessa! Riprova con 'si' o 'no'";
 
     //stringhe per uscita
     public static final String CONFERMA_USCITA = "Vuoi veramente chiudere il gioco? [si/no]";
