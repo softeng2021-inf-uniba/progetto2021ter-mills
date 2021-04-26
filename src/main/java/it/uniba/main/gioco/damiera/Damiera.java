@@ -1,6 +1,7 @@
 package it.uniba.main.gioco.damiera;
 
 import it.uniba.main.utilities.Posizione;
+import javafx.geometry.Pos;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -119,6 +120,52 @@ public class Damiera
 
         return result;
     }
+
+    private Pedina checkPresa(Posizione partenza, Posizione arrivo, Pedina pedina)
+    {
+        Pedina result = null;
+
+        if (isPosizioneValida(partenza) && isPosizioneValida(arrivo))
+        {
+            Posizione differenza = Posizione.differenza(arrivo, partenza);
+
+            if (differenza.x * pedina.getDirezione() == 2 && differenza.y * pedina.getDirezione() == 2)
+            {
+                int xAvversaria = arrivo.x + differenza.x / 2;
+                int yAvversaria = arrivo.y + pedina.getDirezione();
+
+                Pedina avversaria = damiera[xAvversaria][yAvversaria].getPedina();
+
+
+                if (avversaria != null && avversaria.getTipo() != pedina.getTipo())
+                {
+                    result = avversaria;
+                }
+            }
+
+        }
+
+
+        return result;
+    }
+
+    public boolean tryPresa(List<Posizione> posizioni, boolean turno)
+    {
+        boolean result = true;
+        List<Pedina> pedinaPrese = new ArrayList<>();
+
+
+
+        for (int i = 0; i < posizioni.size() - 1 && result; i++)
+        {
+            //Pedina temp = checkPresa();
+
+        }
+
+
+        return result;
+    }
+
 
     private boolean spostamentoSemplice(Pedina pedina, Posizione nuovaPosizione)
     {

@@ -5,6 +5,9 @@ import it.uniba.main.gioco.damiera.Damiera;
 import it.uniba.main.gioco.damiera.Pedina;
 import it.uniba.main.utilities.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class GameModel
 {
@@ -83,12 +86,29 @@ public class GameModel
         return pedina;
     }
 
+
+    public void eseguiPresa(String caselle[])
+    {
+        List<Posizione> posizioni = new ArrayList<>();
+
+        for(int i = 0; i < caselle.length; i++)
+        {
+            posizioni.add(Utilities.convertiPosizione(Integer.parseInt(caselle[i]), dimDamiera));
+        }
+
+        Pedina partenza = tryGetPedina(posizioni.get(0));
+
+        if (partenza != null)
+        {
+
+        }
+
+    }
+
     public void eseguiSpostamentoSemplice(int partenza, int arrivo)
     {
         Posizione posPartenza = Utilities.convertiPosizione(partenza, dimDamiera);
         Posizione posArrivo = Utilities.convertiPosizione(arrivo, dimDamiera);
-
-
 
         if (damiera.isPosizioneValida(posArrivo))
         {
