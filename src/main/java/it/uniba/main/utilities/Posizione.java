@@ -3,13 +3,13 @@ package it.uniba.main.utilities;
 
 public class Posizione
 {
-    public int x;
-    public int y;
+    public int riga;
+    public int colonna;
 
-    public Posizione(int x, int y)
+    public Posizione(int riga, int y)
     {
-        this.x = x;
-        this.y = y;
+        this.riga = riga;
+        this.colonna = y;
     }
 
 
@@ -19,8 +19,8 @@ public class Posizione
 
         if (pos1 != null && pos2 != null)
         {
-            int newX = pos1.x - pos2.x;
-            int newY = pos1.y - pos2.y;
+            int newX = pos1.riga - pos2.riga;
+            int newY = pos1.colonna - pos2.colonna;
             result = new Posizione(newX, newY);
         }
 
@@ -38,7 +38,7 @@ public class Posizione
 
         if (o instanceof Posizione)
         {
-            if (x == ((Posizione) o).x && y == ((Posizione) o).y)
+            if (riga == ((Posizione) o).riga && colonna == ((Posizione) o).colonna)
             {
                 return true;
             }

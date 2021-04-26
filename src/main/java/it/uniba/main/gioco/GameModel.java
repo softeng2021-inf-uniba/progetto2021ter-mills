@@ -100,7 +100,21 @@ public class GameModel
 
         if (partenza != null)
         {
+            List<Pedina> pedinePrese = damiera.tryPresa(posizioni);
 
+            if (pedinePrese.size() > 0)
+            {
+                notificaMessaggio(Messaggio.eseguita);
+                cambioTurno();
+            }
+            else
+            {
+                notificaMessaggio(Messaggio.spostamento_errato);
+            }
+        }
+        else
+        {
+            //TODO
         }
 
     }
@@ -137,6 +151,18 @@ public class GameModel
     {
         isTurnoBianco = !isTurnoBianco;
         Messaggio.cambio_giocatore.setMsg(isTurnoBianco ? Strings.GIOCATORE_BIANCO : Strings.GIOCATORE_NERO);
+
+        if(isTurnoBianco)
+        {
+            cronometroNero.pausa();
+            cronometroBianco.riprendi();
+        }
+        else
+        {
+            cronometroBianco.pausa();
+            cronometroNero.riprendi();
+        }
+
         notificaMessaggio(Messaggio.cambio_giocatore);
     }
 

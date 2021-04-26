@@ -1,7 +1,6 @@
 package it.uniba.main.gioco.damiera;
 
 import it.uniba.main.utilities.Posizione;
-import javafx.geometry.Pos;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,7 +74,7 @@ public class Damiera
 
     public boolean isPosizioneValida(Posizione posizione)
     {
-        return posizione.x >= 0 && posizione.x < DIM && posizione.y >= 0 && posizione.y < DIM;
+        return posizione.riga >= 0 && posizione.riga < DIM && posizione.colonna >= 0 && posizione.colonna < DIM;
     }
 
     public boolean isPedinaValida(Pedina pedina, boolean isTurnoBianco)
@@ -93,12 +92,13 @@ public class Damiera
         return result;
     }
 
+
     public Pedina getPedina(Posizione pos)
     {
         Pedina pedina = null;
         if (isPosizioneValida(pos))
         {
-            pedina = damiera[pos.x][pos.y].getPedina();
+            pedina = damiera[pos.riga][pos.colonna].getPedina();
         }
         return pedina;
     }
@@ -121,6 +121,7 @@ public class Damiera
         return result;
     }
 
+
     private Pedina checkPresa(Posizione partenza, Posizione arrivo, Pedina pedina)
     {
         Pedina result = null;
@@ -129,13 +130,12 @@ public class Damiera
         {
             Posizione differenza = Posizione.differenza(arrivo, partenza);
 
-            if (differenza.x * pedina.getDirezione() == 2 && differenza.y * pedina.getDirezione() == 2)
+            if (differenza.riga * pedina.getDirezione() == 2 && Math.abs(differenza.colonna) == 2)
             {
-                int xAvversaria = arrivo.x + differenza.x / 2;
-                int yAvversaria = arrivo.y + pedina.getDirezione();
+                int rigaAvversaria = partenza.riga + pedina.getDirezione();
+                int colonnaAvversaria = partenza.colonna + differenza.colonna / 2;
 
-                Pedina avversaria = damiera[xAvversaria][yAvversaria].getPedina();
-
+                Pedina avversaria = damiera[rigaAvversaria][colonnaAvversaria].getPedina();
 
                 if (avversaria != null && avversaria.getTipo() != pedina.getTipo())
                 {
@@ -145,25 +145,41 @@ public class Damiera
 
         }
 
-
         return result;
     }
 
-    public boolean tryPresa(List<Posizione> posizioni, boolean turno)
+
+    public List<Pedina> tryPresa(List<Posizione> posizioni)
     {
         boolean result = true;
-        List<Pedina> pedinaPrese = new ArrayList<>();
-
-
+        List<Pedina> pedinePrese = new ArrayList<>();
+        Pedina pedina = damiera[posizioni.get(0).riga][posizioni.get(0).colonna].getPedina();
 
         for (int i = 0; i < posizioni.size() - 1 && result; i++)
         {
-            //Pedina temp = checkPresa();
-
+            Pedina temp = checkPresa(posizioni.get(i), posizioni.get(i+1), pedina);
+            if (temp != null)
+            {
+                pedinePrese.add(temp);
+            }
+            else
+            {
+                pedinePrese.clear();
+                result = false;
+            }
         }
 
+        if (result)
+        {
+            for(int i = 0; i < pedinePrese.size(); i++)
+            {
+                damiera[pedinePrese.get(i).posizione.riga][pedinePrese.get(i).posizione.colonna].setPedina(null);
+            }
 
-        return result;
+            setPosizionePedina(pedina, posizioni.get(posizioni.size()-1));
+        }
+
+        return pedinePrese;
     }
 
 
@@ -171,13 +187,13 @@ public class Damiera
     {
         boolean result = false;
 
-        Casella nuovaCasella = damiera[nuovaPosizione.x][nuovaPosizione.y];
+        Casella nuovaCasella = damiera[nuovaPosizione.riga][nuovaPosizione.colonna];
 
         if (nuovaCasella.getPedina() == null)
         {
-            int distanzaSpostamentoY = (nuovaPosizione.x - pedina.posizione.x) * pedina.getDirezione();
+            int distanzaSpostamentoY = (nuovaPosizione.riga - pedina.posizione.riga) * pedina.getDirezione();
 
-            int distanzaSpostamentoX = Math.abs(nuovaPosizione.y - pedina.posizione.y);
+            int distanzaSpostamentoX = Math.abs(nuovaPosizione.colonna - pedina.posizione.colonna);
 
             if (distanzaSpostamentoY == 1 && distanzaSpostamentoX == 1)
             {
@@ -191,8 +207,8 @@ public class Damiera
 
     private void setPosizionePedina(Pedina pedina, Posizione nuovaPosizione)
     {
-        damiera[pedina.posizione.x][pedina.posizione.y].setPedina(null);
-        damiera[nuovaPosizione.x][nuovaPosizione.y].setPedina(pedina);
+        damiera[pedina.posizione.riga][pedina.posizione.colonna].setPedina(null);
+        damiera[nuovaPosizione.riga][nuovaPosizione.colonna].setPedina(pedina);
 
         pedina.posizione = nuovaPosizione;
     }
