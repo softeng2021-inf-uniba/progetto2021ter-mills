@@ -12,8 +12,7 @@ public class Utilities {
 
     public static Posizione convertiPosizione(int numCasella, int dimDamiera)
     {
-        int riga = (int) Math.ceil(numCasella / (dimDamiera / 2.0)) - 1;
-        //int colonna = ((numCasella - (riga % 2 == 0 ? 1 : 0)) % dimDamiera / 2);
+        int riga = (int) Math.floor((numCasella-1) / (dimDamiera / 2.0));
         int colonna = (numCasella - (riga * dimDamiera / 2));
         colonna *= 2;
         colonna -= riga % 2 == 0 ? 2 : 1;
@@ -21,7 +20,8 @@ public class Utilities {
         return new Posizione(riga, colonna);
     }
 
-    public static String pulisciStringa(String stringa) {
+    public static String pulisciStringa(String stringa)
+    {
         return stringa.trim();
     }
 

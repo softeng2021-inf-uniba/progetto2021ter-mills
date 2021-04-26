@@ -9,7 +9,8 @@ public enum Comando
     numeri(new String[]{"numeri"}),
     esci(new String[]{"esci","exit"}),
     tempo(new String[]{"tempo","time"}),
-    spostamentoSemplice(new String[]{"(\\d+)-(\\d+)"});
+    spostamentoSemplice(new String[]{"(\\d+)-(\\d+)"}),
+    presa(new String[]{"((\\d+)x)+(\\d+)"});
 
     public String argComando;
     private String[] aliasList;
@@ -17,7 +18,6 @@ public enum Comando
     {
         this.aliasList = aliasList;
     }
-
 
     public static Comando getComando(String str)
     {

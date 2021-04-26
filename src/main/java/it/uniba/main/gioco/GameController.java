@@ -119,6 +119,13 @@ public class GameController
         System.out.println(stringa);
     }
 
+
+    void presa(String arg)
+    {
+        String caselle[] = arg.split("x");
+        gameModel.eseguiPresa(caselle);
+    }
+
     void spostamentoSemplice(String arg)
     {
         String caselle[] = arg.split("-");
@@ -150,6 +157,10 @@ public class GameController
         else if(cmd == Comando.spostamentoSemplice)
         {
             spostamentoSemplice(cmd.argComando);
+        }
+        else if (cmd == Comando.presa)
+        {
+            presa(cmd.argComando);
         }
         else
         {

@@ -5,6 +5,9 @@ import it.uniba.main.gioco.damiera.Damiera;
 import it.uniba.main.gioco.damiera.Pedina;
 import it.uniba.main.utilities.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class GameModel
 {
@@ -83,12 +86,43 @@ public class GameModel
         return pedina;
     }
 
+
+    public void eseguiPresa(String caselle[])
+    {
+        List<Posizione> posizioni = new ArrayList<>();
+
+        for(int i = 0; i < caselle.length; i++)
+        {
+            posizioni.add(Utilities.convertiPosizione(Integer.parseInt(caselle[i]), dimDamiera));
+        }
+
+        Pedina partenza = tryGetPedina(posizioni.get(0));
+
+        if (partenza != null)
+        {
+            List<Pedina> pedinePrese = damiera.tryPresa(posizioni);
+
+            if (pedinePrese.size() > 0)
+            {
+                notificaMessaggio(Messaggio.eseguita);
+                cambioTurno();
+            }
+            else
+            {
+                notificaMessaggio(Messaggio.spostamento_errato);
+            }
+        }
+        else
+        {
+            //TODO
+        }
+
+    }
+
     public void eseguiSpostamentoSemplice(int partenza, int arrivo)
     {
         Posizione posPartenza = Utilities.convertiPosizione(partenza, dimDamiera);
         Posizione posArrivo = Utilities.convertiPosizione(arrivo, dimDamiera);
-
-
 
         if (damiera.isPosizioneValida(posArrivo))
         {
@@ -117,6 +151,18 @@ public class GameModel
     {
         isTurnoBianco = !isTurnoBianco;
         Messaggio.cambio_giocatore.setMsg(isTurnoBianco ? Strings.GIOCATORE_BIANCO : Strings.GIOCATORE_NERO);
+
+        if(isTurnoBianco)
+        {
+            cronometroNero.pausa();
+            cronometroBianco.riprendi();
+        }
+        else
+        {
+            cronometroBianco.pausa();
+            cronometroNero.riprendi();
+        }
+
         notificaMessaggio(Messaggio.cambio_giocatore);
     }
 

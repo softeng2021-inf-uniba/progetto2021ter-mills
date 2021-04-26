@@ -17,11 +17,15 @@ public class Cronometro implements Runnable
     {
         boolean result = false;
 
-        if (getStarted())
+        if (isStarted)
         {
             setUltimoTempoLetto(System.currentTimeMillis());
             setIsPlaying(true);
             result = true;
+        }
+        else
+        {
+            start();
         }
 
         return result;
