@@ -207,6 +207,14 @@ public class Damiera
 
     private void setPosizionePedina(Pedina pedina, Posizione nuovaPosizione)
     {
+        if (pedina.getDirezione() == 1 && nuovaPosizione.riga == DIM - 1)
+        {
+            pedina.isDama = true;
+        }
+        else if (pedina.getDirezione() == -1 && nuovaPosizione.riga == 0)
+        {
+            pedina.isDama = true;
+        }
         damiera[pedina.posizione.riga][pedina.posizione.colonna].setPedina(null);
         damiera[nuovaPosizione.riga][nuovaPosizione.colonna].setPedina(pedina);
 
