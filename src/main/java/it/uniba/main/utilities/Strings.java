@@ -28,9 +28,9 @@ public class Strings
 
 
     public static final String PEDINA_BIANCA = RGB_GIALLO_FG + (char) 0x26C2 + ANSI_RESET_FG;
-//    public static final String PEDINA_REGINA_BIANCA = RGB_GIALLO_FG + (char) 0x26C3 + ANSI_RESET_FG;
+    public static final String PEDINA_REGINA_BIANCA = RGB_GIALLO_FG + (char) 0x26C3 + ANSI_RESET_FG;
     public static final String PEDINA_NERA = RGB_VIOLA_FG + (char) 0x26C2 + ANSI_RESET_FG;
-//    public static final String PEDINA_REGINA_NERA = RGB_VIOLA_FG + (char) 0x26C3 + ANSI_RESET_FG;
+    public static final String PEDINA_REGINA_NERA = RGB_VIOLA_FG + (char) 0x26C3 + ANSI_RESET_FG;
     public static final char CASELLA_VUOTA = 0x2003;
 
     public static final String BENVENUTO = ANSI_RESET +
