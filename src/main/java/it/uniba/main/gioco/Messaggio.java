@@ -5,10 +5,10 @@ import it.uniba.main.utilities.Strings;
 public enum Messaggio
 {
     errore_generico(Strings.ERRORE_GENERICO),
-
     eseguita(Strings.MOSSA_ESEGUITA),
     cambio_giocatore(Strings.CAMBIO_TURNO),
     spostamento_errato(Strings.SPOSTAMENTO_ERRATO),
+    presa_errata(Strings.PRESA_ERRATA),
     casella_vuota(Strings.MSG_CASELLA_VUOTA),
     pedina_avversaria(Strings.PEDINA_AVVERSARIA),
     posizione_out_of_range(Strings.POSIZIONE_OUT_OF_RANGE);

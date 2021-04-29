@@ -132,12 +132,12 @@ public class GameModel
             }
             else
             {
-                notificaMessaggio(Messaggio.spostamento_errato);
+                notificaMessaggio(Messaggio.presa_errata);
             }
         }
         else
         {
-            //TODO
+            notificaMessaggio(Messaggio.casella_vuota);
         }
 
     }
@@ -225,9 +225,9 @@ public class GameModel
         return onMessagesCalled;
     }
 
-    public Casella[][] getDamiera()
+    public String getDamiera()
     {
-        return damiera.getDamiera();
+        return damiera.toString();
     }
 
     public int getDimDamiera()
