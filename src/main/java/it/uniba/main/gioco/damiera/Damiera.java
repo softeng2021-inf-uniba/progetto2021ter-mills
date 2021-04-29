@@ -103,11 +103,6 @@ public class Damiera
         return pedina;
     }
 
-    public Casella[][] getDamiera()
-    {
-        return damiera;
-    }
-
 
     public boolean trySpostamentoSemplice(Pedina pedina, Posizione nuovaPosizione)
     {
@@ -219,5 +214,21 @@ public class Damiera
         damiera[nuovaPosizione.riga][nuovaPosizione.colonna].setPedina(pedina);
 
         pedina.posizione = nuovaPosizione;
+    }
+
+    @Override
+    public String toString()
+    {
+        String stringa = "";
+
+        for (int riga = 0; riga < damiera.length; riga++)
+        {
+            for (int colonna = 0; colonna < damiera.length; colonna++)
+            {
+                stringa += damiera[riga][colonna].toString();
+            }
+            stringa += "\n";
+        }
+        return stringa;
     }
 }
