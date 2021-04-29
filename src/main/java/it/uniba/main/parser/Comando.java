@@ -11,7 +11,8 @@ public enum Comando
     tempo(new String[]{"tempo","time"}),
     spostamentoSemplice(new String[]{"(\\d+)-(\\d+)"}),
     presa(new String[]{"((\\d+)x)+(\\d+)"}),
-    prese(new String[]{"prese"});
+    prese(new String[]{"prese"}),
+    mosse(new String[]{"mosse"});
 
     public String argComando;
     private String[] aliasList;

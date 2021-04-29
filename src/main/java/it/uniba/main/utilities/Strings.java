@@ -55,6 +55,7 @@ public class Strings
     private static final String TEMPO = "tempo\t\tmostra il tempo trascorso per entrambi i giocatori\n";
 
 
+
     public static final String HELP_MSG = "Comandi disponibili:\n" + HELP + GIOCA + ABBANDONA + ESCI + NUMERI + DAMIERA + TEMPO;
     public static final String SUGGERIMENTO_HELP = "Digitare un comando o scrivere 'help' per visualizzare la lista " + "dei comandi disponibili\n";
 

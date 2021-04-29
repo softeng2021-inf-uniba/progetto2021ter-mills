@@ -16,7 +16,7 @@ public class GameModel
     private boolean isTurnoBianco;
     private Cronometro cronometroBianco;
     private Cronometro cronometroNero;
-
+    private List<String> storicoMosse;
 
 
     private int dimDamiera;
@@ -41,6 +41,7 @@ public class GameModel
     {
         this.punteggioBianco = 0;
         this.punteggioNero = 0;
+        this.storicoMosse = new ArrayList<>();
         damiera = new Damiera(dimDamiera);
         if (cronometroBianco != null)
         {
@@ -69,7 +70,7 @@ public class GameModel
             if (damiera.isPosizioneValida(posPedina))
             {
                 pedina = damiera.getPedina(posPedina);
-                if(pedina == null)
+                if (pedina == null)
                 {
                     notificaMessaggio(Messaggio.casella_vuota);
                 }
@@ -96,7 +97,7 @@ public class GameModel
     {
         List<Posizione> posizioni = new ArrayList<>();
 
-        for(int i = 0; i < caselle.length; i++)
+        for (int i = 0; i < caselle.length; i++)
         {
             posizioni.add(Utilities.convertiPosizione(Integer.parseInt(caselle[i]), dimDamiera));
         }
@@ -109,14 +110,23 @@ public class GameModel
 
             if (pedinePrese.size() > 0)
             {
-                if(isTurnoBianco)
+                String tempStorico = "";
+                if (isTurnoBianco)
                 {
                     punteggioBianco += pedinePrese.size();
+                    tempStorico += "B: ";
                 }
                 else
                 {
                     punteggioNero += pedinePrese.size();
+                    tempStorico += "N: ";
                 }
+                for(int i = 0; i < caselle.length-1; i++)
+                {
+                    tempStorico += caselle[i] + "x";
+                }
+                tempStorico += caselle[caselle.length-1];
+                this.storicoMosse.add(tempStorico);
                 notificaMessaggio(Messaggio.eseguita);
                 cambioTurno();
             }
@@ -145,6 +155,8 @@ public class GameModel
                 boolean isSpostata = damiera.trySpostamentoSemplice(pedina, posArrivo);
                 if (isSpostata)
                 {
+                    this.storicoMosse.add((isTurnoBianco ? "B: " : "N: ") + partenza + "-" + arrivo);
+
                     notificaMessaggio(Messaggio.eseguita);
                     cambioTurno();
                 }
@@ -165,7 +177,7 @@ public class GameModel
         isTurnoBianco = !isTurnoBianco;
         Messaggio.cambio_giocatore.setMsg(isTurnoBianco ? Strings.GIOCATORE_BIANCO : Strings.GIOCATORE_NERO);
 
-        if(isTurnoBianco)
+        if (isTurnoBianco)
         {
             cronometroNero.pausa();
             cronometroBianco.riprendi();
@@ -233,12 +245,18 @@ public class GameModel
         return cronometroNero;
     }
 
-    public int getPunteggioBianco() {
+    public int getPunteggioBianco()
+    {
         return punteggioBianco;
     }
 
-    public int getPunteggioNero() {
+    public int getPunteggioNero()
+    {
         return punteggioNero;
     }
 
+    public List<String> getStoricoMosse()
+    {
+        return storicoMosse;
+    }
 }

@@ -166,6 +166,10 @@ public class GameController
         {
             stampaPrese();
         }
+        else if(cmd == Comando.mosse)
+        {
+            stampaStoricoMosse();
+        }
         else
         {
             System.out.println(Strings.ERRORE_COMANDO_FUORI_GIOCO);
@@ -271,5 +275,13 @@ public class GameController
             result += Strings.PEDINA_BIANCA;
         }
         System.out.println(result);
+    }
+
+    public void stampaStoricoMosse()
+    {
+        for(int i = 0; i < gameModel.getStoricoMosse().size(); i++)
+        {
+            System.out.println(gameModel.getStoricoMosse().get(i));
+        }
     }
 }
