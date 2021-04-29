@@ -88,28 +88,28 @@ public class GameController
         int DIM = gameModel.getDimDamiera();
         String stringa = "";
         int contatore = 1;
-        int numCaselleNere = (int)Math.floor(Math.log10((DIM * DIM) / 2));
+        int numCaselleNere = (int) Math.floor(Math.log10((DIM * DIM) / 2));
         for (int i = 0; i < DIM; i++)
         {
             for (int j = 0; j < DIM; j++)
             {
                 if (((i * (DIM + 1) + j) % 2) == 0)
                 {
-                    stringa += Strings.RGB_INDACO_BG + Strings.ANSI_BLACK_FG  + contatore;
+                    stringa += Strings.RGB_INDACO_BG + Strings.ANSI_BLACK_FG + contatore;
 
                     for (int k = 0; k < numCaselleNere - Math.floor(Math.log10(contatore)); k++)
                     {
-                        stringa += Strings.RGB_INDACO_BG + Strings.RGB_INDACO_FG +"_";
+                        stringa += Strings.RGB_INDACO_BG + Strings.RGB_INDACO_FG + "_";
                     }
                     stringa += " ";
                     contatore++;
                 }
                 else
                 {
-                    stringa += Strings.RGB_CREMA_BG ;
+                    stringa += Strings.RGB_CREMA_BG;
                     for (int k = 0; k <= numCaselleNere; k++)
                     {
-                        stringa += Strings.RGB_CREMA_BG + Strings.RGB_CREMA_FG +"_";
+                        stringa += Strings.RGB_CREMA_BG + Strings.RGB_CREMA_FG + "_";
                     }
                     stringa += " ";
                 }
@@ -154,7 +154,7 @@ public class GameController
         {
             stampaTempoGiocatori();
         }
-        else if(cmd == Comando.spostamentoSemplice)
+        else if (cmd == Comando.spostamentoSemplice)
         {
             spostamentoSemplice(cmd.argComando);
         }
@@ -162,11 +162,11 @@ public class GameController
         {
             presa(cmd.argComando);
         }
-        else if(cmd == Comando.prese)
+        else if (cmd == Comando.prese)
         {
             stampaPrese();
         }
-        else if(cmd == Comando.mosse)
+        else if (cmd == Comando.mosse)
         {
             stampaStoricoMosse();
         }
@@ -264,13 +264,13 @@ public class GameController
 
     public void stampaPrese()
     {
-        String result = Strings.PRESE + Strings.GIOCATORE_BIANCO + ": ";
-        for(int i = 0; i < gameModel.getPunteggioBianco(); i++)
+        String result = Strings.PRESE_MSG + Strings.GIOCATORE_BIANCO + ": ";
+        for (int i = 0; i < gameModel.getPunteggioBianco(); i++)
         {
             result += Strings.PEDINA_NERA;
         }
-        result += "\n" + Strings.PRESE + Strings.GIOCATORE_NERO + ": ";
-        for(int i = 0; i < gameModel.getPunteggioNero(); i++)
+        result += "\n" + Strings.PRESE_MSG + Strings.GIOCATORE_NERO + ": ";
+        for (int i = 0; i < gameModel.getPunteggioNero(); i++)
         {
             result += Strings.PEDINA_BIANCA;
         }
@@ -279,9 +279,16 @@ public class GameController
 
     public void stampaStoricoMosse()
     {
-        for(int i = 0; i < gameModel.getStoricoMosse().size(); i++)
+        if (gameModel.getStoricoMosse().size() <= 0)
         {
-            System.out.println(gameModel.getStoricoMosse().get(i));
+            System.out.println(Strings.NESSUNA_MOSSA);
+        }
+        else
+        {
+            for (int i = 0; i < gameModel.getStoricoMosse().size(); i++)
+            {
+                System.out.println(gameModel.getStoricoMosse().get(i));
+            }
         }
     }
 }

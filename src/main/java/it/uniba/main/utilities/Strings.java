@@ -53,10 +53,16 @@ public class Strings
     private static final String NUMERI = "numeri\t\tmostra la damiera numerata\n";
     private static final String DAMIERA = "damiera\t\tmostra la damiera con le pedine\n";
     private static final String TEMPO = "tempo\t\tmostra il tempo trascorso per entrambi i giocatori\n";
+    private static final String PRESE = "prese\t\tmostra le prese di entrambi i giocatori\n";
+    private static final String MOSSE = "mosse\t\tmostra lo storico delle mosse\n";
+    private static final String SPOSTAMENTI = "\nLe mosse sono descritte in notazione algebrica:\n" +
+            "Spostamento:\t1-5\n" +
+            "Presa semplice:\t1x10\n" +
+            "Presa multipla:\t1x10x...x32\n";
 
 
-
-    public static final String HELP_MSG = "Comandi disponibili:\n" + HELP + GIOCA + ABBANDONA + ESCI + NUMERI + DAMIERA + TEMPO;
+    public static final String HELP_MSG =
+            "Comandi disponibili:\n" + HELP + GIOCA + ABBANDONA + ESCI + NUMERI + DAMIERA + TEMPO + PRESE + MOSSE + SPOSTAMENTI;
     public static final String SUGGERIMENTO_HELP = "Digitare un comando o scrivere 'help' per visualizzare la lista " + "dei comandi disponibili\n";
 
     public static final String ERRORE_COMANDO_GENERICO = "Non puoi esegurie questo comando adesso\n";
@@ -75,7 +81,8 @@ public class Strings
     public static final String SPOSTAMENTO_ERRATO = "Non puoi fare questo spostamento";
     public static final String MSG_CASELLA_VUOTA = "Hai selezionato una casella vuota";
     public static final String PEDINA_AVVERSARIA = "Hai selezionato una pedina avversaria";
-    public static final String PRESE = "Prese del ";
+    public static final String PRESE_MSG = "Prese del ";
+    public static final String NESSUNA_MOSSA = "Nessuna mossa effettuata";
 
     //stringhe per abbandono
     public static final String CONFERMA_ABBANDONO = "Vuoi veramente abbandonare? [si/no]";
@@ -86,6 +93,5 @@ public class Strings
     //stringhe per uscita
     public static final String CONFERMA_USCITA = "Vuoi veramente chiudere il gioco? [si/no]";
     public static final String USCITA_NON_ESEGUITA = "Uscita non eseguita...";
-
 
 }
