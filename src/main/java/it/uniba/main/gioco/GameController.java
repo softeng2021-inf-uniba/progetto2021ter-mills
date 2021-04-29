@@ -162,6 +162,10 @@ public class GameController
         {
             presa(cmd.argComando);
         }
+        else if(cmd == Comando.prese)
+        {
+            stampaPrese();
+        }
         else
         {
             System.out.println(Strings.ERRORE_COMANDO_FUORI_GIOCO);
@@ -252,5 +256,20 @@ public class GameController
             comandiFuoriGioco(cmd);
         }
 
+    }
+
+    public void stampaPrese()
+    {
+        String result = Strings.PRESE + Strings.GIOCATORE_BIANCO + ": ";
+        for(int i = 0; i < gameModel.getPunteggioBianco(); i++)
+        {
+            result += Strings.PEDINA_NERA;
+        }
+        result += "\n" + Strings.PRESE + Strings.GIOCATORE_NERO + ": ";
+        for(int i = 0; i < gameModel.getPunteggioNero(); i++)
+        {
+            result += Strings.PEDINA_BIANCA;
+        }
+        System.out.println(result);
     }
 }

@@ -4,6 +4,8 @@ public class Strings
 {
     //colori
     public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_RESET_FG = "\u001B[39m";
+    public static final String ANSI_RESET_BG = "\u001B[49m";
     public static final String ANSI_BOLD = "\u001B[1m";
     public static final String ANSI_ITALIC = "\u001B[3m";
 
@@ -25,10 +27,10 @@ public class Strings
 
 
 
-    public static final String PEDINA_BIANCA = RGB_GIALLO_FG + (char) 0x26C2;
-//    public static final String PEDINA_REGINA_BIANCA = RGB_GIALLO_FG + (char) 0x26C3;
-    public static final String PEDINA_NERA = RGB_VIOLA_FG + (char) 0x26C2;
-//    public static final String PEDINA_REGINA_NERA = RGB_VIOLA_FG + (char) 0x26C3;
+    public static final String PEDINA_BIANCA = RGB_GIALLO_FG + (char) 0x26C2 + ANSI_RESET_FG;
+//    public static final String PEDINA_REGINA_BIANCA = RGB_GIALLO_FG + (char) 0x26C3 + ANSI_RESET_FG;
+    public static final String PEDINA_NERA = RGB_VIOLA_FG + (char) 0x26C2 + ANSI_RESET_FG;
+//    public static final String PEDINA_REGINA_NERA = RGB_VIOLA_FG + (char) 0x26C3 + ANSI_RESET_FG;
     public static final char CASELLA_VUOTA = 0x2003;
 
     public static final String BENVENUTO = ANSI_RESET +
@@ -72,6 +74,7 @@ public class Strings
     public static final String SPOSTAMENTO_ERRATO = "Non puoi fare questo spostamento";
     public static final String MSG_CASELLA_VUOTA = "Hai selezionato una casella vuota";
     public static final String PEDINA_AVVERSARIA = "Hai selezionato una pedina avversaria";
+    public static final String PRESE = "Prese del ";
 
     //stringhe per abbandono
     public static final String CONFERMA_ABBANDONO = "Vuoi veramente abbandonare? [si/no]";

@@ -18,7 +18,10 @@ public class GameModel
     private Cronometro cronometroNero;
 
 
+
     private int dimDamiera;
+    private int punteggioBianco;
+    private int punteggioNero;
 
     private Status status;
     private Subject<Status> onStatusChanged;
@@ -36,6 +39,8 @@ public class GameModel
 
     public void startGame()
     {
+        this.punteggioBianco = 0;
+        this.punteggioNero = 0;
         damiera = new Damiera(dimDamiera);
         if (cronometroBianco != null)
         {
@@ -104,6 +109,14 @@ public class GameModel
 
             if (pedinePrese.size() > 0)
             {
+                if(isTurnoBianco)
+                {
+                    punteggioBianco += pedinePrese.size();
+                }
+                else
+                {
+                    punteggioNero += pedinePrese.size();
+                }
                 notificaMessaggio(Messaggio.eseguita);
                 cambioTurno();
             }
@@ -218,6 +231,14 @@ public class GameModel
     public Cronometro getCronometroNero()
     {
         return cronometroNero;
+    }
+
+    public int getPunteggioBianco() {
+        return punteggioBianco;
+    }
+
+    public int getPunteggioNero() {
+        return punteggioNero;
     }
 
 }

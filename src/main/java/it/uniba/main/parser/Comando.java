@@ -10,7 +10,8 @@ public enum Comando
     esci(new String[]{"esci","exit"}),
     tempo(new String[]{"tempo","time"}),
     spostamentoSemplice(new String[]{"(\\d+)-(\\d+)"}),
-    presa(new String[]{"((\\d+)x)+(\\d+)"});
+    presa(new String[]{"((\\d+)x)+(\\d+)"}),
+    prese(new String[]{"prese"});
 
     public String argComando;
     private String[] aliasList;
