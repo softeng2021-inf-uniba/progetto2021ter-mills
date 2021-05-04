@@ -2,6 +2,13 @@ package it.uniba.main.gioco.damiera;
 
 import it.uniba.main.utilities.Strings;
 
+/**
+ * <<Entity>>
+ * Classe che rappresenta la casella. Essa contiene, oltre ai metodi get e set per gli attributi,
+ * un'associazione a una pedina, un'associazione al tipo della casella e l'override del metodo
+ * toString().
+ */
+
 public class Casella
 {
     public enum TipoCasella
