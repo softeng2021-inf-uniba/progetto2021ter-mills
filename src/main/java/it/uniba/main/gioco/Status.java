@@ -4,7 +4,7 @@ import it.uniba.main.utilities.Strings;
 
 
 /** <<noECB>>
- * Enumerativo che contiene i stati possibili.
+ * Enumerativo che contiene gli stati possibili.
  */
 
 public enum Status
