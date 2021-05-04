@@ -72,19 +72,7 @@ public class GameController
 
     private void stampaDamiera()
     {
-        Casella[][] dama = gameModel.getDamiera();
-        String stringa = "";
-
-        for (int riga = 0; riga < dama.length; riga++)
-        {
-            for (int colonna = 0; colonna < dama.length; colonna++)
-            {
-                stringa += dama[riga][colonna].toString();
-            }
-            stringa += "\n";
-        }
-
-        System.out.println(stringa);
+        System.out.println(gameModel.getDamiera());
     }
 
     private void stampaNumeri()

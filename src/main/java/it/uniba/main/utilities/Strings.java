@@ -79,6 +79,7 @@ public class Strings
     public static final String CAMBIO_TURNO = "È il turno del ";
     public static final String POSIZIONE_OUT_OF_RANGE = "Hai inserito una posizione al di fuori della damiera";
     public static final String SPOSTAMENTO_ERRATO = "Non puoi fare questo spostamento";
+    public static final String PRESA_ERRATA = "Non puoi effettuare questa presa";
     public static final String MSG_CASELLA_VUOTA = "Hai selezionato una casella vuota";
     public static final String PEDINA_AVVERSARIA = "Hai selezionato una pedina avversaria";
     public static final String PRESE_MSG = "Prese del ";
