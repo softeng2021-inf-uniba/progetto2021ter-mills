@@ -1,5 +1,10 @@
 package it.uniba.main.utilities;
 
+
+/**
+ * <<noECB>>
+ * CLasse di Utility nella quale vi sono memorizzate tutte le stringhe costanti utilizzate nell'app
+ */
 public class Strings
 {
     //colori

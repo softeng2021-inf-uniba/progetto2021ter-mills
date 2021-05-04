@@ -2,6 +2,11 @@ package it.uniba.main.utilities;
 
 import java.util.Scanner;
 
+
+/**
+ * <<noECB>>
+ * CLasse di Utility statica che esegue operazioni eterogenee e frequentemente utilizzate
+ */
 public class Utilities {
 
     public static String getStringaDaTastiera() {

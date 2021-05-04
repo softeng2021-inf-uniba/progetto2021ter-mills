@@ -2,6 +2,13 @@ package it.uniba.main.gioco.damiera;
 
 import it.uniba.main.utilities.Strings;
 
+/**
+ * <<Entity>>
+ * Classe che rappresenta la casella. Essa si occupa della gestione della pedina contenuta
+ * nella determinata casella. Inoltre al suo interno è contenuto l'enumerativo che stabilisce il colore
+ * della casella.
+ */
+
 public class Casella
 {
     public enum TipoCasella

@@ -6,6 +6,11 @@ import it.uniba.main.utilities.Posizione;
 import it.uniba.main.utilities.Strings;
 import it.uniba.main.utilities.Utilities;
 
+
+/**
+ * <<Boundary>>
+ * Classe che gestisce l'interazione con l'utente e mostra i messaggi
+ */
 public class GameController
 {
     private GameModel gameModel;
@@ -37,7 +42,6 @@ public class GameController
     private void avviaNuovaPartita()
     {
         gameModel.startGame();
-        //TODO
     }
 
     private void gestioneAbbandona()

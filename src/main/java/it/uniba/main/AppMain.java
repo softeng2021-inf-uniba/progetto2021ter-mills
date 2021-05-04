@@ -29,6 +29,11 @@ public final class AppMain
      *
      * @param args The command-line arguments.
      */
+
+    /**
+     * <<noECB>>
+     * Classe runnabile che fa partire il programma. Permette di passare degli argomenti come parametro.
+     */
     public static void main(final String[] args)
     {
         try
