@@ -5,6 +5,12 @@ import it.uniba.main.utilities.Posizione;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * <<Entity>>
+ * Classe che rappresenta la damiera. Essa si occupa della gestione delle caselle, delle pedine, dei loro spostamenti
+ * e delle prese.
+ */
+
 public class Damiera
 {
     private final int DIM;
