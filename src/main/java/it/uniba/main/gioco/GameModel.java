@@ -27,7 +27,6 @@ public class GameModel
     private int punteggioBianco;
     private int punteggioNero;
 
-    private Status status;
     private Subject<Status> onStatusChanged;
     private Subject<Messaggio> onMessagesCalled;
 
@@ -204,7 +203,6 @@ public class GameModel
 
     public void setStatus(Status status)
     {
-        this.status = status;
         onStatusChanged.notifyObservers(status);
     }
 
