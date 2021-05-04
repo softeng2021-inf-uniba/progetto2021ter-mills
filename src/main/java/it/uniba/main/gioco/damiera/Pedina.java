@@ -3,6 +3,12 @@ package it.uniba.main.gioco.damiera;
 import it.uniba.main.utilities.Posizione;
 import it.uniba.main.utilities.Strings;
 
+/**
+ * <<Entity>>
+ * Classe che rappresenta la pedina.
+ * Inoltre al suo interno è contenuto l'enumerativo che stabilisce il colore della pedina.
+ */
+
 public class Pedina
 {
     public enum TipoPedina
