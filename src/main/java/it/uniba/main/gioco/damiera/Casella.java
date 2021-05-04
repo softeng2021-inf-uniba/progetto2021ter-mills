@@ -4,9 +4,9 @@ import it.uniba.main.utilities.Strings;
 
 /**
  * <<Entity>>
- * Classe che rappresenta la casella. Essa contiene, oltre ai metodi get e set per gli attributi,
- * un'associazione a una pedina, un'associazione al tipo della casella e l'override del metodo
- * toString().
+ * Classe che rappresenta la casella. Essa si occupa della gestione della pedina contenuta
+ * nella determinata casella. Inoltre al suo interno è contenuto l'enumerativo che stabilisce il colore
+ * della casella.
  */
 
 public class Casella
