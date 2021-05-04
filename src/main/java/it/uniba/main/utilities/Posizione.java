@@ -1,6 +1,11 @@
 package it.uniba.main.utilities;
 
 
+/**
+ * <<noECB>>
+ * Classe che rappresenta le coordinate di una matrice.
+ * Essa consente anche di calcolare la differenza tra due posizioni.
+ */
 public class Posizione
 {
     public int riga;
