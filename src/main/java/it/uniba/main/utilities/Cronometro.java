@@ -1,5 +1,12 @@
 package it.uniba.main.utilities;
 
+
+/** <<Entity>>
+ * Classe che tramite l uso di thread consente di
+ * tenere traccia del tempo trascorso a partire dal suo avvio.
+ * Essa consente anche di mettere in pausa e riprendere il conteggio.
+ */
+
 public class Cronometro implements Runnable
 {
     private long ultimoTempoLetto;
