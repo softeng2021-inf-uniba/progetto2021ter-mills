@@ -3,6 +3,11 @@ package it.uniba.main.utilities;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * <<noECB>>
+ * Classe soggetto per implementazione del pattern Observer
+ */
 public class Subject<Tipo>
 {
     private List<Observer<Tipo>> observers = new ArrayList<>();
