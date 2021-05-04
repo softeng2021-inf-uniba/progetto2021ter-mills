@@ -3,7 +3,7 @@ package it.uniba.main.utilities;
 
 /**
  * <<noECB>>
- * CLasse di Utilities nella quale vi sono memorizzate tutte le stringhe costanti utilizzate nell'app
+ * CLasse di Utility nella quale vi sono memorizzate tutte le stringhe costanti utilizzate nell'app
  */
 public class Strings
 {
