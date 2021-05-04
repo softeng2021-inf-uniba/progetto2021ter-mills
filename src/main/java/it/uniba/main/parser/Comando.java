@@ -1,5 +1,9 @@
 package it.uniba.main.parser;
 
+/**
+ * <<noECB>>
+ * Enumerativo che contiene tutti i comandi disponibili. Esso funge anche da parser dei comandi.
+ */
 public enum Comando
 {
     help(new String[]{"-h","--help","help"}),
