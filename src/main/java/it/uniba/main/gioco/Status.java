@@ -2,6 +2,11 @@ package it.uniba.main.gioco;
 
 import it.uniba.main.utilities.Strings;
 
+
+/** <<noECB>>
+ * Enumerativo che contiene i stati possibili.
+ */
+
 public enum Status
 {
     partita_iniziata(Strings.INIZIO_PARTITA),
