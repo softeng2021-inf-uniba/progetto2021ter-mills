@@ -11,10 +11,10 @@ public class Posizione
     public int riga;
     public int colonna;
 
-    public Posizione(int riga, int y)
+    public Posizione(int riga, int colonna)
     {
         this.riga = riga;
-        this.colonna = y;
+        this.colonna = colonna;
     }
 
 
