@@ -8,7 +8,11 @@ import it.uniba.main.utilities.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * <<Control>>
+ * Gestisce la logica del gioco e comunica al controller
+ * il cambio di stato del gioco per mezzo di observer
+ */
 public class GameModel
 {
     private Damiera damiera;
