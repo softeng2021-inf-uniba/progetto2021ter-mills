@@ -129,18 +129,21 @@ public class Damiera
 
         if (isPosizioneValida(partenza) && isPosizioneValida(arrivo))
         {
-            Posizione differenza = Posizione.differenza(arrivo, partenza);
-
-            if (differenza.riga * pedina.getDirezione() == 2 && Math.abs(differenza.colonna) == 2)
+            if (damiera[arrivo.riga][arrivo.colonna].getPedina() == null)
             {
-                int rigaAvversaria = partenza.riga + pedina.getDirezione();
-                int colonnaAvversaria = partenza.colonna + differenza.colonna / 2;
+                Posizione differenza = Posizione.differenza(arrivo, partenza);
 
-                Pedina avversaria = damiera[rigaAvversaria][colonnaAvversaria].getPedina();
-
-                if (avversaria != null && avversaria.getTipo() != pedina.getTipo())
+                if (differenza.riga * pedina.getDirezione() == 2 && Math.abs(differenza.colonna) == 2)
                 {
-                    result = avversaria;
+                    int rigaAvversaria = partenza.riga + pedina.getDirezione();
+                    int colonnaAvversaria = partenza.colonna + differenza.colonna / 2;
+
+                    Pedina avversaria = damiera[rigaAvversaria][colonnaAvversaria].getPedina();
+
+                    if (avversaria != null && avversaria.getTipo() != pedina.getTipo())
+                    {
+                        result = avversaria;
+                    }
                 }
             }
 
