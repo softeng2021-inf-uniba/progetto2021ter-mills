@@ -138,11 +138,6 @@ public class GameModel
                 notificaMessaggio(Messaggio.presa_errata);
             }
         }
-        else
-        {
-            notificaMessaggio(Messaggio.casella_vuota);
-        }
-
     }
 
     public void eseguiSpostamentoSemplice(int partenza, int arrivo)
