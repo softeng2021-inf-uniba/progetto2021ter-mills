@@ -8,6 +8,11 @@ import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 
 /**
+ * <<noECB>>
+ * Classe runnabile che fa partire il programma. Permette di passare degli argomenti come parametro.
+ */
+
+/**
  * The main class for the project. It must be customized to meet the project
  * assignment specifications.
  *
@@ -30,10 +35,7 @@ public final class AppMain
      * @param args The command-line arguments.
      */
 
-    /**
-     * <<noECB>>
-     * Classe runnabile che fa partire il programma. Permette di passare degli argomenti come parametro.
-     */
+
     public static void main(final String[] args)
     {
         try
