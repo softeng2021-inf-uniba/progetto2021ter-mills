@@ -91,6 +91,7 @@ public class Strings
     public static final String PRESE_MSG = "Prese del ";
     public static final String NESSUNA_MOSSA = "Nessuna mossa effettuata";
     public static final String AVVISO_DAMATURA = "Damatura effettuata";
+    public static final String AVVISO_PRESA = "Presa effettuata";
 
 
     //stringhe per abbandono

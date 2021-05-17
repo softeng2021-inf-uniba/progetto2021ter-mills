@@ -130,6 +130,7 @@ public class GameModel
                 }
                 tempStorico += caselle[caselle.length-1];
                 this.storicoMosse.add(tempStorico);
+                System.out.println(Strings.AVVISO_PRESA);
                 notificaMessaggio(Messaggio.eseguita);
                 cambioTurno();
             }
