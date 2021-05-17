@@ -75,6 +75,7 @@ public class Strings
     public static final String ERRORE_COMANDO_FUORI_GIOCO = "Questo comando può essere utilizzato solamente fuori dalla partita";
     public static final String ERRORE_COMANDO_IN_GIOCO = "Questo comando può essere utilizzato solamente durante la partita\nInserire comando 'gioca' per iniziare una nuova partita";
 
+
     // stringhe in gioco
     public static final String GIOCATORE_BIANCO = "giocatore bianco";
     public static final String GIOCATORE_NERO = "giocatore nero";
@@ -89,6 +90,8 @@ public class Strings
     public static final String PEDINA_AVVERSARIA = "Hai selezionato una pedina avversaria";
     public static final String PRESE_MSG = "Prese del ";
     public static final String NESSUNA_MOSSA = "Nessuna mossa effettuata";
+    public static final String AVVISO_DAMATURA = "Damatura effettuata";
+
 
     //stringhe per abbandono
     public static final String CONFERMA_ABBANDONO = "Vuoi veramente abbandonare? [si/no]";
