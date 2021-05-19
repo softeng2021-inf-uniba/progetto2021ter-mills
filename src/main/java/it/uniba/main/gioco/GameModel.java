@@ -113,23 +113,24 @@ public class GameModel
 
             if (pedinePrese.size() > 0)
             {
-                String tempStorico = "";
+                StringBuffer tempStorico = new StringBuffer();
+                tempStorico.append("");
                 if (isTurnoBianco)
                 {
                     punteggioBianco += pedinePrese.size();
-                    tempStorico += "B: ";
+                    tempStorico.append("B: ");
                 }
                 else
                 {
                     punteggioNero += pedinePrese.size();
-                    tempStorico += "N: ";
+                    tempStorico.append("N: ");
                 }
                 for(int i = 0; i < caselle.length-1; i++)
                 {
-                    tempStorico += caselle[i] + "x";
+                    tempStorico.append(caselle[i] + "x");
                 }
-                tempStorico += caselle[caselle.length-1];
-                this.storicoMosse.add(tempStorico);
+                tempStorico.append(caselle[caselle.length-1]);
+                this.storicoMosse.add(tempStorico.toString());
                 System.out.println(Strings.AVVISO_PRESA);
                 notificaMessaggio(Messaggio.eseguita);
                 cambioTurno();

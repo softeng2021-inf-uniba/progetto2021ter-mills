@@ -231,16 +231,18 @@ public class Damiera
     @Override
     public String toString()
     {
-        String stringa = "";
+        StringBuffer stringa = new StringBuffer();
+
+        stringa.append("");
 
         for (int riga = 0; riga < damiera.length; riga++)
         {
             for (int colonna = 0; colonna < damiera.length; colonna++)
             {
-                stringa += damiera[riga][colonna].toString();
+                stringa.append(damiera[riga][colonna].toString());
             }
-            stringa += "\n";
+            stringa.append("\n");
         }
-        return stringa;
+        return stringa.toString();
     }
 }
