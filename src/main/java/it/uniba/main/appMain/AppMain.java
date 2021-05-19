@@ -1,4 +1,4 @@
-package it.uniba.main;
+package it.uniba.main.appMain;
 
 import it.uniba.main.gioco.*;
 import it.uniba.main.parser.*;
