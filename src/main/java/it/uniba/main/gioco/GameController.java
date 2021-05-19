@@ -2,6 +2,7 @@ package it.uniba.main.gioco;
 
 import it.uniba.main.gioco.damiera.*;
 import it.uniba.main.parser.Comando;
+import it.uniba.main.utilities.Observer;
 import it.uniba.main.utilities.Posizione;
 import it.uniba.main.utilities.Strings;
 import it.uniba.main.utilities.Utilities;
@@ -14,7 +15,11 @@ import it.uniba.main.utilities.Utilities;
 public class GameController
 {
     private GameModel gameModel;
-    private ObserverStatus observerStatus = status -> stampaNuovoStato(status);
+
+    private Observer<Status> observerStatus = status -> stampaNuovoStato(status);
+
+
+    //private ObserverStatus observerStatus = status -> stampaNuovoStato(status);
     private ObserverMessages observerMessages = msg -> stampaNuovoMessaggio(msg);
     private boolean uscitaRichiesta = false;
 
