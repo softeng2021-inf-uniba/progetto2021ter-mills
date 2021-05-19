@@ -1,7 +1,8 @@
 package it.uniba.main.utilities;
 
 
-/** <<Entity>>
+/**
+ * <<Entity>>
  * Classe che tramite l uso di thread consente di
  * tenere traccia del tempo trascorso a partire dal suo avvio.
  * Essa consente anche di mettere in pausa e riprendere il conteggio.
@@ -15,9 +16,10 @@ public class Cronometro implements Runnable
     private boolean isStarted;
     private boolean isPlaying;
 
-    Thread thread;
+    public Cronometro()
+    {
 
-    public Cronometro() { }
+    }
 
 
     public boolean riprendi()
@@ -58,13 +60,6 @@ public class Cronometro implements Runnable
         setStarted(false);
         setIsPlaying(false);
         setTempoTrascorso(0);
-
-
-
-        if (thread != null)
-        {
-            thread.stop();
-        }
     }
 
 
@@ -87,7 +82,6 @@ public class Cronometro implements Runnable
 
         return result;
     }
-
 
 
     @Override
