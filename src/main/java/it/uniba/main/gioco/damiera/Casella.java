@@ -11,12 +11,6 @@ import it.uniba.main.utilities.Strings;
 
 public class Casella
 {
-    public enum TipoCasella
-    {
-        bianca,
-        nera
-    }
-
     private Pedina pedina;
     private TipoCasella tipo;
 
