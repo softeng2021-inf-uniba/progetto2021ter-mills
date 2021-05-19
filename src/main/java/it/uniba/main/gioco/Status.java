@@ -26,7 +26,7 @@ public enum Status
         this.msg2 = msg2;
     }
 
-    public void setMsg(String msg2)
+    void setMsg(String msg2)
     {
         this.msg2 = msg2;
     }
