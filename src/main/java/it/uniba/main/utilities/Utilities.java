@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Utilities {
 
     public static String getStringaDaTastiera() {
-        Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in, "UTF-8");
         String inputString = input.nextLine();
         return inputString;
     }
