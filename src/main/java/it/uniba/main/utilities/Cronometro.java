@@ -59,6 +59,8 @@ public class Cronometro implements Runnable
         setIsPlaying(false);
         setTempoTrascorso(0);
 
+
+
         if (thread != null)
         {
             thread.stop();

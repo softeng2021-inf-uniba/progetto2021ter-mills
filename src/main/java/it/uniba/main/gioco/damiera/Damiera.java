@@ -42,10 +42,10 @@ public class Damiera
         {
             for (int j = 0; j < DIM; j++)
             {
-                damiera[i][j] = new Casella(Casella.TipoCasella.bianca);
+                damiera[i][j] = new Casella(TipoCasella.bianca);
                 if (((i * (DIM + 1) + j) % 2) == 0)
                 {
-                    damiera[i][j].setTipoCasella(Casella.TipoCasella.nera);
+                    damiera[i][j].setTipoCasella(TipoCasella.nera);
                 }
             }
         }
