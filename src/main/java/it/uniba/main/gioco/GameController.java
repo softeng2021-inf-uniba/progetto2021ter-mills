@@ -54,7 +54,7 @@ public class GameController
         while (risultato == null)
         {
             String conferma = Utilities.getStringaDaTastiera();
-            Utilities.pulisciStringa(conferma);
+            conferma = Utilities.pulisciStringa(conferma);
             if (conferma.equalsIgnoreCase("si"))
             {
                 System.out.println(Strings.PARTITA_ABBANDONATA);
@@ -83,7 +83,7 @@ public class GameController
         int DIM = gameModel.getDimDamiera();
         StringBuffer stringa = new StringBuffer();
         int contatore = 1;
-        int numCaselleNere = (int) Math.floor(Math.log10((DIM * DIM) / 2));
+        int numCaselleNere = (int) Math.floor(Math.log10((DIM * DIM) / 2.0));
         for (int i = 0; i < DIM; i++)
         {
             for (int j = 0; j < DIM; j++)
@@ -212,7 +212,7 @@ public class GameController
         while (risultato == null)
         {
             String conferma = Utilities.getStringaDaTastiera();
-            Utilities.pulisciStringa(conferma);
+            conferma = Utilities.pulisciStringa(conferma);
             if (conferma.equalsIgnoreCase("si"))
             {
                 risultato = true;
