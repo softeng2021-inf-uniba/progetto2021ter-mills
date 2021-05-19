@@ -20,7 +20,7 @@ public class GameController
 
 
     //private ObserverStatus observerStatus = status -> stampaNuovoStato(status);
-    private ObserverMessages observerMessages = msg -> stampaNuovoMessaggio(msg);
+    private Observer<Messaggio> observerMessages = msg -> stampaNuovoMessaggio(msg);
     private boolean uscitaRichiesta = false;
 
     public GameController(GameModel gameModel)
