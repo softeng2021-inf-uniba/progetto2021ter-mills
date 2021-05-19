@@ -103,7 +103,7 @@ public class Cronometro implements Runnable
                 if (getIsPlaying())
                 {
                     temp = System.currentTimeMillis();
-                    newTempoTrascorso = (temp - ultimoTempoLetto) + tempoTrascorso;
+                    newTempoTrascorso = (temp - ultimoTempoLetto) + getTempoTrascorsoMillis();
                     setTempoTrascorso(newTempoTrascorso);
                     setUltimoTempoLetto(temp);
                 }
@@ -119,7 +119,7 @@ public class Cronometro implements Runnable
     }
 
 
-    public long getTempoTrascorsoMillis()
+    public synchronized long getTempoTrascorsoMillis()
     {
         return tempoTrascorso;
     }
