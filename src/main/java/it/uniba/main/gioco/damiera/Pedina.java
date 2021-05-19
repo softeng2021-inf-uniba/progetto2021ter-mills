@@ -11,12 +11,6 @@ import it.uniba.main.utilities.Strings;
 
 public class Pedina
 {
-    public enum TipoPedina
-    {
-        nera,
-        bianca
-    }
-
     private TipoPedina tipo;
     public Posizione posizione;
     public boolean isDama;

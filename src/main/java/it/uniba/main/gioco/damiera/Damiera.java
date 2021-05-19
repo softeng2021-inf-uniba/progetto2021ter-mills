@@ -61,7 +61,7 @@ public class Damiera
         {
             for (int j = i % 2; j < DIM; j += 2)
             {
-                Pedina pedina = new Pedina(Pedina.TipoPedina.nera, new Posizione(i, j));
+                Pedina pedina = new Pedina(TipoPedina.nera, new Posizione(i, j));
                 damiera[i][j].setPedina(pedina);
                 listaPedineBianche.add(pedina);
             }
@@ -72,7 +72,7 @@ public class Damiera
         {
             for (int j = i % 2; j < DIM; j += 2)
             {
-                Pedina pedina = new Pedina(Pedina.TipoPedina.bianca, new Posizione(i, j));
+                Pedina pedina = new Pedina(TipoPedina.bianca, new Posizione(i, j));
                 damiera[i][j].setPedina(pedina);
                 listaPedineNere.add(pedina);
             }
@@ -90,7 +90,7 @@ public class Damiera
 
         if (pedina != null)
         {
-            if ((isTurnoBianco && pedina.getTipo() == Pedina.TipoPedina.bianca) || (!isTurnoBianco && pedina.getTipo() == Pedina.TipoPedina.nera))
+            if ((isTurnoBianco && pedina.getTipo() == TipoPedina.bianca) || (!isTurnoBianco && pedina.getTipo() == TipoPedina.nera))
             {
                 result = true;
             }
