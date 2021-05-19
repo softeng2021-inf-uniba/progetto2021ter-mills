@@ -81,7 +81,7 @@ public class GameController
     private void stampaNumeri()
     {
         int DIM = gameModel.getDimDamiera();
-        String stringa = "";
+        StringBuffer stringa = new StringBuffer();
         int contatore = 1;
         int numCaselleNere = (int) Math.floor(Math.log10((DIM * DIM) / 2));
         for (int i = 0; i < DIM; i++)
@@ -90,28 +90,28 @@ public class GameController
             {
                 if (((i * (DIM + 1) + j) % 2) == 0)
                 {
-                    stringa += Strings.RGB_INDACO_BG + Strings.ANSI_BLACK_FG + contatore;
+                    stringa.append(Strings.RGB_INDACO_BG + Strings.ANSI_BLACK_FG + contatore);
 
                     for (int k = 0; k < numCaselleNere - Math.floor(Math.log10(contatore)); k++)
                     {
-                        stringa += Strings.RGB_INDACO_BG + Strings.RGB_INDACO_FG + "_";
+                        stringa.append(Strings.RGB_INDACO_BG + Strings.RGB_INDACO_FG + "_");
                     }
-                    stringa += " ";
+                    stringa.append(" ");
                     contatore++;
                 }
                 else
                 {
-                    stringa += Strings.RGB_CREMA_BG;
+                    stringa.append(Strings.RGB_CREMA_BG);
                     for (int k = 0; k <= numCaselleNere; k++)
                     {
-                        stringa += Strings.RGB_CREMA_BG + Strings.RGB_CREMA_FG + "_";
+                        stringa.append(Strings.RGB_CREMA_BG + Strings.RGB_CREMA_FG + "_");
                     }
-                    stringa += " ";
+                    stringa.append(" ");
                 }
             }
-            stringa += Strings.ANSI_RESET + "\n";
+            stringa.append(Strings.ANSI_RESET + "\n");
         }
-        System.out.println(stringa);
+        System.out.println(stringa.toString());
     }
 
 
@@ -259,17 +259,18 @@ public class GameController
 
     public void stampaPrese()
     {
-        String result = Strings.PRESE_MSG + Strings.GIOCATORE_BIANCO + ": ";
+        StringBuffer result = new StringBuffer();
+        result.append(Strings.PRESE_MSG + Strings.GIOCATORE_BIANCO + ": ");
         for (int i = 0; i < gameModel.getPunteggioBianco(); i++)
         {
-            result += Strings.PEDINA_NERA;
+            result.append(Strings.PEDINA_NERA);
         }
-        result += "\n" + Strings.PRESE_MSG + Strings.GIOCATORE_NERO + ": ";
+        result.append("\n" + Strings.PRESE_MSG + Strings.GIOCATORE_NERO + ": ");
         for (int i = 0; i < gameModel.getPunteggioNero(); i++)
         {
-            result += Strings.PEDINA_BIANCA;
+            result.append(Strings.PEDINA_BIANCA);
         }
-        System.out.println(result);
+        System.out.println(result.toString());
     }
 
     public void stampaStoricoMosse()
