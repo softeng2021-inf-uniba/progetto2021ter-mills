@@ -153,11 +153,11 @@ public class GameController
         }
         else if (cmd == Comando.spostamentoSemplice)
         {
-            spostamentoSemplice(cmd.argComando);
+            spostamentoSemplice(cmd.getArgComando());
         }
         else if (cmd == Comando.presa)
         {
-            presa(cmd.argComando);
+            presa(cmd.getArgComando());
         }
         else if (cmd == Comando.prese)
         {

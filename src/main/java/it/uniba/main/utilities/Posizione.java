@@ -51,4 +51,9 @@ public class Posizione
 
         return false;
     }
+
+    public int hashCode() {
+        assert false : "hashCode not designed";
+        return 42; // any arbitrary constant will do
+    }
 }

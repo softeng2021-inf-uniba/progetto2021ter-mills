@@ -18,7 +18,7 @@ public enum Comando
     prese(new String[]{"prese"}),
     mosse(new String[]{"mosse"});
 
-    public String argComando;
+    private String argComando;
     private String[] aliasList;
     Comando(String[] aliasList)
     {
@@ -50,5 +50,10 @@ public enum Comando
         }
 
         return comandoTrovato;
+    }
+
+    public String getArgComando()
+    {
+        return argComando;
     }
 }
