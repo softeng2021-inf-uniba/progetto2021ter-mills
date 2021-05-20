@@ -1,6 +1,5 @@
 package it.uniba.main.gioco;
 
-import it.uniba.main.gioco.damiera.Casella;
 import it.uniba.main.gioco.damiera.Damiera;
 import it.uniba.main.gioco.damiera.Pedina;
 import it.uniba.main.utilities.*;
@@ -207,7 +206,6 @@ public class GameModel
     {
         onMessagesCalled.notifyObservers(message);
     }
-
 
     public boolean getIsPlaying()
     {
