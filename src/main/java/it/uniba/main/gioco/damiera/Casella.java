@@ -20,11 +20,6 @@ public class Casella
         this.tipo = tipo;
     }
 
-    public TipoCasella getTipoCasella()
-    {
-        return tipo;
-    }
-
     public void setTipoCasella(TipoCasella tipo)
     {
         this.tipo = tipo;
