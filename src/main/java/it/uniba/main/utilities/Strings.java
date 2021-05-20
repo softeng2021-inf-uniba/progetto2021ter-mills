@@ -10,14 +10,12 @@ public class Strings
     //colori
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RESET_FG = "\u001B[39m";
-    public static final String ANSI_RESET_BG = "\u001B[49m";
     public static final String ANSI_BOLD = "\u001B[1m";
     public static final String ANSI_ITALIC = "\u001B[3m";
 
     public static final String ANSI_GREEN_BG = "\u001B[42m";
     public static final String ANSI_BRIGHT_WHITE_BG = "\u001B[107m";
     public static final String ANSI_RED_BG = "\u001B[41m";
-
 
     public static final String ANSI_BLACK_FG = "\u001B[30m";
 
@@ -28,9 +26,6 @@ public class Strings
     public static final String RGB_GIALLO_FG = "\u001B[38;2;247;217;23m";
     public static final String RGB_VIOLA_FG = "\u001B[38;2;75;0;120m";
     public static final String RGB_NERO_FG = "\u001B[38;2;0;0;0m";
-
-
-
 
     public static final String PEDINA_BIANCA = RGB_GIALLO_FG + (char) 0x26C2 + ANSI_RESET_FG;
     public static final String PEDINA_REGINA_BIANCA = RGB_GIALLO_FG + (char) 0x26C3 + ANSI_RESET_FG;
@@ -47,9 +42,6 @@ public class Strings
             ANSI_RESET + RGB_NERO_FG + ANSI_RED_BG + (char) 0x26C3 +
             ANSI_RESET + " ";
 
-
-    public static final String ERRORE_GENERICO = "Errore: ";
-
     // stringhe per msg help
     private static final String HELP = "help\t\tmostra la lista dei comandi disponibili\n";
     private static final String GIOCA = "gioca\t\tpermette di iniziare una nuova partita\n";
@@ -65,7 +57,6 @@ public class Strings
             "Presa semplice:\t1x10\n" +
             "Presa multipla:\t1x10x...x32\n";
 
-
     public static final String HELP_MSG =
             "Comandi disponibili:\n" + HELP + GIOCA + ABBANDONA + ESCI + NUMERI + DAMIERA + TEMPO + PRESE + MOSSE + SPOSTAMENTI;
     public static final String SUGGERIMENTO_HELP = "Digitare un comando o scrivere 'help' per visualizzare la lista " + "dei comandi disponibili\n";
@@ -74,7 +65,7 @@ public class Strings
     public static final String COMANDO_ERRATO = "Comando errato";
     public static final String ERRORE_COMANDO_FUORI_GIOCO = "Questo comando può essere utilizzato solamente fuori dalla partita";
     public static final String ERRORE_COMANDO_IN_GIOCO = "Questo comando può essere utilizzato solamente durante la partita\nInserire comando 'gioca' per iniziare una nuova partita";
-
+    public static final String ERRORE_GENERICO = "Errore: ";
 
     // stringhe in gioco
     public static final String GIOCATORE_BIANCO = "giocatore bianco";
@@ -92,7 +83,6 @@ public class Strings
     public static final String NESSUNA_MOSSA = "Nessuna mossa effettuata";
     public static final String AVVISO_DAMATURA = "Damatura effettuata";
     public static final String AVVISO_PRESA = "Presa effettuata";
-
 
     //stringhe per abbandono
     public static final String CONFERMA_ABBANDONO = "Vuoi veramente abbandonare? [si/no]";

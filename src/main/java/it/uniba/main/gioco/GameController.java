@@ -1,9 +1,7 @@
 package it.uniba.main.gioco;
 
-import it.uniba.main.gioco.damiera.*;
 import it.uniba.main.parser.Comando;
 import it.uniba.main.utilities.Observer;
-import it.uniba.main.utilities.Posizione;
 import it.uniba.main.utilities.Strings;
 import it.uniba.main.utilities.Utilities;
 

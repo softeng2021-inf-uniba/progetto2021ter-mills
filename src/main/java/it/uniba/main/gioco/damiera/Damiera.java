@@ -233,8 +233,6 @@ public class Damiera
     {
         StringBuffer stringa = new StringBuffer();
 
-        stringa.append("");
-
         for (int riga = 0; riga < damiera.length; riga++)
         {
             for (int colonna = 0; colonna < damiera.length; colonna++)
