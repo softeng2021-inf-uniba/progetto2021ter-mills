@@ -1,6 +1,8 @@
 package it.uniba.main.utilities;
 
 
+import java.util.Objects;
+
 /**
  * <<noECB>>
  * Classe che rappresenta le coordinate di una matrice.
@@ -52,8 +54,8 @@ public class Posizione
         return false;
     }
 
+    @Override
     public int hashCode() {
-        assert false : "hashCode not designed";
-        return 42; // any arbitrary constant will do
+        return Objects.hash(riga, colonna);
     }
 }
