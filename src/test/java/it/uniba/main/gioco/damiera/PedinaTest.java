@@ -1,4 +1,4 @@
-package it.uniba.main.gioco;
+package it.uniba.main.gioco.damiera;
 
 import it.uniba.main.gioco.damiera.Pedina;
 import it.uniba.main.gioco.damiera.TipoPedina;
