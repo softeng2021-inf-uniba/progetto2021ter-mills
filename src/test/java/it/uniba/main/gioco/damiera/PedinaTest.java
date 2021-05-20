@@ -23,53 +23,53 @@ public class PedinaTest
     @Test
     public void testGetTipoPedinaBianca()
     {
-        assertEquals(pedinaBianca.getTipo(), TipoPedina.bianca);
+        assertEquals(TipoPedina.bianca, pedinaBianca.getTipo());
     }
 
     @Test
     public void testGetTipoPedinaNera()
     {
-        assertEquals(pedinaNera.getTipo(), TipoPedina.nera);
+        assertEquals(TipoPedina.nera, pedinaNera.getTipo());
     }
 
     @Test
     public void testGetDirezionePedinaBianca()
     {
         int direzione = -1;
-        assertEquals(pedinaBianca.getDirezione(), direzione);
+        assertEquals(direzione, pedinaBianca.getDirezione());
     }
 
     @Test
     public void testGetDirezionePedinaNera()
     {
         int direzione = 1;
-        assertEquals(pedinaNera.getDirezione(), direzione);
+        assertEquals(direzione, pedinaNera.getDirezione());
     }
 
     @Test
     public void testToStringPedinaBianca()
     {
-        assertEquals(pedinaBianca.toString(), Strings.PEDINA_BIANCA);
+        assertEquals(Strings.PEDINA_BIANCA, pedinaBianca.toString());
     }
 
     @Test
     public void testToStringPedinaNera()
     {
-        assertEquals(pedinaNera.toString(), Strings.PEDINA_NERA);
+        assertEquals(Strings.PEDINA_NERA, pedinaNera.toString());
     }
 
     @Test
     public void testToStringPedinaBiancaRegina()
     {
         pedinaBianca.isDama = true;
-        assertEquals(pedinaBianca.toString(), Strings.PEDINA_REGINA_BIANCA);
+        assertEquals(Strings.PEDINA_REGINA_BIANCA, pedinaBianca.toString());
     }
 
     @Test
     public void testToStringPedinaNeraRegina()
     {
         pedinaNera.isDama = true;
-        assertEquals(pedinaNera.toString(), Strings.PEDINA_REGINA_NERA);
+        assertEquals(Strings.PEDINA_REGINA_NERA, pedinaNera.toString());
     }
 
 }
