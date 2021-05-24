@@ -15,15 +15,22 @@ import java.util.List;
 public class Damiera
 {
     /**
-     *
+     * Dimensione della damiera
      */
     private final int DIM;
     /**
-     *
+     * Array multidimensionale che rappresenta le caselle della damiera
      */
     private Casella[][] damiera;
 
+    /**
+     * Lista delle pedine bianche presenti
+     */
     private List<Pedina> listaPedineBianche;
+
+    /**
+     * Lista delle pedine nere presenti
+     */
     private List<Pedina> listaPedineNere;
 
     /**
