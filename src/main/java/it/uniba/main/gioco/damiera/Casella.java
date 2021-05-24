@@ -14,27 +14,48 @@ public class Casella
     private Pedina pedina;
     private TipoCasella tipo;
 
+    /**
+     * Costruttore della classe Casella
+     * @param tipo determina il tipo della casella
+     */
     public Casella(TipoCasella tipo)
     {
         this.pedina = null;
         this.tipo = tipo;
     }
 
+    /**
+     * Metodo setter del tipo della casella
+     * @param tipo stabilisce il tipo della casella (bianca o nera)
+     */
     public void setTipoCasella(TipoCasella tipo)
     {
         this.tipo = tipo;
     }
 
+    /**
+     * Metodo getter della pedina presente nella casella
+     * @return ritorna la reference della pedina salvata nella casella
+     */
     public Pedina getPedina()
     {
         return pedina;
     }
 
+    /**
+     * Metodo setter della pedina.
+     * Salva la reference della pedina passata
+     * @param pedina è la variabile di tipo pedina da memorizzare
+     */
     public void setPedina(Pedina pedina)
     {
         this.pedina = pedina;
     }
 
+    /**
+     * Metodo toString della classe casella
+     * @return una stringa rappresentante il colore della casella, e se esistente la pedina associata
+     */
     @Override
     public String toString()
     {
@@ -48,4 +69,5 @@ public class Casella
 
         return result;
     }
+
 }
