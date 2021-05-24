@@ -11,7 +11,16 @@ import it.uniba.main.utilities.Strings;
 
 public class Casella
 {
+    /**
+     * Attributo di tipo Pedina chiamato pedina,
+     * utilizzato per salvare la reference della pedina nella casella
+     */
     private Pedina pedina;
+
+    /**
+     * Attributo di tipo TipoCasella chiamato tipo,
+     * rappresentante la tipologia della casella (bianca o nera)
+     */
     private TipoCasella tipo;
 
     /**
