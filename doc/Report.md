@@ -1,28 +1,28 @@
 # Relazione tecnica finale
 
- Indice
+Indice
 ---
 <br/>
 
 1. [Introduzione](#Introduzione)
 2. [Modello di dominio](#Modello-di-dominio)
 3. [Requisiti specifici](#Requisiti-specifici)
-    * [Requisiti funzionali](#requisiti-funzionali)
-    * [Requisiti non funzionali](#requisiti-non-funzionali)
+* [Requisiti funzionali](#requisiti-funzionali)
+* [Requisiti non funzionali](#requisiti-non-funzionali)
 4. [System Design](#System-Design)
-    * [Stile architetturale adottato](#Stile-architetturale-adottato)
-    * [Commento delle decisioni prese]
-5. [OO Design]
-    * [Diagramma delle classi e diagramma di sequenza]
-    * [Design pattern utilizzati]
-    * [Commento delle decisioni prese]
-6. [Riepilogo test]
+* [Stile architetturale adottato](#Stile-architetturale-adottato)
+* [Commento delle decisioni prese]()
+5. [OO Design]()
+* [Diagramma delle classi e diagramma di sequenza]()
+* [Design pattern utilizzati]()
+* [Commento delle decisioni prese]()
+6. [Riepilogo test]()
 7. [Manuale utente](#Manuale-utente)
 8. [Processo di sviluppo e organizzazione del lavoro](#Processo-di-sviluppo-e-organizzazione-del-lavoro)
 9. [Analisi retrospettiva](#Analisi-retrospettiva)
-    * [Cosa ci ha resi soddisfatti](#Cosa-ci-ha-resi-soddisfatti)
-    * [Cosa ci ha resi insoddisfatti](#Cosa-ci-ha-resi-insoddisfatti)
-    * [Cosa ci ha fatto impazzire](#Cosa-ci-ha-fatto-impazzire)
+* [Cosa ci ha resi soddisfatti](#Cosa-ci-ha-resi-soddisfatti)
+* [Cosa ci ha resi insoddisfatti](#Cosa-ci-ha-resi-insoddisfatti)
+* [Cosa ci ha fatto impazzire](#Cosa-ci-ha-fatto-impazzire)
 10. [Conclusione](#Conclusione)
 
 <br/><br/>
@@ -30,17 +30,17 @@
 ##  **Introduzione**
 
 Questo documento ha il compito di illustrare l’utilizzo della prima versione dell’applicazione della **Dama Italiana**.
-Il programma consente a due giocatori di sfidarsi in una partita tramite interfaccia a [linea di comando(CLI)](https://devindev.lidialab.it/cli-command-line-interface-o-command-line-interpreter/), indicando le proprie mosse in notazione algebrica. L'esecuzione del progetto
+Il programma consente a due giocatori di sfidarsi in una partita tramite interfaccia a **[linea di comando(CLI)](https://devindev.lidialab.it/cli-command-line-interface-o-command-line-interpreter/)**, indicando le proprie mosse in notazione algebrica. L'esecuzione del progetto
 
 L'applicativo software, oggetto del documento, è stato sviluppato dal gruppo **mills**, il cui nome si riferisce al grande ingegnere del software Harlan D. Mills. Il gruppo mills è composto da:
 
-* [Riccardo Ranieri](https://github.com/RickNewere)
-* [Giorgio Grimaldi](https://github.com/GiorgioGrimaldi)
-* [Giuliano Picilli](https://github.com/Giuly123)
-* [Fabio Spaccavento](https://github.com/fabiospaccavento)
-* [Daniele Saccà](https://github.com/danielesacca)
+* **[Riccardo Ranieri](https://github.com/RickNewere)**
+* **[Giorgio Grimaldi](https://github.com/GiorgioGrimaldi)**
+* **[Giuliano Picilli](https://github.com/Giuly123)**
+* **[Fabio Spaccavento](https://github.com/fabiospaccavento)**
+* **[Daniele Saccà](https://github.com/danielesacca)**
 
-L'applicazione della Dama Italiana è eseguita tramite [Docker](https://hub.docker.com/).
+L'applicazione della Dama Italiana è eseguita tramite **[Docker](https://hub.docker.com/)**.
 
 <br/>
 
@@ -48,19 +48,21 @@ L'applicazione della Dama Italiana è eseguita tramite [Docker](https://hub.dock
 
 //TODO
 
+
+
 <br/>
 
 ##  **Requisiti specifici**
 
-Di seguito l'elenco dei requisiti specifici ( funzionali e non funzionali)
+Di seguito l'elenco dei requisiti specifici (funzionali e non funzionali)
 
 <br/>
 
 ## **Requisiti funzionali**
 
-<center><img src = "../res/img/report-finale/schermataIniziale.png"></center>
+<center><img src = "../res/img/report-finale/schermataIniziale.PNG"></center>
 
-L'applicazione, una volta avviata, risponde ai seguente requisiti:
+L'applicazione, una volta avviata, risponde ai seguenti requisiti:
 
 * L'utente può visualizzare i comandi disponibili tramite il comando ```help```.
 <center><img src = "../res/img/report-finale/helpCommand.PNG"></center>
@@ -95,17 +97,17 @@ L'applicazione, una volta avviata, risponde ai seguente requisiti:
 
 **Portabilità**
 
-Il deployment dell'applicazione è automatizzato grazie a [Docker](https://hub.docker.com/) basato su [Alpine Linux](https://hub.docker.com/_/alpine). Tramite esso è possibile utiilizzare l'applicazione sulle sueguenti **shell**:
+Il deployment dell'applicazione è automatizzato grazie a **[Docker](https://hub.docker.com/)** basato su **[Alpine Linux](https://hub.docker.com/_/alpine)**. Tramite esso è possibile utiilizzare l'applicazione sulle sueguenti **shell**:
 
-*  **Windows**: [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/it-it/windows/wsl/about), [Git Bash](https://gitforwindows.org/), [Windows Terminal](https://docs.microsoft.com/it-it/windows/terminal/get-started);
+* **Windows**: **[Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/it-it/windows/wsl/about)**, **[Git Bash](https://gitforwindows.org/)**, **[Windows Terminal](https://docs.microsoft.com/it-it/windows/terminal/get-started)**;
 * **MacOS** e **Linux**: qualunque terminale con supporto a UTF-8.
 
 * Il progetto deve essere scaricato tramite
-  [Docker](https://hub.docker.com/) con il comando da shell: <center>
+  **[Docker](https://hub.docker.com/)** con il comando da shell: <center>
 
   ```docker pull docker.pkg.github.com/softeng2021-inf-uniba/progetto2021ter-mills/dama-mills:latest``` </center>
 
-* Il progetto deve essere eseguito tramite [Docker](https://hub.docker.com/) con il comando da shell: <center>
+* Il progetto deve essere eseguito tramite **[Docker](https://hub.docker.com/)** con il comando da shell: <center>
 
   ```docker run --rm -it docker.pkg.github.com/softeng2021-inf-uniba/progetto2021ter-mills/dama-mills:latest```</center>
 
@@ -119,7 +121,7 @@ Di seguito viene riportato lo *Stile architetturale adottato* e il *Commento del
 
 ## **Stile architetturale adottato**
 
-Il programma, non essendo molto complesso, non è stato sviluppato con uno stile architetturale predefinito. Tuttavia si possono trovare alcuni punti in comune con il pattern architetturale [MVC](https://it.wikipedia.org/wiki/Model-view-controller) (Model - View - Controller).
+Il programma, non essendo molto complesso, non è stato sviluppato con uno stile architetturale predefinito. Tuttavia si possono trovare alcuni punti in comune con il pattern architetturale **[MVC](https://it.wikipedia.org/wiki/Model-view-controller)** (Model - View - Controller).
 
 L'applicazione è suddivisa secondo la seguente logica:
 
@@ -135,7 +137,7 @@ L'applicazione è suddivisa secondo la seguente logica:
 
 L'applicazione 'Dama Italiana' mira a ricreare l'esperienza dell'omonimo gioco da tavolo, caratterizzata dalla simulazione su terminale della damiera e di tutti i suoi pezzi.
 
-Per lanciare l'applicazione, una volta [scaricata](#Requisiti-non-funzionali), è possibile eseguirla tramite il comando:<center>
+Per lanciare l'applicazione, una volta **[scaricata](#Requisiti-non-funzionali)**, è possibile eseguirla tramite il comando:<center>
 
 ```docker run --rm -it docker.pkg.github.com/softeng2021-inf-uniba/progetto2021ter-mills/dama-mills:latest```
  </center>
@@ -248,7 +250,7 @@ Una volta iniziata la partita tramite il comando '*gioca*' il programma si mette
 
 <br/>
 
-Per gli spostamenti semplici si deve seguire "l'Art 4 - Gli spostamenti semplici" del [regolamento](http://www.fid.it/regolamenti/capo1.htm). Per le prese, sia singole che multiple, si devono seguire "l'Art 5-6 - Le prese - Le regole di presa" dello stesso regolamento.
+Per gli spostamenti semplici si deve seguire "l'Art 4 - Gli spostamenti semplici" del **[regolamento](http://www.fid.it/regolamenti/capo1.htm)**. Per le prese, sia singole che multiple, si devono seguire "l'Art 5-6 - Le prese - Le regole di presa" dello stesso regolamento.
 
 Inoltre:
 
@@ -296,7 +298,7 @@ In caso di mosse errate i messaggi visualizzati, a seconda dei casi, saranno i s
 
 ## Processo di sviluppo
 
-Il programma è stato realizzato applicando la metodologia di [Sviluppo Agile](https://it.wikipedia.org/wiki/Metodologia_agile). Quest'ultima è caratterizzata da [Scrum](https://it.wikipedia.org/wiki/Scrum_(informatica)), un framework di processo che prevede di dividere il progetto in blocchi rapidi di lavoro denominati [Sprint](https://it.wikipedia.org/wiki/Scrum_(informatica)#Sprint), ognuno dei quali prevede un certo numero di funzionalità ([User Story](https://en.wikipedia.org/wiki/User_story)) richieste dal Product Owner. Tutte le user story sono contenute nella Product RoadMap del gruppo **mills** su [GitHub](https://github.com/).
+Il programma è stato realizzato applicando la metodologia di **[Sviluppo Agile](https://it.wikipedia.org/wiki/Metodologia_agile)**. Quest'ultima è caratterizzata da **[Scrum](https://it.wikipedia.org/wiki/Scrum_(informatica))**, un framework di processo che prevede di dividere il progetto in blocchi rapidi di lavoro denominati **[Sprint](https://it.wikipedia.org/wiki/Scrum_(informatica)#Sprint)**, ognuno dei quali prevede un certo numero di funzionalità **([User Story](https://en.wikipedia.org/wiki/User_story))** richieste dal Product Owner. Tutte le user story sono contenute nella Product RoadMap del gruppo **mills** su **[GitHub](https://github.com/)**.
 
 <br/>
 
@@ -308,19 +310,19 @@ Il progetto è stato diviso in quattro sprint. Dopo aver creato una **project bo
 
 * Veniva creata una **project board** per lo sprint, che veniva suddivisa in cinque colonne ognuna delle quali indicava lo stato delle issue in quel momento. Gli stati sono:
 
-    * **To Do**: nella quale si finivano le issue appena create;
-    * **In Progress**: nella quale si trovavano le issue in elaborazione.
-    * **Review**: nella quale si trovavano le issue pronte per essere revisionate;
-    * **Ready**: nella quale si trovavano le issue chiuse e pronte per la revisione da parte dei docenti;
-    * Done: nella quale si trovavano le issue chiuse e approovate dai docenti.
+  * **To Do**: nella quale si finivano le issue appena create;
+  * **In Progress**: nella quale si trovavano le issue in elaborazione.
+  * **Review**: nella quale si trovavano le issue pronte per essere revisionate;
+  * **Ready**: nella quale si trovavano le issue chiuse e pronte per la revisione da parte dei docenti;
+  * Done: nella quale si trovavano le issue chiuse e approovate dai docenti.
 
 * Venivano aggiunte le user story dello sprint nello stato '*To Do*'.
 
 * Ogni user story veniva assegnata:
 
-    * a un partecipante in caso di user story poco complesse;
+  * a un partecipante in caso di user story poco complesse;
 
-    * a più partecipanti in caso di user story più complesse così da fare pair programming.
+  * a più partecipanti in caso di user story più complesse così da fare pair programming.
 
 * Ad ogni user story veniva assegnata una o più label, veniva messa in uno o più Project e assegnata ad un Milestone.
 
@@ -385,7 +387,7 @@ A nome di tutto il gruppo ciò che ci ha fatto impazzire è stato il microfono e
 
 ## **Conclusione**
 
-Scherzi a parte, riteniamo che questo progetto  sia stato un importante banco di prova. Nonostante le difficoltà siamo riusciti comunque a centrare gli obiettivi stabiliti e a trarre il meglio da questa esperienza formativa.
+Scherzi a parte, riteniamo che questo progetto sia stato un importante banco di prova. Nonostante le difficoltà siamo riusciti comunque a centrare gli obiettivi stabiliti e a trarre il meglio da questa esperienza formativa.
 
 **Cosa più importante è stata l'amicizia nata tra membri del gruppo!**
 
