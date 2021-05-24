@@ -18,7 +18,7 @@ public enum Comando
     prese(new String[]{"prese"}),
     mosse(new String[]{"mosse"});
 
-    private String argComando;
+    private String inputStr;
     private String[] aliasList;
     Comando(String[] aliasList)
     {
@@ -45,15 +45,14 @@ public enum Comando
 
         if (comandoTrovato != null)
         {
-            String strings[] = str.split("\\s+");
-            comandoTrovato.argComando = strings.length > 1 ? strings[1] : strings[0];
+            comandoTrovato.inputStr = str;
         }
 
         return comandoTrovato;
     }
 
-    public String getArgComando()
+    public String getInputStr()
     {
-        return argComando;
+        return inputStr;
     }
 }
