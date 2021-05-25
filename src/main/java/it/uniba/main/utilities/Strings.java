@@ -5,8 +5,9 @@ package it.uniba.main.utilities;
  * <<noECB>>
  * CLasse di Utility nella quale vi sono memorizzate tutte le stringhe costanti utilizzate nell'app
  */
-public class Strings
-{
+public final class Strings {
+    private Strings() {
+    }
     //colori
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RESET_FG = "\u001B[39m";
@@ -33,14 +34,14 @@ public class Strings
     public static final String PEDINA_REGINA_NERA = RGB_VIOLA_FG + (char) 0x26C3 + ANSI_RESET_FG;
     public static final char CASELLA_VUOTA = 0x2003;
 
-    public static final String BENVENUTO = ANSI_RESET +
-            RGB_NERO_FG + ANSI_GREEN_BG + "" + (char) 0x26C3 +
-            ANSI_BOLD + ANSI_ITALIC +
-            ANSI_GREEN_BG + " Benvenuto " +
-            ANSI_BRIGHT_WHITE_BG + " nella Dama " +
-            ANSI_RED_BG + " Italiana " +
-            ANSI_RESET + RGB_NERO_FG + ANSI_RED_BG + (char) 0x26C3 +
-            ANSI_RESET + " ";
+    public static final String BENVENUTO = ANSI_RESET
+        + RGB_NERO_FG + ANSI_GREEN_BG + "" + (char) 0x26C3
+        + ANSI_BOLD + ANSI_ITALIC
+        + ANSI_GREEN_BG + " Benvenuto "
+        +  ANSI_BRIGHT_WHITE_BG + " nella Dama "
+        + ANSI_RED_BG + " Italiana "
+        + ANSI_RESET + RGB_NERO_FG + ANSI_RED_BG + (char) 0x26C3
+        + ANSI_RESET + " ";
 
     // stringhe per msg help
     private static final String HELP = "help\t\tmostra la lista dei comandi disponibili\n";
@@ -52,19 +53,24 @@ public class Strings
     private static final String TEMPO = "tempo\t\tmostra il tempo trascorso per entrambi i giocatori\n";
     private static final String PRESE = "prese\t\tmostra le prese di entrambi i giocatori\n";
     private static final String MOSSE = "mosse\t\tmostra lo storico delle mosse\n";
-    private static final String SPOSTAMENTI = "\nLe mosse sono descritte in notazione algebrica:\n" +
-            "Spostamento:\t1-5\n" +
-            "Presa semplice:\t1x10\n" +
-            "Presa multipla:\t1x10x...x32\n";
+    private static final String SPOSTAMENTI = "\nLe mosse sono descritte in notazione algebrica:\n"
+        +  "Spostamento:\t1-5\n"
+        + "Presa semplice:\t1x10\n"
+        + "Presa multipla:\t1x10x...x32\n";
 
     public static final String HELP_MSG =
-            "Comandi disponibili:\n" + HELP + GIOCA + ABBANDONA + ESCI + NUMERI + DAMIERA + TEMPO + PRESE + MOSSE + SPOSTAMENTI;
-    public static final String SUGGERIMENTO_HELP = "Digitare un comando o scrivere 'help' per visualizzare la lista " + "dei comandi disponibili\n";
+        "Comandi disponibili:\n" + HELP + GIOCA + ABBANDONA + ESCI
+            + NUMERI + DAMIERA + TEMPO + PRESE + MOSSE + SPOSTAMENTI;
+    public static final String SUGGERIMENTO_HELP = "Digitare un comando o scrivere 'help' per visualizzare la lista "
+        + "dei comandi disponibili\n";
 
     public static final String ERRORE_COMANDO_GENERICO = "Non puoi esegurie questo comando adesso\n";
     public static final String COMANDO_ERRATO = "Comando errato";
-    public static final String ERRORE_COMANDO_FUORI_GIOCO = "Questo comando può essere utilizzato solamente fuori dalla partita";
-    public static final String ERRORE_COMANDO_IN_GIOCO = "Questo comando può essere utilizzato solamente durante la partita\nInserire comando 'gioca' per iniziare una nuova partita";
+    public static final String ERRORE_COMANDO_FUORI_GIOCO = "Questo comando può essere utilizzato"
+        + " solamente fuori dalla partita";
+    public static final String ERRORE_COMANDO_IN_GIOCO = "Questo comando può essere utilizzato"
+        +  " solamente durante la partita\n"
+        + "Inserire comando 'gioca' per iniziare una nuova partita";
     public static final String ERRORE_GENERICO = "Errore: ";
 
     // stringhe in gioco
