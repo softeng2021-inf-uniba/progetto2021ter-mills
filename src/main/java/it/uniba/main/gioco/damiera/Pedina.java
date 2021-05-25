@@ -6,7 +6,8 @@ import it.uniba.main.utilities.Strings;
 /**
  * <Entity>
  * Classe che rappresenta la pedina.
- * Inoltre al suo interno è contenuto l'enumerativo che stabilisce il colore della pedina.
+ * Inoltre al suo interno è contenuto l'enumerativo
+ * che stabilisce il colore della pedina.
  * </Entity>
  */
 
@@ -21,24 +22,24 @@ public class Pedina {
    * Attributo di tipo Posizione chiamato posizione,
    * il quale rappresenta la posizione della pedina nella dama.
    */
-  public Posizione posizione;
+  private Posizione posizione;
 
   /**
    * attributo di tipo booleano chiamato isDama,
    * il quale rappresenterà se una pedina è Dama o meno.
    */
-  public boolean isDama;
+  private boolean isDama;
 
 
   /**
    * Costruttore della classe Pedina.
    *
-   * @param tipo determina il tipo della pedina.
-   * @param posizione determina la posizione della pedina.
+   * @param tipoPedina determina il tipo della pedina.
+   * @param pos determina la posizione della pedina.
    */
-  public Pedina(TipoPedina tipo, Posizione posizione) {
-    this.tipo = tipo;
-    this.posizione = posizione;
+  public Pedina(final TipoPedina tipoPedina, final Posizione pos) {
+    this.tipo = tipoPedina;
+    this.posizione = pos;
     this.isDama = false;
   }
 
@@ -59,7 +60,13 @@ public class Pedina {
    *     altrimenti verso il basso (1).
    */
   public int getDirezione() {
-    return tipo == TipoPedina.bianca ? -1 : 1;
+    int valoreRitorno = 0;
+    if (tipo == TipoPedina.bianca) {
+      valoreRitorno = -1;
+    } else {
+      valoreRitorno = 1;
+    }
+    return valoreRitorno;
   }
 
   /**
@@ -74,11 +81,34 @@ public class Pedina {
   public String toString() {
     String result = "";
     if (isDama) {
-      result += (tipo == TipoPedina.bianca)
-          ? Strings.PEDINA_REGINA_BIANCA : Strings.PEDINA_REGINA_NERA;
+      if (tipo == TipoPedina.bianca) {
+        result += Strings.PEDINA_REGINA_BIANCA;
+      } else {
+        result += Strings.PEDINA_REGINA_NERA;
+      }
     } else {
-      result += (tipo == TipoPedina.bianca) ? Strings.PEDINA_BIANCA : Strings.PEDINA_NERA;
+      if (tipo == TipoPedina.bianca) {
+        result += Strings.PEDINA_BIANCA;
+      } else {
+        result += Strings.PEDINA_NERA;
+      }
     }
     return result;
+  }
+
+  public Posizione getPosizione() {
+    return posizione;
+  }
+
+  public void setPosizione(Posizione posizione) {
+    this.posizione = posizione;
+  }
+
+  public boolean isDama() {
+    return isDama;
+  }
+
+  public void setDama(boolean dama) {
+    isDama = dama;
   }
 }

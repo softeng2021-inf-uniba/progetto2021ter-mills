@@ -61,14 +61,14 @@ public class PedinaTest
     @Test
     public void testToStringPedinaBiancaRegina()
     {
-        pedinaBianca.isDama = true;
+        pedinaBianca.setDama(true);
         assertEquals(Strings.PEDINA_REGINA_BIANCA, pedinaBianca.toString());
     }
 
     @Test
     public void testToStringPedinaNeraRegina()
     {
-        pedinaNera.isDama = true;
+        pedinaNera.setDama(true);
         assertEquals(Strings.PEDINA_REGINA_NERA, pedinaNera.toString());
     }
 
