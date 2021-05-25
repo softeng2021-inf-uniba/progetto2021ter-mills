@@ -27,20 +27,20 @@ public class Casella {
   /**
      * Costruttore della classe Casella.
 
-     * @param tipo determina il tipo della casella.
+     * @param tipologia determina il tipo della casella.
      */
-  public Casella(TipoCasella tipo) {
+  public Casella(final TipoCasella tipologia) {
     this.pedina = null;
-    this.tipo = tipo;
+    this.tipo = tipologia;
   }
 
   /**
      * Metodo setter del tipo della casella.
 
-     * @param tipo stabilisce il tipo della casella (bianca o nera).
+     * @param tipologia stabilisce il tipo della casella (bianca o nera).
      */
-  public void setTipoCasella(TipoCasella tipo) {
-    this.tipo = tipo;
+  public void setTipoCasella(final TipoCasella tipologia) {
+    this.tipo = tipologia;
   }
 
   /**
@@ -56,10 +56,10 @@ public class Casella {
      * Metodo setter della pedina.
      * Salva la reference della pedina passata
 
-     * @param pedina è la variabile di tipo pedina da memorizzare
+     * @param nuovaPedina è la variabile di tipo pedina da memorizzare
      */
-  public void setPedina(Pedina pedina) {
-    this.pedina = pedina;
+  public void setPedina(final Pedina nuovaPedina) {
+    this.pedina = nuovaPedina;
   }
 
   /**
@@ -72,9 +72,17 @@ public class Casella {
     public String toString() {
     String result = "";
 
-    result += (tipo == TipoCasella.bianca) ? Strings.RGB_CREMA_BG : Strings.RGB_INDACO_BG;
+    if (tipo == TipoCasella.bianca) {
+      result += Strings.RGB_CREMA_BG;
+    } else {
+      result += Strings.RGB_INDACO_BG;
+    }
     result += " ";
-    result += (pedina != null) ? pedina.toString() : Strings.CASELLA_VUOTA;
+    if (pedina != null) {
+      result += pedina.toString();
+    } else {
+      result += Strings.CASELLA_VUOTA;
+    }
     result += " ";
     result += Strings.ANSI_RESET;
 
