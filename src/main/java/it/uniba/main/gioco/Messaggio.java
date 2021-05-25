@@ -28,7 +28,7 @@ public enum Messaggio
     private String msg2;
 
     /**
-     * Costruttore dell'enumerativo Status.
+     * Costruttore dell'enumerativo Messaggio.
      * @param msg1 parte fissa del messaggio.
      */
     private Messaggio(String msg1)
