@@ -19,23 +19,23 @@ public class Damiera
      */
     private final int DIM;
     /**
-     * Array multidimensionale che rappresenta le caselle della damiera
+     * Array multidimensionale di elementi di tipo Casella, che rappresenta la damiera
      */
     private Casella[][] damiera;
 
     /**
-     * Lista delle pedine bianche presenti
+     * Lista delle pedine bianche presenti sulla damiera
      */
     private List<Pedina> listaPedineBianche;
 
     /**
-     * Lista delle pedine nere presenti
+     * Lista delle pedine nere presenti sulla damiera
      */
     private List<Pedina> listaPedineNere;
 
     /**
      * Costruttore della classe Damiera
-     * @param dim valore intero rappresentante la dimensione della damiera (dim x dim)
+     * @param dim lunghezza lato damiera (dim x dim)
      */
     public Damiera(int dim)
     {
@@ -44,7 +44,7 @@ public class Damiera
     }
 
     /**
-     * Metodo utilizato per inizializzare lo stato delle caselle e delle pedine
+     * Inizializza lo stato delle caselle e delle pedine
      * contenute nella damiera
      */
     public void init()
@@ -54,7 +54,7 @@ public class Damiera
     }
 
     /**
-     * Metodo che inizializza le caselle presenti nella damiera
+     * Inizializza le caselle presenti nella damiera
      */
     private void setupCaselle()
     {
@@ -74,7 +74,7 @@ public class Damiera
     }
 
     /**
-     * Metodo che inizializza le pedine presenti nella damiera
+     * Inizializza le pedine presenti nella damiera
      */
     private void setupPedine()
     {
@@ -105,9 +105,10 @@ public class Damiera
     }
 
     /**
-     * Funzione che stabilisce se una deterinata posizone è valida o meno
-     * @param posizione variabile di tipo posizione passato nella funzione
-     * @return la funzione ritorna true se la posizione passata è valida, false altrimenti
+     * Verifica se una posizione si trova all'interno del range
+     * di valori consentiti.
+     * @param posizione posizione da valutare
+     * @return ritorna true se la posizione passata è valida, altrimenti false.
      */
     public boolean isPosizioneValida(Posizione posizione)
     {
@@ -115,10 +116,10 @@ public class Damiera
     }
 
     /**
-     * Funzione che stabilisce se una deterinata pedina è valida o meno
+     * Verifica che la pedina passata sia del TipoPedina consentito durante il turno corrente
      * @param pedina variabile di tipo pedina passato nella funzione
      * @param isTurnoBianco variabile che permette di stabilire il turno del giocatore (bianco o nero)
-     * @return restituisce true se la pedina passata è valida, false altrimenti
+     * @return restituisce true se la pedina passata è valida nel turno corrente, altrimenti false
      */
     public boolean isPedinaValida(Pedina pedina, boolean isTurnoBianco)
     {
@@ -136,10 +137,10 @@ public class Damiera
     }
 
     /**
-     * Funzione che serve per ottenere la reference ad una determinata pedina contenuta nella damiera in base alla
-     * posizone passata
-     * @param pos variabile di tipo pozione che serve per stabilire quale pedina della damiera deve essere restituita
-     * @return viene restituita una pedina nella quale è salvata la reference di una certa pedina presente nella damiera
+     * Restituisce la pedina che si trova nella posizione "pos"
+     * @param pos pozione nella quale si trova la pedina da restituire
+     * @return restituisce la pedina nella posizione "pos" se quest'ultima e' valida e contiene una pedina,
+     * altrimenti null
      */
     public Pedina getPedina(Posizione pos)
     {
@@ -152,11 +153,10 @@ public class Damiera
     }
 
     /**
-     * Funzione che serve per stabilire se uno spostamento semplice è attuabile o meno
-     * @param pedina variabile di tipo Pedina che rappresenta la pedina che deve essere spostata
-     * @param nuovaPosizione variabile di tipo posizone che rappresenta la nuova posizione che si vuole far
-     *                       raggiungere alla pedina
-     * @return la funzioone ritorna true se lo spostamento viene effettuato, false altrimenti
+     * Controlla se uno spostamento semplice è fattibile o meno
+     * @param pedina pedina da spostare
+     * @param nuovaPosizione posizione nella quale va spostata la pedina
+     * @return ritorna true se lo spostamento viene effettuato, altrimenti false
      */
     public boolean trySpostamentoSemplice(Pedina pedina, Posizione nuovaPosizione)
     {
@@ -171,11 +171,11 @@ public class Damiera
     }
 
     /**
-     * Funzione che serve per effettuare una determinata presa
+     * Controlla se una presa e' fattibile
      * @param partenza posizione di partenza della pedina
      * @param arrivo posizione di arrivo della pedina (dopo la presa)
      * @param pedina pedina che effettua la presa
-     * @return Se la presa viene effettuata viene restituita la pedina che viene mangiata
+     * @return se la presa e' fattibile viene restituita la pedina che viene mangiata, altrimenti null
      */
     private Pedina checkPresa(Posizione partenza, Posizione arrivo, Pedina pedina)
     {
@@ -207,9 +207,10 @@ public class Damiera
     }
 
     /**
-     * Funzione che serve per stabilire se una presa (singola o multipla) è attuabile o meno
-     * @param posizioni lista di posizoni contenente la posizione inziale e tutte le eventuali posizioni che la
-     *                  pedina deve raggiungere per effettuare le varie prese
+     * Prova a effettuare una presa (singola o multipla)
+     * @param posizioni lista contente le posizioni nelle quali si dovra' spostare la pedina,
+     *                  la prima posizione deve essere la posizione nella quale si trova
+     *                  la pedina che deve effettaure la presa
      * @return viene restituita una lista di pedine mangiate
      */
     public List<Pedina> tryPresa(List<Posizione> posizioni)
@@ -246,10 +247,10 @@ public class Damiera
     }
 
     /**
-     * Funzione che effettua uno spostamento semplice
-     * @param pedina variabile di tipo Pedina che rappresenta la pedina che si vuole spostare
-     * @param nuovaPosizione variabile di tipo Posizone che rappresenta la posizione
-     * @return la funzione ritorna true se lo spostamento viene effettuato, false altrimenti
+     * Se possibile effettua lo spostamento semplice
+     * @param pedina pedina da spostare
+     * @param nuovaPosizione posizione nella quale spostare la pedina
+     * @return ritorna true se lo spostamento viene effettuato, altrimenti false
      */
     private boolean spostamentoSemplice(Pedina pedina, Posizione nuovaPosizione)
     {
@@ -274,10 +275,9 @@ public class Damiera
     }
 
     /**
-     * Metodo che serve per impostare
-     * @param pedina variabile di tipo Pedina che rappresenta la pedina della quale si vuole cambiare la posizione
-     * @param nuovaPosizione variabile di tipo Posizione che rappresenta la posizone che si vuole impostare alla
-     *                       pedina passata
+     * Imposta la posizione di una pedina
+     * @param pedina pedina di cui si vuole modificare la posizione
+     * @param nuovaPosizione posizone che va impostata alla pedina
      */
     private void setPosizionePedina(Pedina pedina, Posizione nuovaPosizione)
     {
@@ -298,7 +298,7 @@ public class Damiera
     }
 
     /**
-     * Funzione toString della classe Damiera
+     * Override del metodo toString
      * @return ritorna una stringa contenente lo stato attuale della damiera
      */
     @Override

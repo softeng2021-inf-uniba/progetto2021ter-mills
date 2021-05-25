@@ -20,7 +20,7 @@ public class Subject<Tipo> {
     private List<Observer<Tipo>> unregistered = new ArrayList<>();
 
     /**
-     * Metodo che serve per aggiungere un observer alla lista degli observer attualmente in ascolto.
+     * Aggiungere l'observer alla lista degli observer attualmente in ascolto.
      * @param observer Observer da aggiungere
      */
     public void register(final Observer<Tipo> observer) {
@@ -28,7 +28,7 @@ public class Subject<Tipo> {
     }
 
     /**
-     * Metodo che serve per rimuovere un observer dalla lista degli observer in ascolto.
+     * Rimuove l'observer dalla lista degli observer in ascolto.
      * @param observer Observer da rimuovere
      */
     public void unregister(final Observer<Tipo> observer) {
@@ -36,7 +36,7 @@ public class Subject<Tipo> {
     }
 
     /**
-     * Metodo che notifica tutti gli observer registrati al Subject
+     * Notifica tutti gli observer registrati al Subject
      * @param arg Tipo generico da inoltrare agli observer
      */
     public void notifyObservers(final Tipo arg) {
