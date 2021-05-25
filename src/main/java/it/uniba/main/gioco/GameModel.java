@@ -2,8 +2,11 @@ package it.uniba.main.gioco;
 
 import it.uniba.main.gioco.damiera.Damiera;
 import it.uniba.main.gioco.damiera.Pedina;
-import it.uniba.main.utilities.*;
-
+import it.uniba.main.utilities.Cronometro;
+import it.uniba.main.utilities.Posizione;
+import it.uniba.main.utilities.Strings;
+import it.uniba.main.utilities.Utilities;
+import it.uniba.main.utilities.Subject;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,8 +15,7 @@ import java.util.List;
  * Gestisce la logica del gioco e comunica al controller
  * il cambio di stato del gioco per mezzo di observer
  */
-public class GameModel
-{
+public class GameModel {
     private Damiera damiera;
     private boolean isPlaying;
     private boolean isTurnoBianco;
@@ -30,28 +32,24 @@ public class GameModel
     private Subject<Messaggio> onMessagesCalled;
 
 
-    public GameModel(int dimDamiera)
-    {
+    public GameModel(final int dimensioneDamiera) {
         onStatusChanged = new Subject<>();
         onMessagesCalled = new Subject<>();
-        this.dimDamiera = dimDamiera;
-        //TODO
+        this.dimDamiera = dimensioneDamiera;
     }
 
-
-    public void startGame()
-    {
+    /**
+     *
+     */
+    public void startGame() {
         this.punteggioBianco = 0;
         this.punteggioNero = 0;
         this.storicoMosse = new ArrayList<>();
         damiera = new Damiera(dimDamiera);
-        if (cronometroBianco != null)
-        {
+        if (cronometroBianco != null) {
             cronometroBianco.stop();
             cronometroNero.stop();
-        }
-        else
-        {
+        } else {
             cronometroBianco = new Cronometro();
             cronometroNero = new Cronometro();
         }
@@ -64,196 +62,220 @@ public class GameModel
         notificaMessaggio(Messaggio.cambio_giocatore);
     }
 
-    private Pedina tryGetPedina(Posizione posPedina)
-    {
+    private Pedina tryGetPedina(final Posizione posPedina) {
         Pedina pedina = null;
-        try
-        {
-            if (damiera.isPosizioneValida(posPedina))
-            {
+        try {
+            if (damiera.isPosizioneValida(posPedina)) {
                 pedina = damiera.getPedina(posPedina);
-                if (pedina == null)
-                {
+                if (pedina == null) {
                     notificaMessaggio(Messaggio.casella_vuota);
-                }
-                else if (!damiera.isPedinaValida(pedina, isTurnoBianco))
-                {
+                } else if (!damiera.isPedinaValida(pedina, isTurnoBianco)) {
                     pedina = null;
                     notificaMessaggio(Messaggio.pedina_avversaria);
                 }
-            }
-            else
-            {
+            } else {
                 notificaMessaggio(Messaggio.posizione_out_of_range);
             }
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             Messaggio.errore_generico.setMsg(e.toString());
             notificaMessaggio(Messaggio.errore_generico);
         }
         return pedina;
     }
 
-
-    public void eseguiPresa(String caselle[])
-    {
+    /**
+     *
+     * @param caselle
+     */
+    public void eseguiPresa(final String[] caselle) {
         List<Posizione> posizioni = new ArrayList<>();
 
-        for (int i = 0; i < caselle.length; i++)
-        {
+        for (int i = 0; i < caselle.length; i++) {
             posizioni.add(Utilities.convertiPosizione(Integer.parseInt(caselle[i]), dimDamiera));
         }
 
         Pedina partenza = tryGetPedina(posizioni.get(0));
 
-        if (partenza != null)
-        {
+        if (partenza != null) {
             List<Pedina> pedinePrese = damiera.tryPresa(posizioni);
 
-            if (pedinePrese.size() > 0)
-            {
+            if (pedinePrese.size() > 0) {
                 StringBuffer tempStorico = new StringBuffer();
                 tempStorico.append("");
-                if (isTurnoBianco)
-                {
+                if (isTurnoBianco) {
                     punteggioBianco += pedinePrese.size();
                     tempStorico.append("B: ");
-                }
-                else
-                {
+                } else {
                     punteggioNero += pedinePrese.size();
                     tempStorico.append("N: ");
                 }
-                for(int i = 0; i < caselle.length-1; i++)
-                {
+                for (int i = 0; i < caselle.length - 1; i++) {
                     tempStorico.append(caselle[i] + "x");
                 }
-                tempStorico.append(caselle[caselle.length-1]);
+                tempStorico.append(caselle[caselle.length - 1]);
                 this.storicoMosse.add(tempStorico.toString());
                 System.out.println(Strings.AVVISO_PRESA);
                 notificaMessaggio(Messaggio.eseguita);
                 cambioTurno();
-            }
-            else
-            {
+            } else {
                 notificaMessaggio(Messaggio.presa_errata);
             }
         }
     }
 
-    public void eseguiSpostamentoSemplice(int partenza, int arrivo)
-    {
+    /**
+     *
+     * @param partenza
+     * @param arrivo
+     */
+    public void eseguiSpostamentoSemplice(final int partenza, final int arrivo) {
         Posizione posPartenza = Utilities.convertiPosizione(partenza, dimDamiera);
         Posizione posArrivo = Utilities.convertiPosizione(arrivo, dimDamiera);
 
-        if (damiera.isPosizioneValida(posArrivo))
-        {
+        if (damiera.isPosizioneValida(posArrivo)) {
             Pedina pedina = tryGetPedina(posPartenza);
-            if (pedina != null)
-            {
+            if (pedina != null) {
                 boolean isSpostata = damiera.trySpostamentoSemplice(pedina, posArrivo);
-                if (isSpostata)
-                {
-                    this.storicoMosse.add((isTurnoBianco ? "B: " : "N: ") + partenza + "-" + arrivo);
-
+                if (isSpostata) {
+                    if (isTurnoBianco) {
+                        this.storicoMosse.add(("B: ") + partenza + "-" + arrivo);
+                    } else {
+                        this.storicoMosse.add(("N: ") + partenza + "-" + arrivo);
+                    }
                     notificaMessaggio(Messaggio.eseguita);
                     cambioTurno();
-                }
-                else
-                {
+                } else {
                     notificaMessaggio(Messaggio.spostamento_errato);
                 }
             }
-        }
-        else
-        {
+        } else {
             notificaMessaggio(Messaggio.posizione_out_of_range);
         }
     }
 
-    private void cambioTurno()
-    {
+    private void cambioTurno() {
         isTurnoBianco = !isTurnoBianco;
-        Messaggio.cambio_giocatore.setMsg(isTurnoBianco ? Strings.GIOCATORE_BIANCO : Strings.GIOCATORE_NERO);
-
-        if (isTurnoBianco)
-        {
+        if (isTurnoBianco) {
+            Messaggio.cambio_giocatore.setMsg(Strings.GIOCATORE_BIANCO);
+        } else {
+            Messaggio.cambio_giocatore.setMsg(Strings.GIOCATORE_NERO);
+        }
+        if (isTurnoBianco) {
             cronometroNero.pausa();
             cronometroBianco.riprendi();
-        }
-        else
-        {
+        } else {
             cronometroBianco.pausa();
             cronometroNero.riprendi();
         }
-
         notificaMessaggio(Messaggio.cambio_giocatore);
     }
 
-    public void abbandonaPartita()
-    {
-        Status.partita_terminata.setMsg(isTurnoBianco ? Strings.GIOCATORE_NERO : Strings.GIOCATORE_BIANCO);
+    /**
+     *
+     */
+    public void abbandonaPartita() {
+        if (isTurnoBianco) {
+            Status.partita_terminata.setMsg(Strings.GIOCATORE_NERO);
+        } else {
+            Status.partita_terminata.setMsg(Strings.GIOCATORE_BIANCO);
+        }
         setStatus(Status.partita_terminata);
         isPlaying = false;
     }
 
-    public void setStatus(Status status)
-    {
+    /**
+     *
+     * @param status
+     */
+    public void setStatus(final Status status) {
         onStatusChanged.notifyObservers(status);
     }
 
-    private void notificaMessaggio(Messaggio message)
-    {
+    /**
+     *
+     * @param message
+     */
+    private void notificaMessaggio(final Messaggio message) {
         onMessagesCalled.notifyObservers(message);
     }
 
-    public boolean getIsPlaying()
-    {
+    /**
+     *
+     * @return
+     */
+    public boolean getIsPlaying() {
         return isPlaying;
     }
 
-    public Subject<Status> getOnStatusChanged()
-    {
+    /**
+     *
+     * @return
+     */
+    public Subject<Status> getOnStatusChanged() {
         return onStatusChanged;
     }
 
-    public Subject<Messaggio> getOnMessagesCalled()
-    {
+    /**
+     *
+     * @return
+     */
+    public Subject<Messaggio> getOnMessagesCalled() {
         return onMessagesCalled;
     }
 
-    public String getDamiera()
-    {
+    /**
+     *
+     * @return
+     */
+    public String getDamiera() {
         return damiera.toString();
     }
 
-    public int getDimDamiera()
-    {
+    /**
+     *
+     * @return
+     */
+    public int getDimDamiera() {
         return dimDamiera;
     }
 
-    public Cronometro getCronometroBianco()
-    {
+    /**
+     *
+     * @return
+     */
+    public Cronometro getCronometroBianco() {
         return cronometroBianco;
     }
 
-    public Cronometro getCronometroNero()
-    {
+    /**
+     *
+     * @return
+     */
+    public Cronometro getCronometroNero() {
         return cronometroNero;
     }
 
-    public int getPunteggioBianco()
-    {
+    /**
+     *
+     * @return
+     */
+    public int getPunteggioBianco() {
         return punteggioBianco;
     }
 
-    public int getPunteggioNero()
-    {
+    /**
+     *
+     * @return
+     */
+    public int getPunteggioNero() {
         return punteggioNero;
     }
 
-    public List<String> getStoricoMosse()
-    {
+    /**
+     *
+     * @return
+     */
+    public List<String> getStoricoMosse() {
         return storicoMosse;
     }
 }
