@@ -111,7 +111,7 @@ public class Damiera
      */
     public boolean isPosizioneValida(Posizione posizione)
     {
-        return posizione.riga >= 0 && posizione.riga < DIM && posizione.colonna >= 0 && posizione.colonna < DIM;
+        return posizione.getRiga() >= 0 && posizione.getRiga() < DIM && posizione.getColonna() >= 0 && posizione.getColonna() < DIM;
     }
 
     /**
@@ -146,7 +146,7 @@ public class Damiera
         Pedina pedina = null;
         if (isPosizioneValida(pos))
         {
-            pedina = damiera[pos.riga][pos.colonna].getPedina();
+            pedina = damiera[pos.getRiga()][pos.getColonna()].getPedina();
         }
         return pedina;
     }
@@ -183,14 +183,14 @@ public class Damiera
 
         if (isPosizioneValida(partenza) && isPosizioneValida(arrivo))
         {
-            if (damiera[arrivo.riga][arrivo.colonna].getPedina() == null)
+            if (damiera[arrivo.getRiga()][arrivo.getColonna()].getPedina() == null)
             {
                 Posizione differenza = Posizione.differenza(arrivo, partenza);
 
-                if (differenza.riga * pedina.getDirezione() == 2 && Math.abs(differenza.colonna) == 2)
+                if (differenza.getRiga() * pedina.getDirezione() == 2 && Math.abs(differenza.getColonna()) == 2)
                 {
-                    int rigaAvversaria = partenza.riga + pedina.getDirezione();
-                    int colonnaAvversaria = partenza.colonna + differenza.colonna / 2;
+                    int rigaAvversaria = partenza.getRiga() + pedina.getDirezione();
+                    int colonnaAvversaria = partenza.getColonna() + differenza.getColonna() / 2;
 
                     Pedina avversaria = damiera[rigaAvversaria][colonnaAvversaria].getPedina();
 
@@ -216,7 +216,7 @@ public class Damiera
     {
         boolean result = true;
         List<Pedina> pedinePrese = new ArrayList<>();
-        Pedina pedina = damiera[posizioni.get(0).riga][posizioni.get(0).colonna].getPedina();
+        Pedina pedina = damiera[posizioni.get(0).getRiga()][posizioni.get(0).getColonna()].getPedina();
 
         for (int i = 0; i < posizioni.size() - 1 && result; i++)
         {
@@ -236,7 +236,7 @@ public class Damiera
         {
             for(int i = 0; i < pedinePrese.size(); i++)
             {
-                damiera[pedinePrese.get(i).getPosizione().riga][pedinePrese.get(i).getPosizione().colonna].setPedina(null);
+                damiera[pedinePrese.get(i).getPosizione().getRiga()][pedinePrese.get(i).getPosizione().getColonna()].setPedina(null);
             }
 
             setPosizionePedina(pedina, posizioni.get(posizioni.size()-1));
@@ -255,13 +255,13 @@ public class Damiera
     {
         boolean result = false;
 
-        Casella nuovaCasella = damiera[nuovaPosizione.riga][nuovaPosizione.colonna];
+        Casella nuovaCasella = damiera[nuovaPosizione.getRiga()][nuovaPosizione.getColonna()];
 
         if (nuovaCasella.getPedina() == null)
         {
-            int distanzaSpostamentoY = (nuovaPosizione.riga - pedina.getPosizione().riga) * pedina.getDirezione();
+            int distanzaSpostamentoY = (nuovaPosizione.getRiga() - pedina.getPosizione().getRiga()) * pedina.getDirezione();
 
-            int distanzaSpostamentoX = Math.abs(nuovaPosizione.colonna - pedina.getPosizione().colonna);
+            int distanzaSpostamentoX = Math.abs(nuovaPosizione.getColonna() - pedina.getPosizione().getColonna());
 
             if (distanzaSpostamentoY == 1 && distanzaSpostamentoX == 1)
             {
@@ -281,18 +281,18 @@ public class Damiera
      */
     private void setPosizionePedina(Pedina pedina, Posizione nuovaPosizione)
     {
-        if (pedina.getDirezione() == 1 && nuovaPosizione.riga == DIM - 1)
+        if (pedina.getDirezione() == 1 && nuovaPosizione.getRiga() == DIM - 1)
         {
             pedina.setDama(true);
             System.out.println(Strings.AVVISO_DAMATURA);
         }
-        else if (pedina.getDirezione() == -1 && nuovaPosizione.riga == 0)
+        else if (pedina.getDirezione() == -1 && nuovaPosizione.getRiga() == 0)
         {
             pedina.setDama(true);
             System.out.println(Strings.AVVISO_DAMATURA);
         }
-        damiera[pedina.getPosizione().riga][pedina.getPosizione().colonna].setPedina(null);
-        damiera[nuovaPosizione.riga][nuovaPosizione.colonna].setPedina(pedina);
+        damiera[pedina.getPosizione().getRiga()][pedina.getPosizione().getColonna()].setPedina(null);
+        damiera[nuovaPosizione.getRiga()][nuovaPosizione.getColonna()].setPedina(pedina);
 
         pedina.setPosizione(nuovaPosizione);
     }

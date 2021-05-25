@@ -13,22 +13,22 @@ public class Posizione {
   /**
    * Riga della posizione.
    */
-  public int riga;
+  private int riga;
 
   /**
    * Colonna della posizione.
    */
-  public int colonna;
+  private int colonna;
 
   /**
    * Costruttore della classe Posizione.
    *
-   * @param riga    variabile che viene assegnata al valore della riga della posizione.
-   * @param colonna variabile che viene assegnata al valore della colonna della posizione.
+   * @param x    variabile che viene assegnata al valore della riga della posizione.
+   * @param y variabile che viene assegnata al valore della colonna della posizione.
    */
-  public Posizione(int riga, int colonna) {
-    this.riga = riga;
-    this.colonna = colonna;
+  public Posizione(final int x, final int y) {
+    this.riga = x;
+    this.colonna = y;
   }
 
   /**
@@ -38,7 +38,7 @@ public class Posizione {
    * @param pos2 seconda posizione
    * @return ritorna la posizione risultato della differenza
    */
-  public static Posizione differenza(Posizione pos1, Posizione pos2) {
+  public static Posizione differenza(final Posizione pos1, final Posizione pos2) {
     Posizione result = null;
 
     if (pos1 != null && pos2 != null) {
@@ -57,7 +57,7 @@ public class Posizione {
    * @return ritorna true se le posizioni coincidono, false altrimenti
    */
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(final Object o) {
     if (o == this) {
       return true;
     }
@@ -80,5 +80,21 @@ public class Posizione {
   @Override
   public int hashCode() {
     return Objects.hash(riga, colonna);
+  }
+
+  /**
+   * Metodo getter dell'attributo riga.
+   * @return ritorna il valore della riga
+   */
+  public int getRiga() {
+    return riga;
+  }
+
+  /**
+   * Metodo getter dell'attributo colonna.
+   * @return ritorna il valore della colonna
+   */
+  public int getColonna() {
+    return colonna;
   }
 }
