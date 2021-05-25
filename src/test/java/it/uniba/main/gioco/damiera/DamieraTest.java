@@ -35,7 +35,7 @@ public class DamieraTest
     {
         Posizione posizione = new Posizione(0,0);
         Pedina pedina = damiera.getPedina(posizione);
-        assertTrue(pedina != null && posizione.equals(pedina.posizione));
+        assertTrue(pedina != null && posizione.equals(pedina.getPosizione()));
     }
 
     @Test
@@ -57,7 +57,7 @@ public class DamieraTest
         damiera.trySpostamentoSemplice(pedinaNera, new Posizione(3,3));
 
         List<Posizione> posList = new ArrayList<>();
-        posList.add(pedinaBianca.posizione);
+        posList.add(pedinaBianca.getPosizione());
         posList.add(new Posizione(2,4));
 
         List<Pedina> listaPedine = new ArrayList<>();
@@ -68,7 +68,7 @@ public class DamieraTest
         listaPedine.clear();
         posList.clear();
 
-        posList.add(pedinaBianca.posizione);
+        posList.add(pedinaBianca.getPosizione());
         posList.add(new Posizione(1,1));
 
         assertEquals(listaPedine, damiera.tryPresa(posList));
