@@ -8,7 +8,6 @@ import it.uniba.main.utilities.Strings;
  * Classe che rappresenta la pedina.
  * Inoltre al suo interno è contenuto l'enumerativo
  * che stabilisce il colore della pedina.
- * </Entity>
  */
 
 public class Pedina {

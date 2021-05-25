@@ -7,7 +7,6 @@ import java.util.Objects;
  * <noECB>
  * Classe che rappresenta le coordinate di una matrice.
  * Essa consente anche di calcolare la differenza tra due posizioni.
- * </noECB>
  */
 public class Posizione {
   /**

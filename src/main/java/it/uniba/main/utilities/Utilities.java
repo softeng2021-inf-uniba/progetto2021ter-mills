@@ -5,7 +5,6 @@ import java.util.Scanner;
 /**
  * <noECB>
  * CLasse di Utility statica che esegue operazioni eterogenee e frequentemente utilizzate.
- * </noECB>
  */
 
 public final class Utilities {
