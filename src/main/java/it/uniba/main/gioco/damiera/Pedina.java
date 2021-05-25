@@ -96,19 +96,27 @@ public class Pedina {
     return result;
   }
 
+  /**
+   * Metodo getter dell'attributo posizione.
+   * @return il valore della posizione
+   */
   public Posizione getPosizione() {
     return posizione;
   }
 
-  public void setPosizione(Posizione posizione) {
-    this.posizione = posizione;
+  /**
+   * Metodo setter dell'attributo posizione.
+   * @param pos è il valore della posizione da impostare
+   */
+  public void setPosizione(final Posizione pos) {
+    this.posizione = pos;
   }
 
-  public boolean isDama() {
-    return isDama;
-  }
-
-  public void setDama(boolean dama) {
+  /**
+   * Metodo setter dell'attributo dama.
+   * @param dama è il valore della dama da impostare
+   */
+  public void setDama(final boolean dama) {
     isDama = dama;
   }
 }
