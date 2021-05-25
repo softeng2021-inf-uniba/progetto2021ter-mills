@@ -12,17 +12,11 @@ import java.io.UnsupportedEncodingException;
  * Classe runnabile che fa partire il programma. Permette di passare degli argomenti come parametro.
  */
 
-/**
- * The main class for the project. It must be customized to meet the project
- * assignment specifications.
- *
- * <b>DO NOT RENAME</b>
- */
 public final class AppMain
 {
 
     /**
-     * Private constructor. Change if needed.
+     * Costruttore della classe AppMain.
      */
     private AppMain()
     {
@@ -30,12 +24,10 @@ public final class AppMain
     }
 
     /**
-     * * This is the main entry of the application.
+     * * Main entry dell'applicazione con endcoding di tipo "UTF-8".
      *
-     * @param args The command-line arguments.
+     * @param args argomenti passati all'avvio dell'applicazione da console.
      */
-
-
     public static void main(final String[] args)
     {
         try
