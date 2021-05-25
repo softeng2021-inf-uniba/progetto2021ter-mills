@@ -1,6 +1,9 @@
 package it.uniba.main.utilities;
 
 import org.junit.Test;
+
+import java.io.ByteArrayInputStream;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class UtilitiesTest
@@ -26,4 +29,13 @@ public class UtilitiesTest
         String tmp = "00:01";
         assertEquals(tmp, Utilities.getStringaTempo(1000));
     }
+
+    @Test
+    public void testGetStringaDaTastiera()
+    {
+        System.setIn(new ByteArrayInputStream("prova".getBytes()));
+        String str = Utilities.getStringaDaTastiera();
+        assertEquals("prova", str);
+    }
+
 }
