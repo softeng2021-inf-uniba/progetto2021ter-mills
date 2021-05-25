@@ -8,7 +8,15 @@ import java.util.Scanner;
  * </noECB>
  */
 
-public class Utilities {
+public final class Utilities {
+  static final int NUM = 10;
+  static final int DIVISION_PER_SECOND = 1000;
+  static final int DIVISION_PER_MINUTE = 60000;
+  static final int SECOND = 60;
+
+  private Utilities() {
+
+  }
 
   /**
    * Metodo che prende una stringa digitata da tastiera secondo
@@ -31,7 +39,7 @@ public class Utilities {
    * @return viene restituita la stringa senza gli spazi
    */
 
-  public static String pulisciStringa(String stringa) {
+  public static String pulisciStringa(final String stringa) {
     return stringa.trim();
   }
 
@@ -44,11 +52,15 @@ public class Utilities {
    * @return una nuova posizione.
    */
 
-  public static Posizione convertiPosizione(int numCasella, int dimDamiera) {
+  public static Posizione convertiPosizione(final int numCasella, final int dimDamiera) {
     int riga = (int) Math.floor((numCasella - 1) / (dimDamiera / 2.0));
     int colonna = (numCasella - (riga * dimDamiera / 2));
     colonna *= 2;
-    colonna -= riga % 2 == 0 ? 2 : 1;
+    if (riga % 2 == 0) {
+      colonna -= 2;
+    } else {
+      colonna -= 1;
+    }
 
     return new Posizione(riga, colonna);
   }
@@ -60,15 +72,16 @@ public class Utilities {
    * @return stringa tempo nel formato ("mm:ss").
    */
 
-  public static String getStringaTempo(long millisecondi) {
-    int secondi = (int) ((millisecondi / 1000) % 60);
-    int minuti = (int) (millisecondi / 60000);
+  public static String getStringaTempo(final long millisecondi) {
+    int secondi = (int) ((millisecondi / DIVISION_PER_SECOND) % SECOND);
+    int minuti = (int) (millisecondi / DIVISION_PER_MINUTE);
+
     String tempo = "";
-    if (minuti < 10) {
+    if (minuti < NUM) {
       tempo += "0";
     }
     tempo += minuti + ":";
-    if (secondi < 10) {
+    if (secondi < NUM) {
       tempo += "0";
     }
     tempo += secondi;
