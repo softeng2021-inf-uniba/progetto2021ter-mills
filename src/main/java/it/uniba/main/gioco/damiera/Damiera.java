@@ -19,7 +19,7 @@ public class Damiera
      */
     private final int DIM;
     /**
-     * Array multidimensionale di elementi di tipo Casellea, che rappresenta la damiera
+     * Array multidimensionale di elementi di tipo Casella, che rappresenta la damiera
      */
     private Casella[][] damiera;
 
