@@ -4,23 +4,21 @@ package it.uniba.main.parser;
  * <<noECB>>
  * Enumerativo che contiene tutti i comandi disponibili. Esso funge anche da parser dei comandi.
  */
-public enum Comando
-{
+public enum Comando {
     /**
      * Enumerativi ammessi, con eventuali alias.
      */
-    help(new String[]{"-h","--help","help"}),
-    gioca(new String[]{"gioca","play"}),
-    abbandona(new String[]{"abbandona","quit"}),
+    help(new String[]{"-h", "--help", "help"}),
+    gioca(new String[]{"gioca", "play"}),
+    abbandona(new String[]{"abbandona", "quit"}),
     damiera(new String[]{"damiera"}),
     numeri(new String[]{"numeri"}),
-    esci(new String[]{"esci","exit"}),
-    tempo(new String[]{"tempo","time"}),
+    esci(new String[]{"esci", "exit"}),
+    tempo(new String[]{"tempo", "time"}),
     spostamentoSemplice(new String[]{"(\\d+)-(\\d+)"}),
     presa(new String[]{"((\\d+)x)+(\\d+)"}),
     prese(new String[]{"prese"}),
     mosse(new String[]{"mosse"});
-
     /**
      * Stringa presa in input.
      */
@@ -33,39 +31,35 @@ public enum Comando
 
     /**
      * Costruttore dell'enumerativo Comando
-     * @param aliasList nome alternativo di un enumerativo.
+     *
+     * @param aliasListPassed nome alternativo di un enumerativo.
      */
-    Comando(String[] aliasList)
-    {
-        this.aliasList = aliasList;
+    Comando(final String[] aliasListPassed) {
+        this.aliasList = aliasListPassed;
     }
 
     /**
      * Metodo utilizzato per vedere se il comando scritto esiste, per associare
      * un eventuale alias ad un comando esistente.
+     *
      * @param str stringa passata in input.
      * @return un booleano che ti dice se il comando Ã¨ stato trovato.
      */
-    public static Comando getComando(String str)
-    {
+    public static Comando getComando(final String str) {
         Comando comandoTrovato = null;
 
         Comando[] listaComandi = Comando.values();
 
-        for (int i = 0; i<listaComandi.length && comandoTrovato == null; ++i)
-        {
+        for (int i = 0; i < listaComandi.length && comandoTrovato == null; ++i) {
             Comando cmd = listaComandi[i];
-            for (int j = 0; j<cmd.aliasList.length && comandoTrovato == null; ++j)
-            {
-                if(str.toLowerCase().matches("^" + cmd.aliasList[j] + "$"))
-                {
+            for (int j = 0; j < cmd.aliasList.length && comandoTrovato == null; ++j) {
+                if (str.toLowerCase().matches("^" + cmd.aliasList[j] + "$")) {
                     comandoTrovato = cmd;
                 }
             }
         }
 
-        if (comandoTrovato != null)
-        {
+        if (comandoTrovato != null) {
             comandoTrovato.inputStr = str;
         }
 
@@ -74,10 +68,10 @@ public enum Comando
 
     /**
      * Metodo getter della stringa passata in input.
+     *
      * @return la stringa passata in input.
      */
-    public String getInputStr()
-    {
+    public String getInputStr() {
         return inputStr;
     }
 }
