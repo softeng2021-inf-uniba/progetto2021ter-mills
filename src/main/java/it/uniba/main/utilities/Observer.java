@@ -2,11 +2,12 @@ package it.uniba.main.utilities;
 
 
 /**
- * <<noECB>>
- * interfaccia generica per observer
+ * <noECB>
+ *   Interfaccia generica per observer.
+ * @param <Tipo> Observer di un tipo generico.
  */
-public interface Observer<Tipo>
-{
-    public void onChanged(Tipo arg);
+
+public interface Observer<Tipo> {
+     void onChanged(Tipo arg);
 }
 
