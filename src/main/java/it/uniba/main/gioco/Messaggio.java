@@ -7,8 +7,7 @@ import it.uniba.main.utilities.Strings;
  * prima parte fissa ed un'eventuale seconda parte variabile.
  */
 
-public enum Messaggio
-{
+public enum Messaggio {
     /**
      * Messaggi utilizzati durante il gioco.
      */
@@ -29,29 +28,26 @@ public enum Messaggio
 
     /**
      * Costruttore dell'enumerativo Messaggio.
-     * @param msg1 parte fissa del messaggio.
+     * @param mesaggio1 parte fissa del messaggio.
      */
-    private Messaggio(String msg1)
-    {
-        this.msg1 = msg1;
+      Messaggio(final String mesaggio1) {
+        this.msg1 = mesaggio1;
         this.msg2 = "";
     }
 
     /**
      * Imposta la parte variabile del messaggio.
-     * @param msg2 seconda parte del messaggio.
+     * @param messaggio2 seconda parte del messaggio.
      */
-    void setMsg(String msg2)
-    {
-        this.msg2 = msg2;
+    void setMsg(final String messaggio2) {
+        this.msg2 = messaggio2;
     }
 
     /**
      * Restituisce il messaggio completo.
      * @return concatenazione delle due parti del messaggio.
      */
-    public String getMsg()
-    {
+    public String getMsg() {
         return this.msg1 + this.msg2;
     }
 }
