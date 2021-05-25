@@ -1,8 +1,9 @@
 package it.uniba.main.appMain;
 
-import it.uniba.main.gioco.*;
-import it.uniba.main.parser.*;
-import it.uniba.main.utilities.*;
+import it.uniba.main.gioco.GameController;
+import it.uniba.main.gioco.GameModel;
+import it.uniba.main.parser.Comando;
+import it.uniba.main.utilities.Strings;
 
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
@@ -12,14 +13,12 @@ import java.io.UnsupportedEncodingException;
  * Classe runnabile che fa partire il programma. Permette di passare degli argomenti come parametro.
  */
 
-public final class AppMain
-{
+public final class AppMain {
 
     /**
      * Costruttore della classe AppMain.
      */
-    private AppMain()
-    {
+    private AppMain() {
 
     }
 
@@ -28,27 +27,22 @@ public final class AppMain
      *
      * @param args argomenti passati all'avvio dell'applicazione da console.
      */
-    public static void main(final String[] args)
-    {
-        try
-        {
-            System.setOut(new PrintStream(System.out,true, "UTF-8"));
-        } catch (UnsupportedEncodingException e)
-        {
+    public static void main(final String[] args) {
+         final int dimDamiera = 8;
+        try {
+            System.setOut(new PrintStream(System.out, true, "UTF-8"));
+        } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
         System.out.println(Strings.BENVENUTO);
 
-        if (args.length > 0 && Comando.getComando(args[0]) == Comando.help)
-        {
+        if (args.length > 0 && Comando.getComando(args[0]) == Comando.help) {
             System.out.println(Strings.HELP_MSG);
-        }
-        else
-        {
+        } else {
             System.out.println(Strings.SUGGERIMENTO_HELP);
         }
 
-        GameModel gameModel = new GameModel(8);
+        GameModel gameModel = new GameModel(dimDamiera);
 
         new GameController(gameModel);
 
