@@ -6,6 +6,9 @@ package it.uniba.main.parser;
  */
 public enum Comando
 {
+    /**
+     * Enumerativi ammessi, con eventuali alias.
+     */
     help(new String[]{"-h","--help","help"}),
     gioca(new String[]{"gioca","play"}),
     abbandona(new String[]{"abbandona","quit"}),
@@ -18,13 +21,31 @@ public enum Comando
     prese(new String[]{"prese"}),
     mosse(new String[]{"mosse"});
 
+    /**
+     * Stringa presa in input.
+     */
     private String inputStr;
+
+    /**
+     * Array di alias per gli enumerativi.
+     */
     private String[] aliasList;
+
+    /**
+     * Costruttore dell'enumerativo Comando
+     * @param aliasList nome alternativo di un enumerativo.
+     */
     Comando(String[] aliasList)
     {
         this.aliasList = aliasList;
     }
 
+    /**
+     * Metodo utilizzato per vedere se il comando scritto esiste, per associare
+     * un eventuale alias ad un comando esistente.
+     * @param str stringa passata in input.
+     * @return un booleano che ti dice se il comando Ã¨ stato trovato.
+     */
     public static Comando getComando(String str)
     {
         Comando comandoTrovato = null;
@@ -51,6 +72,10 @@ public enum Comando
         return comandoTrovato;
     }
 
+    /**
+     * Metodo getter della stringa passata in input.
+     * @return la stringa passata in input.
+     */
     public String getInputStr()
     {
         return inputStr;
