@@ -18,8 +18,8 @@ public class MessaggioTest
   @Test
   public void testGetMsg()
   {
-    String str = Strings.CAMBIO_TURNO;
-    assertEquals(str, Messaggio.cambio_giocatore.getMsg());
+    String str = Strings.ERRORE_GENERICO;
+    assertEquals(str, Messaggio.errore_generico.getMsg());
   }
 
 }
