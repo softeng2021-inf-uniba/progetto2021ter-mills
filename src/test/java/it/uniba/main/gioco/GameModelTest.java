@@ -57,6 +57,7 @@ public class GameModelTest {
 
   @Test
   public void testAbbandonaPartita() {
+    gameModel.eseguiSpostamentoSemplice(21,18);
     gameModel.abbandonaPartita();
     assertFalse(gameModel.getIsPlaying());
   }
