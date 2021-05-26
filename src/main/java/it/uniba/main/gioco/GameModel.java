@@ -96,9 +96,8 @@ public class GameModel {
 
         Pedina pedinaPartenza = tryGetPedina(posizioni.get(0));
 
-        boolean isDama = pedinaPartenza.isDama();
-
         if (pedinaPartenza != null) {
+            boolean isDama = pedinaPartenza.isDama();
             List<Pedina> pedinePrese = damiera.tryPresa(posizioni);
 
             if (pedinePrese.size() > 0) {
@@ -140,8 +139,8 @@ public class GameModel {
 
         if (damiera.isPosizioneValida(posArrivo)) {
             Pedina pedina = tryGetPedina(posPartenza);
-            boolean isDama = pedina.isDama();
             if (pedina != null) {
+                boolean isDama = pedina.isDama();
                 boolean isSpostata = damiera.trySpostamentoSemplice(pedina, posArrivo);
                 if (isSpostata) {
                     if (isTurnoBianco) {
