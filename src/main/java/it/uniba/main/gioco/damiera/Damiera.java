@@ -2,6 +2,7 @@ package it.uniba.main.gioco.damiera;
 
 import it.uniba.main.utilities.Posizione;
 import it.uniba.main.utilities.Strings;
+import it.uniba.main.utilities.Subject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +46,7 @@ public class Damiera {
         this.dim = dimensione;
         init();
     }
+
 
     /**
      * Inizializza lo stato delle caselle e delle pedine
@@ -266,10 +268,8 @@ public class Damiera {
     private void setPosizionePedina(final Pedina pedina, final Posizione nuovaPosizione) {
         if (pedina.getDirezione() == 1 && nuovaPosizione.getRiga() == dim - 1) {
             pedina.setDama(true);
-            System.out.println(Strings.AVVISO_DAMATURA);
         } else if (pedina.getDirezione() == -1 && nuovaPosizione.getRiga() == 0) {
             pedina.setDama(true);
-            System.out.println(Strings.AVVISO_DAMATURA);
         }
         damiera[pedina.getPosizione().getRiga()][pedina.getPosizione().getColonna()].setPedina(null);
         damiera[nuovaPosizione.getRiga()][nuovaPosizione.getColonna()].setPedina(pedina);
