@@ -14,15 +14,15 @@ public class GameControllerTest {
   @Test
   public void testController() {
 
-    StringBuilder strAspettatas = new StringBuilder();
-    StringBuilder strInseritas = new StringBuilder();
-    strInseritas.append("damiera\n");
-    strAspettatas.append(Strings.ERRORE_COMANDO_IN_GIOCO + "\r\n");
-    strInseritas.append("pippo\n");
-    strAspettatas.append(Strings.COMANDO_ERRATO +"\r\n");
-    strInseritas.append("help\n");
-    strAspettatas.append(Strings.HELP_MSG + "\r\n");
-    strInseritas.append("numeri\n");
+    StringBuilder strAspettata = new StringBuilder();
+    StringBuilder strInserita = new StringBuilder();
+    strInserita.append("damiera\n");
+    strAspettata.append(Strings.ERRORE_COMANDO_IN_GIOCO + "\r\n");
+    strInserita.append("pippo\n");
+    strAspettata.append(Strings.COMANDO_ERRATO +"\r\n");
+    strInserita.append("help\n");
+    strAspettata.append(Strings.HELP_MSG + "\r\n");
+    strInserita.append("numeri\n");
     String numeri = "\u001B[48;2;102;117;189m\u001B[30m1\u001B[48;2;102;117;189m\u001B[38;2;102;117;189m_ " +
         "\u001B[48;2;255;255;202m\u001B[48;2;255;255;202m\u001B[38;2;255;255;202m_\u001B[48;2;255;255;202m\u001B" +
         "[38;2;255;255;202m_ \u001B[48;2;102;117;189m\u001B[30m2\u001B[48;2;102;117;189m\u001B[38;2;102;117;189m_ " +
@@ -85,20 +85,20 @@ public class GameControllerTest {
         "\u001B[48;2;255;255;202m\u001B[38;2;255;255;202m_\u001B[48;2;255;255;202m\u001B[38;2;255;255;202m_ " +
         "\u001B[48;2;102;117;189m\u001B[30m32 \u001B[0m\n" +
         "\r\n";
-    strAspettatas.append(numeri);
-    strInseritas.append("gioca\n");
-    strAspettatas.append(Strings.INIZIO_PARTITA + "\r\n");
-    strAspettatas.append(Strings.CAMBIO_TURNO + Strings.GIOCATORE_BIANCO + "\r\n");
-    strInseritas.append("mosse\n");
-    strAspettatas.append(Strings.NESSUNA_MOSSA + "\r\n");
-    strInseritas.append("pippo\n");
-    strAspettatas.append(Strings.COMANDO_ERRATO + "\r\n");
-    strInseritas.append("esci\n");
-    strAspettatas.append(Strings.ERRORE_COMANDO_FUORI_GIOCO + "\r\n");
-    strInseritas.append("help\n");
-    strAspettatas.append(Strings.HELP_MSG + "\r\n");
-    strInseritas.append("damiera\n");
-    strAspettatas.append("\u001B[48;2;102;117;189m \u001B[38;2;75;0;120m\u26C2\u001B[39m \u001B[0m\u001B[48;2;255;255;202m " +
+    strAspettata.append(numeri);
+    strInserita.append("gioca\n");
+    strAspettata.append(Strings.INIZIO_PARTITA + "\r\n");
+    strAspettata.append(Strings.CAMBIO_TURNO + Strings.GIOCATORE_BIANCO + "\r\n");
+    strInserita.append("mosse\n");
+    strAspettata.append(Strings.NESSUNA_MOSSA + "\r\n");
+    strInserita.append("pippo\n");
+    strAspettata.append(Strings.COMANDO_ERRATO + "\r\n");
+    strInserita.append("esci\n");
+    strAspettata.append(Strings.ERRORE_COMANDO_FUORI_GIOCO + "\r\n");
+    strInserita.append("help\n");
+    strAspettata.append(Strings.HELP_MSG + "\r\n");
+    strInserita.append("damiera\n");
+    strAspettata.append("\u001B[48;2;102;117;189m \u001B[38;2;75;0;120m\u26C2\u001B[39m \u001B[0m\u001B[48;2;255;255;202m " +
         "\u2003 \u001B[0m\u001B[48;2;102;117;189m \u001B[38;2;75;0;120m\u26C2\u001B[39m \u001B[0m\u001B[48;2;255;255;202m " +
         "\u2003 \u001B[0m\u001B[48;2;102;117;189m \u001B[38;2;75;0;120m\u26C2\u001B[39m \u001B[0m\u001B[48;2;255;255;202m " +
         "\u2003 \u001B[0m\u001B[48;2;102;117;189m \u001B[38;2;75;0;120m\u26C2\u001B[39m \u001B[0m\u001B[48;2;255;255;202m " +
@@ -128,52 +128,52 @@ public class GameControllerTest {
         "\u2003 \u001B[0m\u001B[48;2;102;117;189m \u001B[38;2;247;217;23m\u26C2\u001B[39m \u001B[0m\u001B[48;2;255;255;202m " +
         "\u2003 \u001B[0m\u001B[48;2;102;117;189m \u001B[38;2;247;217;23m\u26C2\u001B[39m \u001B[0m\u001B[48;2;255;255;202m " +
         "\u2003 \u001B[0m\u001B[48;2;102;117;189m \u001B[38;2;247;217;23m\u26C2\u001B[39m \u001B[0m\n" + "\r\n");
-    strInseritas.append("numeri\n");
-    strAspettatas.append(numeri);
-    strInseritas.append("tempo\n");
-    strAspettatas.append("Tempo giocatore bianco 00:00\n" + "Tempo giocatore nero 00:00"+ "\r\n");
-    strInseritas.append("21-18\n");
-    strAspettatas.append(Strings.AVVISO_SPOSTAMENTO + "\r\n");
-    strAspettatas.append(Strings.CAMBIO_TURNO + Strings.GIOCATORE_NERO + "\r\n");
-    strInseritas.append("11-14\n");
-    strAspettatas.append(Strings.AVVISO_SPOSTAMENTO +"\r\n");
-    strAspettatas.append(Strings.CAMBIO_TURNO + Strings.GIOCATORE_BIANCO+"\r\n");
-    strInseritas.append("18x11\n");
-    strAspettatas.append(Strings.AVVISO_PRESA +"\r\n");
-    strAspettatas.append(Strings.CAMBIO_TURNO + Strings.GIOCATORE_NERO+"\r\n");
-    strInseritas.append("7x14\n");
-    strAspettatas.append(Strings.AVVISO_PRESA +"\r\n");
-    strAspettatas.append(Strings.CAMBIO_TURNO + Strings.GIOCATORE_BIANCO+"\r\n");
-    strInseritas.append("mosse\n");
-    strAspettatas.append("B: 21-18\r\n");
-    strAspettatas.append("N: 11-14\r\n");
-    strAspettatas.append("B: 18x11\r\n");
-    strAspettatas.append("N: 7x14"+"\r\n");
-    strInseritas.append("prese\n");
-    strAspettatas.append(Strings.PRESE_MSG + Strings.GIOCATORE_BIANCO + ": " + Strings.PEDINA_NERA + "\n"
+    strInserita.append("numeri\n");
+    strAspettata.append(numeri);
+    strInserita.append("tempo\n");
+    strAspettata.append("Tempo giocatore bianco 00:00\n" + "Tempo giocatore nero 00:00"+ "\r\n");
+    strInserita.append("21-18\n");
+    strAspettata.append(Strings.AVVISO_SPOSTAMENTO + "\r\n");
+    strAspettata.append(Strings.CAMBIO_TURNO + Strings.GIOCATORE_NERO + "\r\n");
+    strInserita.append("11-14\n");
+    strAspettata.append(Strings.AVVISO_SPOSTAMENTO +"\r\n");
+    strAspettata.append(Strings.CAMBIO_TURNO + Strings.GIOCATORE_BIANCO+"\r\n");
+    strInserita.append("18x11\n");
+    strAspettata.append(Strings.AVVISO_PRESA +"\r\n");
+    strAspettata.append(Strings.CAMBIO_TURNO + Strings.GIOCATORE_NERO+"\r\n");
+    strInserita.append("7x14\n");
+    strAspettata.append(Strings.AVVISO_PRESA +"\r\n");
+    strAspettata.append(Strings.CAMBIO_TURNO + Strings.GIOCATORE_BIANCO+"\r\n");
+    strInserita.append("mosse\n");
+    strAspettata.append("B: 21-18\r\n");
+    strAspettata.append("N: 11-14\r\n");
+    strAspettata.append("B: 18x11\r\n");
+    strAspettata.append("N: 7x14"+"\r\n");
+    strInserita.append("prese\n");
+    strAspettata.append(Strings.PRESE_MSG + Strings.GIOCATORE_BIANCO + ": " + Strings.PEDINA_NERA + "\n"
         + Strings.PRESE_MSG + Strings.GIOCATORE_NERO + ": " + Strings.PEDINA_BIANCA + "\r\n");
-    strInseritas.append("abbandona\n");
-    strAspettatas.append(Strings.CONFERMA_ABBANDONO + "\r\n");
-    strInseritas.append("pippo\n");
-    strAspettatas.append(Strings.RISPOSTA_ERRATA + "\r\n");
-    strInseritas.append("no\n");
-    strAspettatas.append(Strings.PARTITA_NON_ABBANDONATA +"\r\n");
-    strInseritas.append("abbandona\n");
-    strAspettatas.append(Strings.CONFERMA_ABBANDONO + "\r\n");
-    strInseritas.append("si\n");
-    strAspettatas.append(Strings.PARTITA_ABBANDONATA + "\r\n");
-    strAspettatas.append(Strings.FINE_PARTITA + Strings.GIOCATORE_NERO + "\r\n");
-    strInseritas.append("esci\n");
-    strAspettatas.append(Strings.CONFERMA_USCITA + "\r\n");
-    strInseritas.append("pippo\n");
-    strAspettatas.append(Strings.RISPOSTA_ERRATA + "\r\n");
-    strInseritas.append("no\n");
-    strAspettatas.append(Strings.USCITA_NON_ESEGUITA + "\r\n");
-    strInseritas.append("esci\n");
-    strAspettatas.append(Strings.CONFERMA_USCITA + "\r\n");
-    strInseritas.append("si\n");
+    strInserita.append("abbandona\n");
+    strAspettata.append(Strings.CONFERMA_ABBANDONO + "\r\n");
+    strInserita.append("pippo\n");
+    strAspettata.append(Strings.RISPOSTA_ERRATA + "\r\n");
+    strInserita.append("no\n");
+    strAspettata.append(Strings.PARTITA_NON_ABBANDONATA +"\r\n");
+    strInserita.append("abbandona\n");
+    strAspettata.append(Strings.CONFERMA_ABBANDONO + "\r\n");
+    strInserita.append("si\n");
+    strAspettata.append(Strings.PARTITA_ABBANDONATA + "\r\n");
+    strAspettata.append(Strings.FINE_PARTITA + Strings.GIOCATORE_NERO + "\r\n");
+    strInserita.append("esci\n");
+    strAspettata.append(Strings.CONFERMA_USCITA + "\r\n");
+    strInserita.append("pippo\n");
+    strAspettata.append(Strings.RISPOSTA_ERRATA + "\r\n");
+    strInserita.append("no\n");
+    strAspettata.append(Strings.USCITA_NON_ESEGUITA + "\r\n");
+    strInserita.append("esci\n");
+    strAspettata.append(Strings.CONFERMA_USCITA + "\r\n");
+    strInserita.append("si\n");
     try {
-      System.setIn(new ByteArrayInputStream(strInseritas.toString().getBytes("UTF-8")));
+      System.setIn(new ByteArrayInputStream(strInserita.toString().getBytes("UTF-8")));
       ByteArrayOutputStream baos = new ByteArrayOutputStream();
       PrintStream ps = new PrintStream(baos, false, "UTF-8");
       PrintStream old = System.out;
@@ -184,7 +184,7 @@ public class GameControllerTest {
 
       System.out.flush();
       System.setOut(old);
-      assertEquals(strAspettatas.toString(), baos.toString("UTF-8"));
+      assertEquals(strAspettata.toString(), baos.toString("UTF-8"));
     } catch (UnsupportedEncodingException e) {
       e.printStackTrace();
     }
