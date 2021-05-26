@@ -6,26 +6,21 @@ import it.uniba.main.utilities.Strings;
 /**
  * <Entity>
  * Classe che rappresenta la pedina.
- * Inoltre al suo interno è contenuto l'enumerativo
- * che stabilisce il colore della pedina.
  */
 
 public class Pedina {
   /**
-   * Attributo di tipo TipoPedina chiamato tipo,
-   * il quale rappresenta il colore della pedina (bianco o nero).
+   * Attributo di tipo TipoPedina che rappresenta il colore della pedina (bianco o nero).
    */
   private TipoPedina tipo;
 
   /**
-   * Attributo di tipo Posizione chiamato posizione,
-   * il quale rappresenta la posizione della pedina nella dama.
+   * Attributo di tipo Posizione che rappresenta la posizione della pedina nella dama.
    */
   private Posizione posizione;
 
   /**
-   * attributo di tipo booleano chiamato isDama,
-   * il quale rappresenterà se una pedina è Dama o meno.
+   * booleano che rappresenta se una pedina una è Dama o meno.
    */
   private boolean isDama;
 
@@ -71,9 +66,7 @@ public class Pedina {
   /**
    * Metodo toString della classe Pedina.
    *
-   * @return una controlla se la pedina è dama e ne restituisce il
-   *      carattere unicode della dama (bianca o nero),
-   *      altrimenti restituisce l'unicode della pedina (bianca o nera).
+   * @return restituisce la stringa che rappresenta la pediana nello stato corrente
    */
 
   @Override
@@ -97,7 +90,7 @@ public class Pedina {
 
   /**
    * Metodo getter dell'attributo posizione.
-   * @return il valore della posizione
+   * @return restituisce valore della posizione
    */
   public Posizione getPosizione() {
     return posizione;
