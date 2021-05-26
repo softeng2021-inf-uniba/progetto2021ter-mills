@@ -30,12 +30,6 @@ public class UtilitiesTest
         assertEquals(tmp, Utilities.getStringaTempo(1000));
     }
 
-    @Test
-    public void testGetStringaDaTastiera()
-    {
-        System.setIn(new ByteArrayInputStream("prova".getBytes()));
-        String str = Utilities.getStringaDaTastiera();
-        assertEquals("prova", str);
-    }
+
 
 }
