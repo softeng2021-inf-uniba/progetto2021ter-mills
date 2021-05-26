@@ -1,3 +1,4 @@
+
 package it.uniba.main.utilities;
 
 
@@ -10,18 +11,39 @@ package it.uniba.main.utilities;
 
 public class Cronometro implements Runnable
 {
+    /**
+     * ultimo tempo acquisito
+     */
     private long ultimoTempoLetto;
+
+    /**
+     * tempo trascorso
+     */
     private long tempoTrascorso;
 
+    /**
+     *  vale true se il cronotometro e' stato avviato, altrimenti false
+     */
     private boolean isStarted;
+
+    /**
+     * vale true se il cronotometro e' in esecuzione, altrimenti false
+     */
     private boolean isPlaying;
 
+    /**
+     * Costruttore della classe.
+     */
     public Cronometro()
     {
 
     }
 
 
+    /**
+     * Riprende l'esecuzione del cronometro
+     * @return restituisce true se il cronometro ha ripreso a registrare i valori correttamente, altrimenti false
+     */
     public boolean riprendi()
     {
         boolean result = false;
@@ -41,6 +63,10 @@ public class Cronometro implements Runnable
     }
 
 
+    /**
+     * Mette in pausa il cronometro interrompendo l'acquisizione di nuovi valori
+     * @return restituisce true se il cronometro e' stato messo in pausa correttamente
+     */
     public boolean pausa()
     {
         boolean result = false;
@@ -55,6 +81,9 @@ public class Cronometro implements Runnable
     }
 
 
+    /**
+     * Interrompe l'esecuzione del cronometro e reimposta i valori
+     */
     public void stop()
     {
         setStarted(false);
@@ -63,6 +92,10 @@ public class Cronometro implements Runnable
     }
 
 
+    /**
+     * Inizializza e starta il cronometro
+     * @return true se il cronometro è stato avviato
+     */
     public boolean start()
     {
         boolean result = false;
@@ -84,6 +117,10 @@ public class Cronometro implements Runnable
     }
 
 
+    /**
+     * Override del metodo run di runnable.
+     * Implementa la logica di acquisizione del tempo
+     */
     @Override
     public void run()
     {
@@ -113,38 +150,67 @@ public class Cronometro implements Runnable
     }
 
 
+    /**
+     * Restituisce il tempo trascorso in millisecondi.
+     * @return restituisce il tempo trascorso in millisecondi.
+     */
     public synchronized long getTempoTrascorsoMillis()
     {
         return tempoTrascorso;
     }
 
+    /**
+     * Restituisce la variabile isStarted
+     * @return vero se è stato avviato il cronometro, falso altrimenti.
+     */
     private boolean getStarted()
     {
         return isStarted;
     }
 
+    /**
+     * Restituisce true se il cronotometro e' in esecuzione, altrimenti false
+     * @return true se il cronotometro e' in esecuzione, altrimenti false.
+     */
     private boolean getIsPlaying()
     {
         return isPlaying;
     }
 
+    /**
+     * Setter della variabile isPlaying
+     * @param value valore che verra' impostato alla variabile isPlaying
+     */
     private synchronized void setIsPlaying(boolean value)
     {
         isPlaying = value;
     }
 
+    /**
+     * Setter della variabile isStarted
+     * @param value valore che verra' impostato alla variabile isStarted
+     */
     private synchronized void setStarted(boolean value)
     {
         isStarted = value;
     }
 
+    /**
+     * Setter della variabile tempoTrascorso
+     * @param value valore che verra' impostato alla variabile tempoTrascorso
+     */
     private synchronized void setTempoTrascorso(long value)
     {
         tempoTrascorso = value;
     }
 
+    /**
+     * Setter della variabile ultimoTempoLetto
+     * @param value valore che verra' impostato alla variabile ultimoTempoLetto
+     */
     private synchronized void setUltimoTempoLetto(long value)
     {
         ultimoTempoLetto = value;
     }
 }
+
