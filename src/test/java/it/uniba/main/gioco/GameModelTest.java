@@ -47,12 +47,32 @@ public class GameModelTest {
     gameModel.eseguiSpostamentoSemplice(21, 18);
     gameModel.eseguiSpostamentoSemplice(11, 14);
 
+    gameModel.eseguiPresa(new String[]{"18", "9"});
     gameModel.eseguiPresa(new String[]{"18", "11"});
-    gameModel.eseguiPresa(new String[]{"7", "14"});
-    gameModel.eseguiPresa(new String[]{"24", "20"});
+
+    gameModel.eseguiSpostamentoSemplice(12, 16);
+    gameModel.eseguiSpostamentoSemplice(22, 19);
+    gameModel.eseguiSpostamentoSemplice(8, 12);
+    gameModel.eseguiSpostamentoSemplice(25, 21);
+    gameModel.eseguiSpostamentoSemplice(12, 15);
+    gameModel.eseguiSpostamentoSemplice(24, 20);
+    gameModel.eseguiSpostamentoSemplice(7, 12);
+    gameModel.eseguiSpostamentoSemplice(21, 17);
+    gameModel.eseguiSpostamentoSemplice(4, 8);
+    gameModel.eseguiSpostamentoSemplice(11, 7);
+    gameModel.eseguiSpostamentoSemplice(9, 13);
+    gameModel.eseguiSpostamentoSemplice(7, 4);
+
+    gameModel.eseguiPresa(new String[]{"15", "22"});
+
+    gameModel.eseguiSpostamentoSemplice(28, 24);
+    gameModel.eseguiSpostamentoSemplice(5, 9);
+    gameModel.eseguiSpostamentoSemplice(31, 28);
+
+    gameModel.eseguiPresa(new String[]{"22", "31"});
 
     assertEquals(1, gameModel.getPunteggioBianco());
-    assertEquals(1, gameModel.getPunteggioNero());
+    assertEquals(2, gameModel.getPunteggioNero());
   }
 
   @Test
@@ -60,6 +80,7 @@ public class GameModelTest {
     gameModel.eseguiSpostamentoSemplice(21,18);
     gameModel.abbandonaPartita();
     assertFalse(gameModel.getIsPlaying());
+
   }
 
   @Test
