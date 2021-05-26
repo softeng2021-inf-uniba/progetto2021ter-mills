@@ -94,9 +94,11 @@ public class GameModel {
             posizioni.add(Utilities.convertiPosizione(Integer.parseInt(caselle[i]), dimDamiera));
         }
 
-        Pedina partenza = tryGetPedina(posizioni.get(0));
+        Pedina pedinaPartenza = tryGetPedina(posizioni.get(0));
 
-        if (partenza != null) {
+        boolean isDama = pedinaPartenza.isDama();
+
+        if (pedinaPartenza != null) {
             List<Pedina> pedinePrese = damiera.tryPresa(posizioni);
 
             if (pedinePrese.size() > 0) {
@@ -114,8 +116,12 @@ public class GameModel {
                 }
                 tempStorico.append(caselle[caselle.length - 1]);
                 this.storicoMosse.add(tempStorico.toString());
-                System.out.println(Strings.AVVISO_PRESA);
-                notificaMessaggio(Messaggio.eseguita);
+
+                notificaMessaggio(Messaggio.presa_eseguita);
+
+                if (!isDama && pedinaPartenza.isDama()) {
+                    notificaMessaggio(Messaggio.damatura_effettuata);
+                }
                 cambioTurno();
             } else {
                 notificaMessaggio(Messaggio.presa_errata);
@@ -134,6 +140,7 @@ public class GameModel {
 
         if (damiera.isPosizioneValida(posArrivo)) {
             Pedina pedina = tryGetPedina(posPartenza);
+            boolean isDama = pedina.isDama();
             if (pedina != null) {
                 boolean isSpostata = damiera.trySpostamentoSemplice(pedina, posArrivo);
                 if (isSpostata) {
@@ -142,7 +149,11 @@ public class GameModel {
                     } else {
                         this.storicoMosse.add(("N: ") + partenza + "-" + arrivo);
                     }
-                    notificaMessaggio(Messaggio.eseguita);
+                    notificaMessaggio(Messaggio.spostamento_effettuato);
+
+                    if (!isDama && pedina.isDama()) {
+                        notificaMessaggio(Messaggio.damatura_effettuata);
+                    }
                     cambioTurno();
                 } else {
                     notificaMessaggio(Messaggio.spostamento_errato);

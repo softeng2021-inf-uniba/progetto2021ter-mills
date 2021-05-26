@@ -97,6 +97,14 @@ public class Pedina {
   }
 
   /**
+   * Metodo getter dell'attributo isDama.
+   * @return restituisce true se la pedina e' una dama
+   */
+  public boolean isDama() {
+    return isDama;
+  }
+
+  /**
    * Metodo setter dell'attributo posizione.
    * @param pos è il valore della posizione da impostare
    */

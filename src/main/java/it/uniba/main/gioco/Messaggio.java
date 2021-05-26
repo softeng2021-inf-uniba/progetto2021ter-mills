@@ -12,6 +12,9 @@ public enum Messaggio {
      * Messaggi utilizzati durante il gioco.
      */
     errore_generico(Strings.ERRORE_GENERICO),
+    presa_eseguita(Strings.AVVISO_PRESA),
+    damatura_effettuata(Strings.AVVISO_DAMATURA),
+    spostamento_effettuato(Strings.AVVISO_SPOSTAMENTO),
     eseguita(Strings.MOSSA_ESEGUITA),
     cambio_giocatore(Strings.CAMBIO_TURNO),
     spostamento_errato(Strings.ERRORE_GENERICO + Strings.SPOSTAMENTO_ERRATO),
