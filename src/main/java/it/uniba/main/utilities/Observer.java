@@ -8,6 +8,11 @@ package it.uniba.main.utilities;
  */
 
 public interface Observer<Tipo> {
+
+     /**
+      * Azione da eseguire quando l observer viene notificato da un soggetto a cui si è registrato
+      * @param arg argomento (generico) ricevuto dal soggetto
+      */
      void onChanged(Tipo arg);
 }
 
