@@ -11,7 +11,6 @@ public class SubjectTest {
   public void testSubject() {
     AtomicBoolean value = new AtomicBoolean(false);
 
-    StringBuilder str = new StringBuilder();
     Subject<Boolean> subject = new Subject<>();
     Observer<Boolean> observer = arg -> value.set(arg);
 

@@ -12,7 +12,7 @@ public final class Utilities {
   static final int DIVISION_PER_SECOND = 1000;
   static final int DIVISION_PER_MINUTE = 60000;
   static final int SECOND = 60;
-  static Scanner input = new Scanner(System.in, "UTF-8");
+  private static Scanner input = new Scanner(System.in, "UTF-8");
 
   private Utilities() {
 
