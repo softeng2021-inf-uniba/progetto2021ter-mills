@@ -12,6 +12,7 @@ public final class Utilities {
   static final int DIVISION_PER_SECOND = 1000;
   static final int DIVISION_PER_MINUTE = 60000;
   static final int SECOND = 60;
+  static Scanner input = new Scanner(System.in, "UTF-8");
 
   private Utilities() {
 
@@ -24,7 +25,7 @@ public final class Utilities {
    * @return una stringa digitata da tastiera in UTF-8.
    */
   public static String getStringaDaTastiera() {
-    Scanner input = new Scanner(System.in, "UTF-8");
+
     String inputString = input.nextLine();
     return inputString;
   }
