@@ -20,6 +20,7 @@ public class GameControllerTest {
     strAspettata.append(Strings.ERRORE_COMANDO_IN_GIOCO + "\r\n");
     strInserita.append("pippo\n\r\n");
     strAspettata.append(Strings.COMANDO_ERRATO +"\r\n");
+    strAspettata.append(Strings.COMANDO_ERRATO +"\r\n");
     strInserita.append("help\r\n");
     strAspettata.append(Strings.HELP_MSG + "\r\n");
     strInserita.append("numeri\r\n");
@@ -184,7 +185,11 @@ public class GameControllerTest {
 
       System.out.flush();
       System.setOut(old);
-      assertEquals(strAspettata.toString(), baos.toString("UTF-8"));
+
+      String strAttesa = strAspettata.toString().replaceAll("\r\n", "\n");
+      String outputConsole = baos.toString("UTF-8").replaceAll("\r\n", "\n");
+
+      assertEquals(strAttesa, outputConsole);
     } catch (UnsupportedEncodingException e) {
       e.printStackTrace();
     }
