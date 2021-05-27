@@ -174,11 +174,8 @@ public class GameControllerTest {
     strAspettata.append(Strings.CONFERMA_USCITA + "\r\n");
     strInserita.append("si\r\n");
 
-    String strAttesa = strAspettata.toString().replaceAll("\r\n", "\n");
-    String comandiInseriti = strInserita.toString().replaceAll("\r\n", "\n");
-
     try {
-      System.setIn(new ByteArrayInputStream(comandiInseriti.getBytes("UTF-8")));
+      System.setIn(new ByteArrayInputStream(strInserita.toString().getBytes("UTF-8")));
       ByteArrayOutputStream baos = new ByteArrayOutputStream();
       PrintStream ps = new PrintStream(baos, false, "UTF-8");
       PrintStream old = System.out;
@@ -190,8 +187,8 @@ public class GameControllerTest {
       System.out.flush();
       System.setOut(old);
 
-
-      String outputConsole = baos.toString("UTF-8").replaceAll("\r\n", "\n");
+      String strAttesa = strAspettata.toString().replaceAll("\r", "").replaceAll("\n", "");
+      String outputConsole = baos.toString("UTF-8").replaceAll("\r", "").replaceAll("\n", "");
 
       assertEquals(strAttesa, outputConsole);
     } catch (UnsupportedEncodingException e) {
