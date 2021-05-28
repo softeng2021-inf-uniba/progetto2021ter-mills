@@ -25,7 +25,7 @@ public final class Utilities {
    * @return una stringa digitata da tastiera in UTF-8.
    */
   public static String getStringaDaTastiera() {
-    if(input == null){
+    if (input == null) {
       input = new Scanner(System.in, "UTF-8");
     }
     String inputString = null;
