@@ -1,6 +1,7 @@
 package it.uniba.main.gioco;
 
 import it.uniba.main.utilities.Strings;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.*;
@@ -10,40 +11,22 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class GameControllerTest {
 
-  @Test
-  public void test3(){
-    ByteArrayInputStream in = new ByteArrayInputStream("esci\nsi".getBytes());
-    System.setIn(in);
-    Scanner input = new Scanner(System.in);
-    input.nextLine();
-    input.nextLine();
-    assertTrue(input.hasNextLine());
-  }
+
+
+
 
   @Test
-  public void test4(){
+  public void test7(){
     ByteArrayInputStream in = new ByteArrayInputStream("esci\nsi".getBytes());
     System.setIn(in);
-    Scanner input = new Scanner(System.in);
-    input.nextLine();
-    input.nextLine();
-    assertTrue(input.hasNext());
-  }
+    Scanner input2 = new Scanner(System.in);
+    assertTrue(input2.hasNextLine());
+    input2.nextLine();
+    assertTrue(input2.hasNextLine());
+    String str = input2.nextLine();
+    assertEquals("si",str);
 
-  @Test
-  public void test1() {
-    ByteArrayInputStream in = new ByteArrayInputStream("esci\nsi".getBytes());
-    System.setIn(in);
-    Scanner input = new Scanner(System.in);
-    assertTrue(input.hasNext());
 
-  }
-  @Test
-  public void test2() {
-    ByteArrayInputStream in = new ByteArrayInputStream("esci\nsi".getBytes());
-    System.setIn(in);
-    Scanner input = new Scanner(System.in);
-    assertTrue(input.hasNextLine());
   }
 
 
