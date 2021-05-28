@@ -3,20 +3,55 @@ package it.uniba.main.gioco;
 import it.uniba.main.utilities.Strings;
 import org.junit.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
+import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GameControllerTest {
+
   @Test
+  public void test3(){
+    ByteArrayInputStream in = new ByteArrayInputStream("esci\nsi".getBytes());
+    System.setIn(in);
+    Scanner input = new Scanner(System.in);
+    input.nextLine();
+    assertTrue(input.hasNextLine());
+  }
+
+  @Test
+  public void test4(){
+    ByteArrayInputStream in = new ByteArrayInputStream("esci\nsi".getBytes());
+    System.setIn(in);
+    Scanner input = new Scanner(System.in);
+    input.nextLine();
+    assertTrue(input.hasNext());
+  }
+
+  @Test
+  public void test1() {
+    ByteArrayInputStream in = new ByteArrayInputStream("esci\nsi".getBytes());
+    System.setIn(in);
+    Scanner input = new Scanner(System.in);
+    assertTrue(input.hasNext());
+
+  }
+  @Test
+  public void test2() {
+    ByteArrayInputStream in = new ByteArrayInputStream("esci\nsi".getBytes());
+    System.setIn(in);
+    Scanner input = new Scanner(System.in);
+    assertTrue(input.hasNextLine());
+  }
+
+
+
+ /* @Test
   public void testController() {
 
-    StringBuilder strAspettata = new StringBuilder();
+   /* StringBuilder strAspettata = new StringBuilder();
     StringBuilder strInserita = new StringBuilder();
-    /*
+
     strInserita.append("damiera" + System.getProperty("line.separator"));
     strAspettata.append(Strings.ERRORE_COMANDO_IN_GIOCO + "\r\n");
     strInserita.append("pippo" + System.getProperty("line.separator"));
@@ -174,7 +209,7 @@ public class GameControllerTest {
     strAspettata.append(Strings.CONFERMA_USCITA + "\r\n");
     strInserita.append("si" + System.getProperty("line.separator"));
 */
-
+/*
     try {
       System.setIn(new ByteArrayInputStream("esci\nsi".getBytes()));
       ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -194,7 +229,9 @@ public class GameControllerTest {
       //assertEquals(strAttesa, outputConsole);
     } catch (UnsupportedEncodingException e) {
       e.printStackTrace();
-    }
+    }*/
+
+
   }
-}
+
 
