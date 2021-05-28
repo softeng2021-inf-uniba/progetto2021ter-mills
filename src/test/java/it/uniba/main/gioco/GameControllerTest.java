@@ -171,7 +171,7 @@ public class GameControllerTest {
     strAspettata.append(Strings.USCITA_NON_ESEGUITA + "\r\n");
     strInserita.append("esci" + System.getProperty("line.separator"));
     strAspettata.append(Strings.CONFERMA_USCITA + "\r\n");
-    strInserita.append("si" + System.getProperty("line.separator"));
+    strInserita.append("si");
 
     try {
       System.setIn(new ByteArrayInputStream(strInserita.toString().getBytes("UTF-8")));

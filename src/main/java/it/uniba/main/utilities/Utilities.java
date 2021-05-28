@@ -26,7 +26,7 @@ public final class Utilities {
    */
   public static String getStringaDaTastiera() {
 
-    String inputString = "";
+    String inputString = null;
     if (input.hasNext()) {
       inputString = input.nextLine();
     }
