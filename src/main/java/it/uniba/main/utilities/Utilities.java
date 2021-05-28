@@ -61,8 +61,7 @@ public final class Utilities {
     colonna *= 2;
     if (riga % 2 == 0) {
       colonna -= 2;
-    }
-    else {
+    } else {
       colonna -= 1;
     }
 
