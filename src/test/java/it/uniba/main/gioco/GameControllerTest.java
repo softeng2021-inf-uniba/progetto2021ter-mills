@@ -9,38 +9,20 @@ import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class GameControllerTest {
-
-
-
-
+public class GameControllerTest
+{
 
   @Test
-  public void test7(){
-    ByteArrayInputStream in = new ByteArrayInputStream("esci\nsi".getBytes());
-    System.setIn(in);
-    Scanner input2 = new Scanner(System.in);
-    assertTrue(input2.hasNextLine());
-    input2.nextLine();
-    assertTrue(input2.hasNextLine());
-    String str = input2.nextLine();
-    assertEquals("si",str);
+  public void testController()
+  {
 
-
-  }
-
-
-
- /* @Test
-  public void testController() {
-
-   /* StringBuilder strAspettata = new StringBuilder();
+    StringBuilder strAspettata = new StringBuilder();
     StringBuilder strInserita = new StringBuilder();
 
     strInserita.append("damiera" + System.getProperty("line.separator"));
     strAspettata.append(Strings.ERRORE_COMANDO_IN_GIOCO + "\r\n");
     strInserita.append("pippo" + System.getProperty("line.separator"));
-    strAspettata.append(Strings.COMANDO_ERRATO +"\r\n");
+    strAspettata.append(Strings.COMANDO_ERRATO + "\r\n");
     strInserita.append("help" + System.getProperty("line.separator"));
     strAspettata.append(Strings.HELP_MSG + "\r\n");
     strInserita.append("numeri" + System.getProperty("line.separator"));
@@ -152,24 +134,24 @@ public class GameControllerTest {
     strInserita.append("numeri" + System.getProperty("line.separator"));
     strAspettata.append(numeri);
     strInserita.append("tempo" + System.getProperty("line.separator"));
-    strAspettata.append("Tempo giocatore bianco 00:00\n" + "Tempo giocatore nero 00:00"+ "\r\n");
+    strAspettata.append("Tempo giocatore bianco 00:00\n" + "Tempo giocatore nero 00:00" + "\r\n");
     strInserita.append("21-18" + System.getProperty("line.separator"));
     strAspettata.append(Strings.AVVISO_SPOSTAMENTO + "\r\n");
     strAspettata.append(Strings.CAMBIO_TURNO + Strings.GIOCATORE_NERO + "\r\n");
     strInserita.append("11-14" + System.getProperty("line.separator"));
-    strAspettata.append(Strings.AVVISO_SPOSTAMENTO +"\r\n");
-    strAspettata.append(Strings.CAMBIO_TURNO + Strings.GIOCATORE_BIANCO+"\r\n");
+    strAspettata.append(Strings.AVVISO_SPOSTAMENTO + "\r\n");
+    strAspettata.append(Strings.CAMBIO_TURNO + Strings.GIOCATORE_BIANCO + "\r\n");
     strInserita.append("18x11" + System.getProperty("line.separator"));
-    strAspettata.append(Strings.AVVISO_PRESA +"\r\n");
-    strAspettata.append(Strings.CAMBIO_TURNO + Strings.GIOCATORE_NERO+"\r\n");
+    strAspettata.append(Strings.AVVISO_PRESA + "\r\n");
+    strAspettata.append(Strings.CAMBIO_TURNO + Strings.GIOCATORE_NERO + "\r\n");
     strInserita.append("7x14" + System.getProperty("line.separator"));
-    strAspettata.append(Strings.AVVISO_PRESA +"\r\n");
-    strAspettata.append(Strings.CAMBIO_TURNO + Strings.GIOCATORE_BIANCO+"\r\n");
+    strAspettata.append(Strings.AVVISO_PRESA + "\r\n");
+    strAspettata.append(Strings.CAMBIO_TURNO + Strings.GIOCATORE_BIANCO + "\r\n");
     strInserita.append("mosse" + System.getProperty("line.separator"));
     strAspettata.append("B: 21-18\r\n");
     strAspettata.append("N: 11-14\r\n");
     strAspettata.append("B: 18x11\r\n");
-    strAspettata.append("N: 7x14"+"\r\n");
+    strAspettata.append("N: 7x14" + "\r\n");
     strInserita.append("prese" + System.getProperty("line.separator"));
     strAspettata.append(Strings.PRESE_MSG + Strings.GIOCATORE_BIANCO + ": " + Strings.PEDINA_NERA + "\n"
         + Strings.PRESE_MSG + Strings.GIOCATORE_NERO + ": " + Strings.PEDINA_BIANCA + "\r\n");
@@ -178,7 +160,7 @@ public class GameControllerTest {
     strInserita.append("pippo" + System.getProperty("line.separator"));
     strAspettata.append(Strings.RISPOSTA_ERRATA + "\r\n");
     strInserita.append("no" + System.getProperty("line.separator"));
-    strAspettata.append(Strings.PARTITA_NON_ABBANDONATA +"\r\n");
+    strAspettata.append(Strings.PARTITA_NON_ABBANDONATA + "\r\n");
     strInserita.append("abbandona" + System.getProperty("line.separator"));
     strAspettata.append(Strings.CONFERMA_ABBANDONO + "\r\n");
     strInserita.append("si" + System.getProperty("line.separator"));
@@ -193,12 +175,12 @@ public class GameControllerTest {
     strInserita.append("esci" + System.getProperty("line.separator"));
     strAspettata.append(Strings.CONFERMA_USCITA + "\r\n");
     strInserita.append("si" + System.getProperty("line.separator"));
-*/
-/*
-    try {
-      System.setIn(new ByteArrayInputStream("esci\nsi".getBytes()));
+
+    try
+    {
+      System.setIn(new ByteArrayInputStream(strInserita.toString().getBytes()));
       ByteArrayOutputStream baos = new ByteArrayOutputStream();
-      PrintStream ps = new PrintStream(baos);
+      PrintStream ps = new PrintStream(baos,false, "UTF-8");
       PrintStream old = System.out;
       System.setOut(ps);
 
@@ -211,12 +193,12 @@ public class GameControllerTest {
       String strAttesa = strAspettata.toString().replaceAll("\r", "").replaceAll("\n", "");
       String outputConsole = baos.toString("UTF-8").replaceAll("\r", "").replaceAll("\n", "");
 
-      //assertEquals(strAttesa, outputConsole);
-    } catch (UnsupportedEncodingException e) {
+      assertEquals(strAttesa, outputConsole);
+    } catch (UnsupportedEncodingException e)
+    {
       e.printStackTrace();
-    }*/
-
-
+    }
   }
+}
 
 
