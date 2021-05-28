@@ -26,7 +26,10 @@ public final class Utilities {
    */
   public static String getStringaDaTastiera() {
 
-    String inputString = input.nextLine();
+    String inputString = null;
+    if (input.hasNext()) {
+      inputString = input.nextLine();
+    }
     return inputString;
   }
 
@@ -58,7 +61,8 @@ public final class Utilities {
     colonna *= 2;
     if (riga % 2 == 0) {
       colonna -= 2;
-    } else {
+    }
+    else {
       colonna -= 1;
     }
 
