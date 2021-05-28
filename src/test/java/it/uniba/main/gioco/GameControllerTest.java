@@ -16,6 +16,7 @@ public class GameControllerTest {
     System.setIn(in);
     Scanner input = new Scanner(System.in);
     input.nextLine();
+    input.nextLine();
     assertTrue(input.hasNextLine());
   }
 
@@ -24,6 +25,7 @@ public class GameControllerTest {
     ByteArrayInputStream in = new ByteArrayInputStream("esci\nsi".getBytes());
     System.setIn(in);
     Scanner input = new Scanner(System.in);
+    input.nextLine();
     input.nextLine();
     assertTrue(input.hasNext());
   }
