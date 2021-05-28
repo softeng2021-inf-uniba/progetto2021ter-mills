@@ -178,7 +178,7 @@ public class GameControllerTest
 
     try
     {
-      System.setIn(new ByteArrayInputStream(strInserita.toString().getBytes()));
+      System.setIn(new ByteArrayInputStream(strInserita.toString().getBytes("UTF-8")));
       ByteArrayOutputStream baos = new ByteArrayOutputStream();
       PrintStream ps = new PrintStream(baos,false, "UTF-8");
       PrintStream old = System.out;
