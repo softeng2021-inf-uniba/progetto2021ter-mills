@@ -7,8 +7,9 @@ import java.util.List;
 
 /**
  * <<Entity>>
- * Classe che rappresenta la damiera. Essa si occupa della gestione delle caselle, delle pedine, dei loro spostamenti
- * e delle prese.
+ * Classe che rappresenta la damiera.
+ * Essa si occupa della gestione delle caselle,
+ * delle pedine, dei loro spostamenti e delle prese.
  */
 
 public class Damiera {
@@ -72,7 +73,7 @@ public class Damiera {
     }
 
     /**
-     * Inizializza le pedine presenti nella damiera
+     * Inizializza le pedine presenti nella damiera.
      */
     private void setupPedine() {
         listaPedineBianche = new ArrayList<>();
@@ -99,7 +100,7 @@ public class Damiera {
 
     /**
      * Verifica se una posizione si trova all'interno del range
-     * di valori consentiti.
+     * dei valori consentiti.
      *
      * @param posizione posizione da valutare.
      * @return ritorna true se la posizione passata è valida, altrimenti false.

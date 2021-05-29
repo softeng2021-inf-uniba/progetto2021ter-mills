@@ -29,9 +29,8 @@ public final class Utilities {
       input = new Scanner(System.in, "UTF-8");
     }
     String inputString = null;
-    if (input.hasNext()) {
+
       inputString = input.nextLine();
-    }
     return inputString;
   }
 
@@ -40,8 +39,8 @@ public final class Utilities {
    * digitata da tastiera.
    *
    * @param stringa = stringa restituita dal metodo
-   *                getStringaDaTastiera
-   * @return viene restituita la stringa senza gli spazi
+   *                getStringaDaTastiera.
+   * @return viene restituita la stringa senza gli spazi.
    */
 
   public static String pulisciStringa(final String stringa) {
@@ -73,7 +72,7 @@ public final class Utilities {
   /**
    * Metodo che stampa il tempo nel formato ("mm:ss").
    *
-   * @param millisecondi = tempo restituito da currentTimeMillis()
+   * @param millisecondi = tempo restituito da currentTimeMillis().
    * @return stringa tempo nel formato ("mm:ss").
    */
 

@@ -20,7 +20,7 @@ public class Pedina {
   private Posizione posizione;
 
   /**
-   * booleano che rappresenta se una pedina una è Dama o meno.
+   * booleano che rappresenta se una pedina è Dama o meno.
    */
   private boolean isDama;
 
@@ -66,7 +66,7 @@ public class Pedina {
   /**
    * Metodo toString della classe Pedina.
    *
-   * @return restituisce la stringa che rappresenta la pediana nello stato corrente
+   * @return restituisce la stringa che rappresenta la pedina nello stato corrente.
    */
 
   @Override
@@ -90,7 +90,7 @@ public class Pedina {
 
   /**
    * Metodo getter dell'attributo posizione.
-   * @return restituisce valore della posizione
+   * @return restituisce valore della posizione.
    */
   public Posizione getPosizione() {
     return posizione;
@@ -98,7 +98,7 @@ public class Pedina {
 
   /**
    * Metodo getter dell'attributo isDama.
-   * @return restituisce true se la pedina e' una dama
+   * @return restituisce true se la pedina e' una dama.
    */
   public boolean isDama() {
     return isDama;
@@ -106,7 +106,7 @@ public class Pedina {
 
   /**
    * Metodo setter dell'attributo posizione.
-   * @param pos è il valore della posizione da impostare
+   * @param pos è il valore della posizione da impostare.
    */
   public void setPosizione(final Posizione pos) {
     this.posizione = pos;
@@ -114,7 +114,7 @@ public class Pedina {
 
   /**
    * Metodo setter dell'attributo dama.
-   * @param dama è il valore della dama da impostare
+   * @param dama è il valore della dama da impostare.
    */
   public void setDama(final boolean dama) {
     isDama = dama;

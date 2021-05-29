@@ -2,7 +2,8 @@ package it.uniba.main.parser;
 
 /**
  * <<noECB>>
- * Enumerativo che contiene tutti i comandi disponibili. Esso funge anche da parser dei comandi.
+ * Enumerativo che contiene tutti i comandi disponibili.
+ * Esso funge anche da parser dei comandi.
  */
 public enum Comando {
     /**
@@ -32,7 +33,7 @@ public enum Comando {
     /**
      * Costruttore dell'enumerativo Comando.
      *
-     * @param aliasListPassed nome alternativo di un enumerativo
+     * @param aliasListPassed nome alternativo di un enumerativo.
      */
     Comando(final String[] aliasListPassed) {
         this.aliasList = aliasListPassed;
@@ -42,8 +43,8 @@ public enum Comando {
      * Metodo utilizzato per vedere se il comando scritto esiste, per associare
      * un eventuale alias ad un comando esistente.
      *
-     * @param str stringa passata in input
-     * @return ritorna il comando associato alla stringa passata se quest'ultima esiste
+     * @param str stringa passata in input.
+     * @return ritorna il comando associato alla stringa passata, se quest'ultima esiste.
      */
     public static Comando getComando(final String str) {
         Comando comandoTrovato = null;
@@ -69,7 +70,7 @@ public enum Comando {
     /**
      * Metodo getter della stringa passata in input.
      *
-     * @return la stringa passata in input
+     * @return la stringa passata in input.
      */
     public String getInputStr() {
         return inputStr;
