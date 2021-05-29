@@ -1,33 +1,34 @@
 # Relazione tecnica finale
 
-Indice
----
+ ###Indice
+
 <br/>
 
-1. [Introduzione](#Introduzione)
-2. [Modello di dominio](#Modello-di-dominio)
-3. [Requisiti specifici](#Requisiti-specifici)
-* [Requisiti funzionali](#requisiti-funzionali)
-* [Requisiti non funzionali](#requisiti-non-funzionali)
-4. [System Design](#System-Design)
-* [Stile architetturale adottato](#Stile-architetturale-adottato)
-* [Commento delle decisioni prese]()
-5. [OO Design]()
-* [Diagramma delle classi e diagramma di sequenza]()
-* [Design pattern utilizzati]()
-* [Commento delle decisioni prese]()
-6. [Riepilogo test]()
-7. [Manuale utente](#Manuale-utente)
-8. [Processo di sviluppo e organizzazione del lavoro](#Processo-di-sviluppo-e-organizzazione-del-lavoro)
-9. [Analisi retrospettiva](#Analisi-retrospettiva)
-* [Cosa ci ha resi soddisfatti](#Cosa-ci-ha-resi-soddisfatti)
-* [Cosa ci ha resi insoddisfatti](#Cosa-ci-ha-resi-insoddisfatti)
-* [Cosa ci ha fatto impazzire](#Cosa-ci-ha-fatto-impazzire)
-10. [Conclusione](#Conclusione)
+1. [Introduzione](#1-Introduzione)
+2. [Modello di dominio](#2-Modello-di-dominio)
+3. [Requisiti specifici](#3-Requisiti-specifici)
+  * [Requisiti funzionali](#3.1-requisiti-funzionali)
+  * [Requisiti non funzionali](#3.2-requisiti-non-funzionali)
+4. [System Design](#4-System-Design)
+  * [Stile architetturale adottato](#4.1-Stile-architetturale-adottato)
+  * [Diagramma dei packages](#4.2-Diagramma-dei-packages)
+  * [Commento delle decisioni prese](#4.3-Commento-delle-decisioni-prese)
+5. [O.O. Design](#5-O.O.-Design)
+  * [Diagramma delle classi e diagramma di sequenza](#5.1-Diagramma-delle-classi-e-diagramma-di-sequenza)
+  * [Design pattern utilizzati](#5.2-Design-pattern-utilizzati)
+  * [Commento delle decisioni prese](#5.3-Commento-delle-decisioni-prese)
+6. [Riepilogo test](#6-Riepilogo-test)
+7. [Manuale utente](#7-Manuale-utente)
+8. [Processo di sviluppo e organizzazione del lavoro](#8-Processo-di-sviluppo-e-organizzazione-del-lavoro)
+9. [Analisi retrospettiva](#9-Analisi-retrospettiva)
+  * [Cosa ci ha resi soddisfatti](#9.1-Cosa-ci-ha-resi-soddisfatti)
+  * [Cosa ci ha resi insoddisfatti](#9.2-Cosa-ci-ha-resi-insoddisfatti)
+  * [Cosa ci ha fatto impazzire](#9.3-Cosa-ci-ha-fatto-impazzire)
+10. [Conclusione](#10-Conclusione)
 
 <br/><br/>
 
-##  **Introduzione**
+## 1. **Introduzione**
 
 Questo documento ha il compito di illustrare l’utilizzo della prima versione dell’applicazione della **Dama Italiana**.
 Il programma consente a due giocatori di sfidarsi in una partita tramite interfaccia a **[linea di comando(CLI)](https://devindev.lidialab.it/cli-command-line-interface-o-command-line-interpreter/)**, indicando le proprie mosse in notazione algebrica. L'esecuzione del progetto
@@ -44,7 +45,7 @@ L'applicazione della Dama Italiana è eseguita tramite **[Docker](https://hub.do
 
 <br/>
 
-##  **Modello di dominio**
+## 2. **Modello di dominio**
 
 //TODO
 
@@ -52,17 +53,17 @@ L'applicazione della Dama Italiana è eseguita tramite **[Docker](https://hub.do
 
 <br/>
 
-##  **Requisiti specifici**
+## 3. **Requisiti specifici**
 
 Di seguito l'elenco dei requisiti specifici (funzionali e non funzionali)
 
 <br/>
 
-## **Requisiti funzionali**
+## 3.1 **Requisiti funzionali**
 
 <center><img src = "../res/img/report-finale/schermataIniziale.PNG"></center>
 
-L'applicazione, una volta avviata, risponde ai seguenti requisiti:
+L'applicazione, una volta avviata, risponde ai seguente requisiti:
 
 * L'utente può visualizzare i comandi disponibili tramite il comando ```help```.
 <center><img src = "../res/img/report-finale/helpCommand.PNG"></center>
@@ -93,13 +94,13 @@ L'applicazione, una volta avviata, risponde ai seguenti requisiti:
 
 <br/>
 
-## **Requisiti non funzionali**
+## 3.2 **Requisiti non funzionali**
 
 **Portabilità**
 
 Il deployment dell'applicazione è automatizzato grazie a **[Docker](https://hub.docker.com/)** basato su **[Alpine Linux](https://hub.docker.com/_/alpine)**. Tramite esso è possibile utiilizzare l'applicazione sulle sueguenti **shell**:
 
-* **Windows**: **[Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/it-it/windows/wsl/about)**, **[Git Bash](https://gitforwindows.org/)**, **[Windows Terminal](https://docs.microsoft.com/it-it/windows/terminal/get-started)**;
+*  **Windows**: **[Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/it-it/windows/wsl/about)**, **[Git Bash](https://gitforwindows.org/)**, **[Windows Terminal](https://docs.microsoft.com/it-it/windows/terminal/get-started)**;
 * **MacOS** e **Linux**: qualunque terminale con supporto a UTF-8.
 
 * Il progetto deve essere scaricato tramite
@@ -115,25 +116,106 @@ Il deployment dell'applicazione è automatizzato grazie a **[Docker](https://hub
 
 L'applicazione non genera eccezioni. Queste vengono tutte catturate e gestite. Eventualmente, vengono stampati messaggi di errore.
 
-## **System Design**
+<br/>
 
-Di seguito viene riportato lo *Stile architetturale adottato* e il *Commento delle decisioni prese*.
+## 4. **System Design**
 
-## **Stile architetturale adottato**
+L'applicazione è interamente sviluppata in **[Java](https://www.java.com/it/)**, linguaggio orientato agli oggetti, che permette di eseguire programmi in maniera indipendente dal Sistema Operativo e dell'Hardware utilizzato. L'intero progetto è contenuto all'interno di un repository privato su **[GitHub](https://github.com/)**. Per la sua compilazione è stato utilizzato **[Gradle](https://gradle.org/)**, un sistema per l'automazione dello sviluppo.
 
-Il programma, non essendo molto complesso, non è stato sviluppato con uno stile architetturale predefinito. Tuttavia si possono trovare alcuni punti in comune con il pattern architetturale **[MVC](https://it.wikipedia.org/wiki/Model-view-controller)** (Model - View - Controller).
+Inoltre la **[toolchain](https://it.wikipedia.org/wiki/Toolchain#:~:text=Toolchain%2C%20nell'informatica%20e%20in,programma%20o%20sistema%20di%20programmi.)** del programma comprende:
 
-L'applicazione è suddivisa secondo la seguente logica:
+- **[CheckStyle](https://www.google.com/search?q=checkstyle&oq=checkstyle&aqs=chrome..69i57j35i39j0j69i61l3j69i60l2.1653j0j4&sourceid=chrome&ie=UTF-8)**, per uno stile del codice lineare e uniforme;
+- **[SpotBugs](https://spotbugs.github.io/)**, per vedere se il codice presentava bug nascosti;
+- **[JUnit](https://junit.org/junit5/)**, per il test di unità automatizzato tramite asserzioni;
+- **[Jacoco](https://www.eclemma.org/jacoco/)**, utilizzato per fornire un report della copertura del codice da parte dei casi di test;
+- **[Coveralls](https://coveralls.io/)**, per tener d'occhio, tramite interfaccia web, i risultati di copertura del codice da parte dei casi di test.
 
-*
-*
-*
-//TODO
+Inoltre per verificare la corretta esecuzione del codice su ogni macchina, ad ogni **[merge](https://it.wikipedia.org/wiki/Merge)** fatto, si creava un'immagine su **[Docker](https://www.docker.com/)** che era possibile scaricare e **[runnare](https://it.wikipedia.org/wiki/Esecuzione_(informatica))** sulla propria macchina, per testarne il funzionamento.
+
+## 4.1. **Stile architetturale adottato**
+
+Il programma è stato progettato secondo il pattern architetturale **[MVC](https://it.wikipedia.org/wiki/Model-view-controller)** (Model - View - Controller).
+
+Abbiamo adottato un modello semplificato di questo pattern in cui non vi è la **View** e la logica che sarebbe dovuta essere contenuta in essa è stata inserita direttamente nel **Controller**.
+
+Questa scelta è stata fatta in quanto l'applicativo in questione, essendo un semplice applicativo CLI, tale suddivisione sarebbe risultata superflua.
 
 
+## 4.2. **Diagramma dei packages**
+
+Di seguito riportato il diagramma dei **[packages](https://it.wikipedia.org/wiki/Package_(Java))**, ovvero la divisione in pacchetti della nostra applicazione:
+
+<center><img src = "../doc/drawings/diagrammaPackages.PNG"></center>
+
+## 4.3. **Commento delle decisioni prese**
+
+Abbiamo deciso di usare il pattern architetturale **MVC** per separare la logica
+
+<br/>
+
+## 5. **O.O. Design**
+
+Di seguito vengono riportate le scelte fatte per una programmazione orientata agli oggetti.
+
+## 5.1. **Diagramma delle classi e diagramma di sequenza**
+I diagrammi qui illustrati sono stati fatti con **[StarUML](https://staruml.io/)**
+
+- Di seguito il diagramma delle classi del comando ```gioca```:
+
+- Di seguito il diagramma di sequenza del comando ```gioca```:
+
+- Di seguito il diagramma delle classi dello spostamento semplice:
+
+- Di seguito il diagramma di sequenza dello spostamento semplice:
 
 
-## **Manuale utente**
+## 5.2. **Design pattern utilizzati**
+
+Nel progetto è stato applicato il Pattern
+**[Observer](https://it.wikipedia.org/wiki/Observer_pattern)** appartenente al paradigma orientato ad oggetti.
+
+Il pattern in questione si basa su uno o più **oggetti**, chiamati osservatori o observer, che vengono registrati per gestire un evento che potrebbe essere generato dall'oggetto "osservato", il quale può essere chiamato **soggetto**.
+
+## 5.3. **Commento delle decisioni prese**
+
+Il pattern precedentemente citato, è stato utilizzato per rispettare lo stile del pattern **MVC** e mantenere indipendenti le classi **Controller** e **Model**.
+
+Abbiamo creato quindi:
+
+* Un'interfaccia generica, chiamata ```Observer```;
+* Un soggetto da osservare, creato tramite la classe ```Subject```;
+* L'enumerativo ```Status```, che si occupava di gestire i cambiamenti di stato per quanto riguardava la partita;
+* L'enumerativo ```Messaggio```, utilizzato per rispettare lo stile dell'**MVC** e .
+
+<br/>
+
+## 6. **Riepilogo test**
+
+Ecco i risultati dei nostri test sull'applicazione:
+
+* Tabella riassuntiva del coverage generata da **[JaCoCo](https://www.eclemma.org/jacoco/)**:
+
+<center><img src = "../doc/drawings/jaCoCo.PNG"></center>
+
+* Report di **[Coveralls](https://coveralls.io/)**, percentuale totale dei casi testati:
+
+<center><img src = "../doc/drawings/coverallsPercentual.PNG"></center>
+
+* Report di **[Coveralls](https://coveralls.io/)**, albero delle classi
+
+<center><img src = "../doc/drawings/coverallsTree.PNG"></center>
+
+<br/>
+
+Inoltre, gli elementi che abbiamo scelto di non testare sono:
+
+* ```AppMain```;
+* ```Strings```, poichè è una classe contentente solo le stringhe utilizzate nel programma (tutte costanti);
+* Alcune eccezioni presenti, come nella classe ```GameModel``` o ```Cronometro```.
+
+<br/>
+
+## 7. **Manuale utente**
 
 L'applicazione 'Dama Italiana' mira a ricreare l'esperienza dell'omonimo gioco da tavolo, caratterizzata dalla simulazione su terminale della damiera e di tutti i suoi pezzi.
 
@@ -294,7 +376,7 @@ In caso di mosse errate i messaggi visualizzati, a seconda dei casi, saranno i s
 
 <br/>
 
-## **Processo di sviluppo e organizzazione del lavoro**
+## 8. **Processo di sviluppo e organizzazione del lavoro**
 
 ## Processo di sviluppo
 
@@ -328,7 +410,7 @@ Il progetto è stato diviso in quattro sprint. Dopo aver creato una **project bo
 
 <br/>
 
-## Suddivisione dei compiti
+## **Suddivisione dei compiti**
 
 Ad ogni **[scrum meeting](https://www.agileway.it/il-daily-scrum-meeting/#:~:text=In%20quest'ultimo%20caso%2C%20lo,grafico%20prima%20di%20ogni%20meeting.)**, con cadenza settimanale, si è cercato di assegnare lo stesso numero di compiti da svolgere ad ogni singolo partecipante in modo da coinvolgere tutti ed essere quanto più equi possibile.
 
@@ -338,7 +420,7 @@ Il lavoro di revisione, tramite **[pull request](https://marcolombardo.com/blog/
 
 <br/>
 
-## Piattaforme di comunicazione
+## **Piattaforme di comunicazione**
 
 Per la comunicazione, il nostro gruppo, ha adottato due piattaforme:
 
@@ -355,11 +437,11 @@ La seconda è stata scelta poichè, essendo anche questa familiare, era il mezzo
 
 <br/>
 
-## **Analisi retrospettiva**
+## 9. **Analisi retrospettiva**
 
 A posteriori queste sono i risultati dell'analisi retrospettiva:
 
-## **Cosa ci ha resi soddisfatti**
+## 9.1 **Cosa ci ha resi soddisfatti**
 
 Il denominatore comune tra tutti i membri del gruppo è la consapevolezza di aver acquisito una minima capacità di lavorare in team. Questa simulazione di un'esperienza lavorativa è servita ad ognuno di noi per:
 
@@ -375,20 +457,27 @@ Il denominatore comune tra tutti i membri del gruppo è la consapevolezza di ave
 
 Durante gli sprint, considerate le scarse conoscenze pregresse del linguaggio utilizzato, ci sono stati problemi durante gli sviluppi di alcune issue, ma grazie al lavoro di squadra non è stato difficile risolverli.
 
-## **Cosa ci ha resi insoddisfatti**
+## 9.2 **Cosa ci ha resi insoddisfatti**
 
 La cosa che ha demoralizzato maggiormente è stata l'impossibilità di potersi incontrare giornalmente in università data la situazione **pandemica**. Infatti, almeno all'inizio, c'era quel velo di vergogna tra persone che non si erano mai viste. Ciò è sparito con il passare del tempo e le numerose call fatte. In particolare il rapporto si è consolidato nel mese di Maggio quando ci siamo incontrati per le prime volte in università.
 
-## **Cosa ci ha fatto impazzire**
+## 9.3 **Cosa ci ha fatto impazzire**
 
 Come già scritto, la situazione pandemica ha costretto tutti noi a svolgere questo progetto a distanza.
 
 A nome di tutto il gruppo ciò che ci ha fatto impazzire è stato il microfono e la connessione di **[Fabio Spaccavento](https://github.com/fabiospaccavento)** che ad ogni call non funzionava e noi ci divertivamo a prendere in giro.
 
-## **Conclusione**
+<br/>
+
+## 10. **Conclusione**
 
 Scherzi a parte, riteniamo che questo progetto sia stato un importante banco di prova. Nonostante le difficoltà siamo riusciti comunque a centrare gli obiettivi stabiliti e a trarre il meglio da questa esperienza formativa.
 
 **Cosa più importante è stata l'amicizia nata tra membri del gruppo!**
 
-<right> Lo staff, **mills**</right>
+<center>
+
+Grazie per l'attenzione.
+Lo staff, **[mills](https://github.com/softeng2021-inf-uniba/progetto2021ter-mills)**.
+
+</center>
