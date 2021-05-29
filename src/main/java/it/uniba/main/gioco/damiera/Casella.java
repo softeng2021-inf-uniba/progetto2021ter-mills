@@ -4,18 +4,18 @@ import it.uniba.main.utilities.Strings;
 
 /**
  * <Entity>
- * Classe che rappresenta la casella. Inoltre, si occupa della gestione della pedina contenuta in essa contentua.
+ * Classe che rappresenta la casella. Inoltre, si occupa della gestione della pedina contenuta in essa.
  */
 
 public class Casella {
 
   /**
-     * Pedina presente nella casella
+     * Pedina presente nella casella.
      */
   private Pedina pedina;
 
   /**
-     * Attributo di tipo TipoCasella che rappresentante la tipologia della casella (bianca o nera).
+     * Attributo di tipo TipoCasella che rappresenta la tipologia della casella (bianca o nera).
      */
   private TipoCasella tipo;
 
@@ -49,7 +49,7 @@ public class Casella {
 
   /**
      * Metodo setter della pedina.
-     * @param nuovaPedina Pedina da impostare nella varibile pedina
+     * @param nuovaPedina Pedina da impostare nella varibile pedina.
      */
   public void setPedina(final Pedina nuovaPedina) {
     this.pedina = nuovaPedina;
@@ -57,7 +57,7 @@ public class Casella {
 
   /**
      * Override del metodo toString.
-     * @return stringa che rappresenta la casella nella stato corrente
+     * @return stringa che rappresenta la casella nella stato corrente.
      */
   @Override
     public String toString() {

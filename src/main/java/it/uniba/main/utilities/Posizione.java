@@ -22,7 +22,7 @@ public class Posizione {
   /**
    * Costruttore della classe Posizione.
    *
-   * @param x    variabile che viene assegnata al valore della riga della posizione.
+   * @param x variabile che viene assegnata al valore della riga della posizione.
    * @param y variabile che viene assegnata al valore della colonna della posizione.
    */
   public Posizione(final int x, final int y) {
@@ -33,9 +33,9 @@ public class Posizione {
   /**
    * Metodo che serve per calcolare la posizione differenza tra due posizioni.
    *
-   * @param pos1 prima posizione
-   * @param pos2 seconda posizione
-   * @return ritorna la posizione risultato della differenza
+   * @param pos1 prima posizione.
+   * @param pos2 seconda posizione.
+   * @return ritorna la posizione risultato della differenza.
    */
   public static Posizione differenza(final Posizione pos1, final Posizione pos2) {
     Posizione result = null;
@@ -52,8 +52,8 @@ public class Posizione {
   /**
    * Override del metodo equals utilizzato per confrontare due posizioni.
    *
-   * @param o oggetto generico passato per il confronto
-   * @return ritorna true se le posizioni coincidono, false altrimenti
+   * @param o oggetto generico passato per il confronto.
+   * @return ritorna true se le posizioni coincidono, false altrimenti.
    */
   @Override
   public boolean equals(final Object o) {
@@ -74,7 +74,7 @@ public class Posizione {
   /**
    * Override del metodo hashCode.
    *
-   * @return Restituisce un valore hash per una posizione
+   * @return Restituisce un valore hash per una posizione.
    */
   @Override
   public int hashCode() {
@@ -83,7 +83,7 @@ public class Posizione {
 
   /**
    * Metodo getter dell'attributo riga.
-   * @return ritorna il valore della riga
+   * @return ritorna il valore della riga.
    */
   public int getRiga() {
     return riga;
@@ -91,7 +91,7 @@ public class Posizione {
 
   /**
    * Metodo getter dell'attributo colonna.
-   * @return ritorna il valore della colonna
+   * @return ritorna il valore della colonna.
    */
   public int getColonna() {
     return colonna;

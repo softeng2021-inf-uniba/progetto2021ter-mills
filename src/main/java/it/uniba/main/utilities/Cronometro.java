@@ -4,29 +4,29 @@ package it.uniba.main.utilities;
 
 /**
  * <<Entity>>
- * Classe che tramite l uso di thread consente di
+ * Classe che tramite l'uso di thread consente di
  * tenere traccia del tempo trascorso a partire dal suo avvio.
  * Essa consente anche di mettere in pausa e riprendere il conteggio.
  */
 
 public class Cronometro implements Runnable {
     /**
-     * ultimo tempo acquisito
+     * ultimo tempo acquisito.
      */
     private long ultimoTempoLetto;
 
     /**
-     * tempo trascorso
+     * tempo trascorso.
      */
     private long tempoTrascorso;
 
     /**
-     *  vale true se il cronotometro e' stato avviato, altrimenti false
+     *  vale true se il cronotometro e' stato avviato, altrimenti false.
      */
     private boolean isStarted;
 
     /**
-     * vale true se il cronotometro e' in esecuzione, altrimenti false
+     * vale true se il cronotometro e' in esecuzione, altrimenti false.
      */
     private boolean isPlaying;
 
@@ -38,8 +38,8 @@ public class Cronometro implements Runnable {
 
 
     /**
-     * Riprende l'esecuzione del cronometro
-     * @return restituisce true se il cronometro ha ripreso a registrare i valori correttamente, altrimenti false
+     * Riprende l'esecuzione del cronometro.
+     * @return restituisce true se il cronometro ha ripreso a registrare i valori correttamente, altrimenti false.
      */
     public boolean riprendi() {
         boolean result = false;
@@ -57,8 +57,8 @@ public class Cronometro implements Runnable {
 
 
     /**
-     * Mette in pausa il cronometro interrompendo l'acquisizione di nuovi valori
-     * @return restituisce true se il cronometro e' stato messo in pausa correttamente
+     * Mette in pausa il cronometro interrompendo l'acquisizione di nuovi valori.
+     * @return restituisce true se il cronometro e' stato messo in pausa correttamente.
      */
     public boolean pausa() {
         boolean result = false;
@@ -73,7 +73,7 @@ public class Cronometro implements Runnable {
 
 
     /**
-     * Interrompe l'esecuzione del cronometro e reimposta i valori
+     * Interrompe l'esecuzione del cronometro e reimposta i valori.
      */
     public void stop() {
         setStarted(false);
@@ -83,8 +83,8 @@ public class Cronometro implements Runnable {
 
 
     /**
-     * Inizializza e starta il cronometro
-     * @return true se il cronometro è stato avviato
+     * Inizializza e starta il cronometro.
+     * @return true se il cronometro è stato avviato.
      */
     public boolean start() {
         boolean result = false;
@@ -107,7 +107,7 @@ public class Cronometro implements Runnable {
 
     /**
      * Override del metodo run di runnable.
-     * Implementa la logica di acquisizione del tempo
+     * Implementa la logica di acquisizione del tempo.
      */
     @Override
     public void run() {
@@ -136,14 +136,14 @@ public class Cronometro implements Runnable {
 
     /**
      * Restituisce il tempo trascorso in millisecondi.
-     * @return restituisce il tempo trascorso in millisecondi.
+     * @return il tempo trascorso in millisecondi.
      */
     public synchronized long getTempoTrascorsoMillis() {
         return tempoTrascorso;
     }
 
     /**
-     * Restituisce la variabile isStarted
+     * Restituisce la variabile isStarted.
      * @return vero se è stato avviato il cronometro, falso altrimenti.
      */
     private boolean getStarted() {
@@ -151,40 +151,40 @@ public class Cronometro implements Runnable {
     }
 
     /**
-     * Restituisce true se il cronotometro e' in esecuzione, altrimenti false
-     * @return true se il cronotometro e' in esecuzione, altrimenti false.
+     * Restituisce true se il cronometro e' in esecuzione, altrimenti false.
+     * @return true se il cronometro e' in esecuzione, altrimenti false.
      */
     private boolean getIsPlaying() {
         return isPlaying;
     }
 
     /**
-     * Setter della variabile isPlaying
-     * @param value valore che verra' impostato alla variabile isPlaying
+     * Setter della variabile isPlaying.
+     * @param value valore che verra' impostato alla variabile isPlaying.
      */
     private synchronized void setIsPlaying(final boolean value) {
         isPlaying = value;
     }
 
     /**
-     * Setter della variabile isStarted
-     * @param value valore che verra' impostato alla variabile isStarted
+     * Setter della variabile isStarted.
+     * @param value valore che verra' impostato alla variabile isStarted.
      */
     private synchronized void setStarted(final boolean value) {
         isStarted = value;
     }
 
     /**
-     * Setter della variabile tempoTrascorso
-     * @param value valore che verra' impostato alla variabile tempoTrascorso
+     * Setter della variabile tempoTrascorso.
+     * @param value valore che verra' impostato alla variabile tempoTrascorso.
      */
     private synchronized void setTempoTrascorso(final long value) {
         tempoTrascorso = value;
     }
 
     /**
-     * Setter della variabile ultimoTempoLetto
-     * @param value valore che verra' impostato alla variabile ultimoTempoLetto
+     * Setter della variabile ultimoTempoLetto.
+     * @param value valore che verra' impostato alla variabile ultimoTempoLetto.
      */
     private synchronized void setUltimoTempoLetto(final long value) {
         ultimoTempoLetto = value;

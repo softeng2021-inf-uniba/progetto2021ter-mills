@@ -15,7 +15,6 @@ public enum Messaggio {
     presa_eseguita(Strings.AVVISO_PRESA),
     damatura_effettuata(Strings.AVVISO_DAMATURA),
     spostamento_effettuato(Strings.AVVISO_SPOSTAMENTO),
-    eseguita(Strings.MOSSA_ESEGUITA),
     cambio_giocatore(Strings.CAMBIO_TURNO),
     spostamento_errato(Strings.ERRORE_GENERICO + Strings.SPOSTAMENTO_ERRATO),
     presa_errata(Strings.ERRORE_GENERICO + Strings.PRESA_ERRATA),
@@ -31,10 +30,10 @@ public enum Messaggio {
 
     /**
      * Costruttore dell'enumerativo Messaggio.
-     * @param mesaggio1 parte fissa del messaggio.
+     * @param messaggio1 parte fissa del messaggio.
      */
-      Messaggio(final String mesaggio1) {
-        this.msg1 = mesaggio1;
+      Messaggio(final String messaggio1) {
+        this.msg1 = messaggio1;
         this.msg2 = "";
     }
 

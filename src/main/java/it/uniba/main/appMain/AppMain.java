@@ -10,7 +10,8 @@ import java.io.UnsupportedEncodingException;
 
 /**
  * <<noECB>>
- * Classe runnabile che fa partire il programma. Permette di passare degli argomenti come parametro.
+ * Classe runnabile che fa partire il programma.
+ * Permette di passare degli argomenti come parametro.
  */
 
 public final class AppMain {
