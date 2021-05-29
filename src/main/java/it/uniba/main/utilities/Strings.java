@@ -3,7 +3,7 @@ package it.uniba.main.utilities;
 
 /**
  * <<noECB>>
- * CLasse di Utility nella quale vi sono memorizzate tutte le stringhe costanti utilizzate nell'app
+ * CLasse di Utility nella quale vi sono memorizzate tutte le stringhe costanti utilizzate nell'app.
  */
 public final class Strings {
   private Strings() {
@@ -92,7 +92,6 @@ public final class Strings {
   /**
    * Costanti per i vari tipi di errore.
    */
-  public static final String ERRORE_COMANDO_GENERICO = "Non puoi esegurie questo comando adesso\n";
   public static final String COMANDO_ERRATO = "Comando errato";
   public static final String ERRORE_COMANDO_FUORI_GIOCO = "Questo comando può essere utilizzato"
       + "solamente fuori dalla partita";
@@ -108,7 +107,6 @@ public final class Strings {
   public static final String GIOCATORE_NERO = "giocatore nero";
   public static final String INIZIO_PARTITA = "Partita iniziata ...";
   public static final String FINE_PARTITA = "Partita finita. Vince: ";
-  public static final String MOSSA_ESEGUITA = "Mossa eseguita";
   public static final String CAMBIO_TURNO = "È il turno del ";
   public static final String POSIZIONE_OUT_OF_RANGE = "Hai inserito una posizione al di fuori della damiera";
   public static final String SPOSTAMENTO_ERRATO = "Non puoi fare questo spostamento";
