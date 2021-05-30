@@ -200,7 +200,7 @@ public class GameModel {
     }
 
     /**
-     * Abbandona la partita e termina la partita facedo vincere l'avversario.
+     * Abbandona la partita e termina la partita facendo vincere l'avversario.
      */
     public void abbandonaPartita() {
         if (isTurnoBianco) {

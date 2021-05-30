@@ -88,7 +88,7 @@ public class GameController {
 
     /**
      * Esegue la stampa a schermo della damiera, nella quale non vi sono le pedine ma i numeri che
-     * identiifcano ciascuna casella.
+     * identifcano ciascuna casella.
      */
     private void stampaNumeri() {
         int dim = gameModel.getDimDamiera();
