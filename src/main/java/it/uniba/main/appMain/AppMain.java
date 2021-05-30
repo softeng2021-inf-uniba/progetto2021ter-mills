@@ -1,4 +1,4 @@
-package it.uniba.main;
+package it.uniba.main.appMain;
 
 import it.uniba.main.gioco.GameController;
 import it.uniba.main.gioco.GameModel;
