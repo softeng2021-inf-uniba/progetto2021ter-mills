@@ -19,7 +19,7 @@ public class GameController {
     /**
      * Observer in ascolto del soggetto che notifica i cambiamenti di stato dell'app.
      */
-    private Observer<Status> observerStatus = status ->  System.out.println(status.getMsg());;
+    private Observer<Status> observerStatus = status -> System.out.println(status.getMsg());;
 
     /**
      * Observer in ascolto del soggetto che notifica i messaggi utilizzati durante il gioco.
@@ -234,7 +234,7 @@ public class GameController {
     }
 
     /**
-     * Esegye la stampa a schermo dello storico delle prese effettuate.
+     * Esegue la stampa a schermo dello storico delle prese effettuate.
      */
      public void stampaPrese() {
         StringBuffer result = new StringBuffer();
@@ -250,7 +250,7 @@ public class GameController {
     }
 
     /**
-     * Esegye la stampa a schermo dello storico delle mosse effettuate.
+     * Esegue la stampa a schermo dello storico delle mosse effettuate.
      */
     public void stampaStoricoMosse() {
         if (gameModel.getStoricoMosse().size() <= 0) {
