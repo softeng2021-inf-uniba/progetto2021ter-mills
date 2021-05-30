@@ -17,6 +17,9 @@ import java.util.List;
  * il cambio di stato del gioco per mezzo di observer
  */
 public class GameModel {
+    /**
+     * Attributi utili alla classe.
+     */
     private Damiera damiera;
     private boolean isPlaying;
     private boolean isTurnoBianco;
@@ -24,15 +27,20 @@ public class GameModel {
     private Cronometro cronometroNero;
     private List<String> storicoMosse;
 
-
     private int dimDamiera;
     private int punteggioBianco;
     private int punteggioNero;
 
+    /**
+     * Attributi utili al subject.
+     */
     private Subject<Status> onStatusChanged;
     private Subject<Messaggio> onMessagesCalled;
 
-
+    /**
+     * Costruttore della classe.
+     * @param dimensioneDamiera dimensione della damiera.
+     */
     public GameModel(final int dimensioneDamiera) {
         onStatusChanged = new Subject<>();
         onMessagesCalled = new Subject<>();
@@ -63,6 +71,11 @@ public class GameModel {
         notificaMessaggio(Messaggio.cambio_giocatore);
     }
 
+    /**
+     * Prova a prendere una pedina.
+     * @param posPedina posizione iniziale della pedina.
+     * @return la pedina.
+     */
     private Pedina tryGetPedina(final Posizione posPedina) {
         Pedina pedina = null;
         try {
@@ -166,6 +179,9 @@ public class GameModel {
         }
     }
 
+    /**
+     * Esegue il cambio del turno.
+     */
     private void cambioTurno() {
         isTurnoBianco = !isTurnoBianco;
         if (isTurnoBianco) {
