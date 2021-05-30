@@ -40,7 +40,7 @@ public class GameModel {
     }
 
     /**
-     *
+     * Inizializza e starta un nuovo game.
      */
     public void startGame() {
         this.punteggioBianco = 0;
@@ -85,8 +85,10 @@ public class GameModel {
     }
 
     /**
-     *
-     * @param caselle
+     * Esegue la presa.
+     * @param caselle lista contente le caselle nelle quali si dovra' spostare la pedina,
+     *      *                  la prima casella deve essere la casella nella quale si trova
+     *      *                  la pedina che deve effettuare la presa.
      */
     public void eseguiPresa(final String[] caselle) {
         List<Posizione> posizioni = new ArrayList<>();
@@ -130,9 +132,9 @@ public class GameModel {
     }
 
     /**
-     *
-     * @param partenza
-     * @param arrivo
+     * Esegue lo spostamento semplice.
+     * @param partenza casella di partenza
+     * @param arrivo casella di arrivo
      */
     public void eseguiSpostamentoSemplice(final int partenza, final int arrivo) {
         Posizione posPartenza = Utilities.convertiPosizione(partenza, dimDamiera);
@@ -182,7 +184,7 @@ public class GameModel {
     }
 
     /**
-     *
+     * Abbandona la partita e termina la partita facedo vincere l'avversario.
      */
     public void abbandonaPartita() {
         if (isTurnoBianco) {
@@ -195,7 +197,7 @@ public class GameModel {
     }
 
     /**
-     *
+     * Setta lo stato della partita e notifica gli observer in ascolto.
      * @param status
      */
     public void setStatus(final Status status) {
@@ -203,8 +205,8 @@ public class GameModel {
     }
 
     /**
-     *
-     * @param message
+     * Setta il messaggio e notifica gli observer in ascolto.
+     * @param message messaggio evento partita.
      */
     private void notificaMessaggio(final Messaggio message) {
         onMessagesCalled.notifyObservers(message);
@@ -212,31 +214,30 @@ public class GameModel {
 
     /**
      *
-     * @return
+     * @return restituisce true se la partita e' in esecuzione.
      */
     public boolean getIsPlaying() {
         return isPlaying;
     }
 
     /**
-     *
-     * @return
+     * Metodo getter della variabile onStatusChanged.
+     * @return restituisce il Subject onStatusChanged
      */
     public Subject<Status> getOnStatusChanged() {
         return onStatusChanged;
     }
 
     /**
-     *
-     * @return
+     * Metodo getter della variabile onMessagesCalled.
+     * @return restituisce il Subject onMessagesCalled
      */
     public Subject<Messaggio> getOnMessagesCalled() {
         return onMessagesCalled;
     }
 
     /**
-     *
-     * @return
+     * @return restistuisce il toString della damiera nello stato corrente.
      */
     public String getDamiera() {
         return damiera.toString();
@@ -244,15 +245,14 @@ public class GameModel {
 
     /**
      *
-     * @return
+     * @return restistuisce la dimensione della damiera.
      */
     public int getDimDamiera() {
         return dimDamiera;
     }
 
     /**
-     *
-     * @return
+     * @return restistuisce il tempo del giocatore bianco.
      */
     public Cronometro getCronometroBianco() {
         return cronometroBianco;
@@ -260,31 +260,28 @@ public class GameModel {
 
     /**
      *
-     * @return
+     * @return restistuisce il tempo del giocatore nero.
      */
     public Cronometro getCronometroNero() {
         return cronometroNero;
     }
 
     /**
-     *
-     * @return
+     * @return restistuisce il punteggio del giocatore bianco.
      */
     public int getPunteggioBianco() {
         return punteggioBianco;
     }
 
     /**
-     *
-     * @return
+     * @return restistuisce il punteggio del giocatore nero.
      */
     public int getPunteggioNero() {
         return punteggioNero;
     }
 
     /**
-     *
-     * @return
+     * @return restistuisce lo storico delle mosse.
      */
     public List<String> getStoricoMosse() {
         return storicoMosse;
