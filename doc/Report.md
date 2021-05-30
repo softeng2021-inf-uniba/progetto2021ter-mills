@@ -1,37 +1,37 @@
 # Relazione tecnica finale
 
- ###Indice
+### Indice
 
 <br/>
 
-1. [Introduzione](#1-Introduzione)
-2. [Modello di dominio](#2-Modello-di-dominio)
-3. [Requisiti specifici](#3-Requisiti-specifici)
-  * [Requisiti funzionali](#3.1-requisiti-funzionali)
-  * [Requisiti non funzionali](#3.2-requisiti-non-funzionali)
-4. [System Design](#4-System-Design)
-  * [Stile architetturale adottato](#4.1-Stile-architetturale-adottato)
-  * [Diagramma dei packages](#4.2-Diagramma-dei-packages)
-  * [Commento delle decisioni prese](#4.3-Commento-delle-decisioni-prese)
-5. [O.O. Design](#5-O.O.-Design)
-  * [Diagramma delle classi e diagramma di sequenza](#5.1-Diagramma-delle-classi-e-diagramma-di-sequenza)
-  * [Design pattern utilizzati](#5.2-Design-pattern-utilizzati)
-  * [Commento delle decisioni prese](#5.3-Commento-delle-decisioni-prese)
-6. [Riepilogo test](#6-Riepilogo-test)
-7. [Manuale utente](#7-Manuale-utente)
-8. [Processo di sviluppo e organizzazione del lavoro](#8-Processo-di-sviluppo-e-organizzazione-del-lavoro)
-9. [Analisi retrospettiva](#9-Analisi-retrospettiva)
-  * [Cosa ci ha resi soddisfatti](#9.1-Cosa-ci-ha-resi-soddisfatti)
-  * [Cosa ci ha resi insoddisfatti](#9.2-Cosa-ci-ha-resi-insoddisfatti)
-  * [Cosa ci ha fatto impazzire](#9.3-Cosa-ci-ha-fatto-impazzire)
-10. [Conclusione](#10-Conclusione)
+1. [Introduzione](#Introduzione)
+2. [Modello di dominio](#Modello-di-dominio)
+3. [Requisiti specifici](#Requisiti-specifici)
+* [Requisiti funzionali](#Requisiti-funzionali)
+* [Requisiti non funzionali](#Requisiti-non-funzionali)
+4. [System Design](#System-Design)
+* [Stile architetturale adottato](#Stile-architetturale-adottato)
+* [Diagramma dei packages](#Diagramma-dei-packages)
+* [Commento delle decisioni prese](#Commento-delle-decisioni-prese)
+5. [O.O. Design](#O.O.-Design)
+* [Diagramma delle classi e diagramma di sequenza](#Diagramma-delle-classi-e-diagramma-di-sequenza)
+* [Design pattern utilizzati](#Design-pattern-utilizzati)
+* [Commento delle decisioni prese](#Commento-delle-decisioni-prese)
+6. [Riepilogo test](#Riepilogo-test)
+7. [Manuale utente](#Manuale-utente)
+8. [Processo di sviluppo e organizzazione del lavoro](#Processo-di-sviluppo-e-organizzazione-del-lavoro)
+9. [Analisi retrospettiva](#Analisi-retrospettiva)
+* [Cosa ci ha resi soddisfatti](#Cosa-ci-ha-resi-soddisfatti)
+* [Cosa ci ha resi insoddisfatti](#Cosa-ci-ha-resi-insoddisfatti)
+* [Cosa ci ha fatto impazzire](#Cosa-ci-ha-fatto-impazzire)
+10. [Conclusione](#Conclusione)
 
 <br/><br/>
 
-## 1. **Introduzione**
+## **Introduzione**
 
 Questo documento ha il compito di illustrare l’utilizzo della prima versione dell’applicazione della **Dama Italiana**.
-Il programma consente a due giocatori di sfidarsi in una partita tramite interfaccia a **[linea di comando(CLI)](https://devindev.lidialab.it/cli-command-line-interface-o-command-line-interpreter/)**, indicando le proprie mosse in notazione algebrica. L'esecuzione del progetto
+Il programma consente a due giocatori di sfidarsi in una partita tramite interfaccia a **[linea di comando(CLI)](https://devindev.lidialab.it/cli-command-line-interface-o-command-line-interpreter/)**, indicando le proprie mosse in notazione algebrica.
 
 L'applicativo software, oggetto del documento, è stato sviluppato dal gruppo **mills**, il cui nome si riferisce al grande ingegnere del software Harlan D. Mills. Il gruppo mills è composto da:
 
@@ -45,21 +45,19 @@ L'applicazione della Dama Italiana è eseguita tramite **[Docker](https://hub.do
 
 <br/>
 
-## 2. **Modello di dominio**
+## **Modello di dominio**
 
-//TODO
-
-
+<center><img src = "../doc/drawings/modelloDiDominio.PNG"></center>
 
 <br/>
 
-## 3. **Requisiti specifici**
+## **Requisiti specifici**
 
 Di seguito l'elenco dei requisiti specifici (funzionali e non funzionali)
 
 <br/>
 
-## 3.1 **Requisiti funzionali**
+## **Requisiti funzionali**
 
 <center><img src = "../res/img/report-finale/schermataIniziale.PNG"></center>
 
@@ -94,11 +92,11 @@ L'applicazione, una volta avviata, risponde ai seguente requisiti:
 
 <br/>
 
-## 3.2 **Requisiti non funzionali**
+## **Requisiti non funzionali**
 
 **Portabilità**
 
-Il deployment dell'applicazione è automatizzato grazie a **[Docker](https://hub.docker.com/)** basato su **[Alpine Linux](https://hub.docker.com/_/alpine)**. Tramite esso è possibile utiilizzare l'applicazione sulle sueguenti **shell**:
+Il deployment dell'applicazione è automatizzato grazie a **[Docker](https://hub.docker.com/)** basato su **[Alpine Linux](https://hub.docker.com/_/alpine)**. Tramite esso è possibile utiilizzare l'applicazione sulle seguenti **shell**:
 
 *  **Windows**: **[Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/it-it/windows/wsl/about)**, **[Git Bash](https://gitforwindows.org/)**, **[Windows Terminal](https://docs.microsoft.com/it-it/windows/terminal/get-started)**;
 * **MacOS** e **Linux**: qualunque terminale con supporto a UTF-8.
@@ -118,9 +116,9 @@ L'applicazione non genera eccezioni. Queste vengono tutte catturate e gestite. E
 
 <br/>
 
-## 4. **System Design**
+## **System Design**
 
-L'applicazione è interamente sviluppata in **[Java](https://www.java.com/it/)**, linguaggio orientato agli oggetti, che permette di eseguire programmi in maniera indipendente dal Sistema Operativo e dell'Hardware utilizzato. L'intero progetto è contenuto all'interno di un repository privato su **[GitHub](https://github.com/)**. Per la sua compilazione è stato utilizzato **[Gradle](https://gradle.org/)**, un sistema per l'automazione dello sviluppo.
+L'applicazione è interamente sviluppata in **[Java](https://www.java.com/it/)**. Questo è un linguaggio orientato agli oggetti, che permette l'esecuzione dei suoi applicativi su tutti i sistemi per cui è stata sviluppata una java virtual machine. L'intero progetto è contenuto all'interno di una repository privato su **[GitHub](https://github.com/)**. Inoltre abbiamo utilizzato **[Gradle](https://gradle.org/)**, un sistema per l'automazione dello sviluppo.
 
 Inoltre la **[toolchain](https://it.wikipedia.org/wiki/Toolchain#:~:text=Toolchain%2C%20nell'informatica%20e%20in,programma%20o%20sistema%20di%20programmi.)** del programma comprende:
 
@@ -130,66 +128,77 @@ Inoltre la **[toolchain](https://it.wikipedia.org/wiki/Toolchain#:~:text=Toolcha
 - **[Jacoco](https://www.eclemma.org/jacoco/)**, utilizzato per fornire un report della copertura del codice da parte dei casi di test;
 - **[Coveralls](https://coveralls.io/)**, per tener d'occhio, tramite interfaccia web, i risultati di copertura del codice da parte dei casi di test.
 
-Inoltre per verificare la corretta esecuzione del codice su ogni macchina, ad ogni **[merge](https://it.wikipedia.org/wiki/Merge)** fatto, si creava un'immagine su **[Docker](https://www.docker.com/)** che era possibile scaricare e **[runnare](https://it.wikipedia.org/wiki/Esecuzione_(informatica))** sulla propria macchina, per testarne il funzionamento.
+Inoltre per verificare la corretta esecuzione del codice su ogni macchina, ad ogni **[merge](https://it.wikipedia.org/wiki/Merge)** fatto, viene creata un'immagine su **[Docker](https://www.docker.com/)** che è possibile scaricare e **[runnare](https://it.wikipedia.org/wiki/Esecuzione_(informatica))** sulla propria macchina, per testarne il funzionamento.
 
-## 4.1. **Stile architetturale adottato**
+## **Stile architetturale adottato**
 
 Il programma è stato progettato secondo il pattern architetturale **[MVC](https://it.wikipedia.org/wiki/Model-view-controller)** (Model - View - Controller).
 
 Abbiamo adottato un modello semplificato di questo pattern in cui non vi è la **View** e la logica che sarebbe dovuta essere contenuta in essa è stata inserita direttamente nel **Controller**.
 
-Questa scelta è stata fatta in quanto l'applicativo in questione, essendo un semplice applicativo CLI, tale suddivisione sarebbe risultata superflua.
+Questa scelta è stata fatta in quanto tale suddivisione sarebbe risultata superflua poichè si tratta di un applicativo CLI.
 
 
-## 4.2. **Diagramma dei packages**
+## **Diagramma dei packages**
 
 Di seguito riportato il diagramma dei **[packages](https://it.wikipedia.org/wiki/Package_(Java))**, ovvero la divisione in pacchetti della nostra applicazione:
 
 <center><img src = "../doc/drawings/diagrammaPackages.PNG"></center>
 
-## 4.3. **Commento delle decisioni prese**
+## **Commento delle decisioni prese**
 
-Abbiamo deciso di usare il pattern architetturale **MVC** per separare la logica
+Abbiamo deciso di usare il pattern architetturale **MVC** per disaccopiare la logica e i dati del gioco dalla logica d'interfacciamento con l'utente.
 
 <br/>
 
-## 5. **O.O. Design**
+## **O.O. Design**
 
 Di seguito vengono riportate le scelte fatte per una programmazione orientata agli oggetti.
 
-## 5.1. **Diagramma delle classi e diagramma di sequenza**
+## **Diagramma delle classi e diagramma di sequenza**
 I diagrammi qui illustrati sono stati fatti con **[StarUML](https://staruml.io/)**
 
 - Di seguito il diagramma delle classi del comando ```gioca```:
 
+<center><img src = "../doc/drawings/diagrammaClassiGioca.PNG"></center>
+
 - Di seguito il diagramma di sequenza del comando ```gioca```:
+
+<center><img src = "../doc/drawings/diagrammaSequenzaGioca.PNG"></center>
 
 - Di seguito il diagramma delle classi dello spostamento semplice:
 
+<center><img src = "../doc/drawings/diagrammaClassiSpostamentoSemplice.PNG"></center>
+
 - Di seguito il diagramma di sequenza dello spostamento semplice:
 
+<center><img src = "../doc/drawings/diagrammaSequenzaSpostamentoSemplice.PNG"></center>
 
-## 5.2. **Design pattern utilizzati**
 
-Nel progetto è stato applicato il Pattern
-**[Observer](https://it.wikipedia.org/wiki/Observer_pattern)** appartenente al paradigma orientato ad oggetti.
+## **Design pattern utilizzati**
 
-Il pattern in questione si basa su uno o più **oggetti**, chiamati osservatori o observer, che vengono registrati per gestire un evento che potrebbe essere generato dall'oggetto "osservato", il quale può essere chiamato **soggetto**.
+Nel progetto è stato utilizzato il Pattern
+**[Observer](https://it.wikipedia.org/wiki/Observer_pattern)**.
 
-## 5.3. **Commento delle decisioni prese**
+Il pattern Observer permette di definire una dipendenza uno a molti fra oggetti, in modo tale che se un oggetto cambia il suo stato interno, ciascuno degli oggetti dipendenti da esso viene notificato e aggiornato automaticamente.
 
-Il pattern precedentemente citato, è stato utilizzato per rispettare lo stile del pattern **MVC** e mantenere indipendenti le classi **Controller** e **Model**.
+Il pattern Observer trova applicazione nei casi in cui diversi oggetti (Observer) devono conoscere lo stato di un oggetto (Subject).
+In poche parole  abbiamo un oggetto che viene “osservato” (il subject) e tanti oggetti che “osservano” i cambiamenti di quest’ultimo (gli observers).
+
+## **Commento delle decisioni prese**
+
+Il pattern precedentemente citato è stato utilizzato per mantenere un alto livello di consistenza fra classi correlate, senza produrre situazioni di forte dipendenza e di accoppiamento elevato.
 
 Abbiamo creato quindi:
 
 * Un'interfaccia generica, chiamata ```Observer```;
 * Un soggetto da osservare, creato tramite la classe ```Subject```;
-* L'enumerativo ```Status```, che si occupava di gestire i cambiamenti di stato per quanto riguardava la partita;
-* L'enumerativo ```Messaggio```, utilizzato per rispettare lo stile dell'**MVC** e .
+* L'enumerativo ```Status```, che si occupa di gestire i cambiamenti di stato per quanto riguarda la partita;
+* L'enumerativo ```Messaggio```, utilizzato come argomento per segnalare cambi di stato.
 
 <br/>
 
-## 6. **Riepilogo test**
+## **Riepilogo test**
 
 Ecco i risultati dei nostri test sull'applicazione:
 
@@ -211,11 +220,11 @@ Inoltre, gli elementi che abbiamo scelto di non testare sono:
 
 * ```AppMain```;
 * ```Strings```, poichè è una classe contentente solo le stringhe utilizzate nel programma (tutte costanti);
-* Alcune eccezioni presenti, come nella classe ```GameModel``` o ```Cronometro```.
+* Alcune eccezioni presenti, come nella classe ```GameModel``` e ```Cronometro```.
 
 <br/>
 
-## 7. **Manuale utente**
+## **Manuale utente**
 
 L'applicazione 'Dama Italiana' mira a ricreare l'esperienza dell'omonimo gioco da tavolo, caratterizzata dalla simulazione su terminale della damiera e di tutti i suoi pezzi.
 
@@ -376,7 +385,7 @@ In caso di mosse errate i messaggi visualizzati, a seconda dei casi, saranno i s
 
 <br/>
 
-## 8. **Processo di sviluppo e organizzazione del lavoro**
+## **Processo di sviluppo e organizzazione del lavoro**
 
 ## Processo di sviluppo
 
@@ -437,17 +446,17 @@ La seconda è stata scelta poichè, essendo anche questa familiare, era il mezzo
 
 <br/>
 
-## 9. **Analisi retrospettiva**
+## **Analisi retrospettiva**
 
-A posteriori queste sono i risultati dell'analisi retrospettiva:
+A posteriori questi sono i risultati dell'analisi retrospettiva:
 
-## 9.1 **Cosa ci ha resi soddisfatti**
+## **Cosa ci ha resi soddisfatti**
 
-Il denominatore comune tra tutti i membri del gruppo è la consapevolezza di aver acquisito una minima capacità di lavorare in team. Questa simulazione di un'esperienza lavorativa è servita ad ognuno di noi per:
+Il denominatore comune tra tutti i membri del gruppo è la consapevolezza di aver acquisito una buona capacità di lavorare in team. Questa simulazione di un'esperienza lavorativa è servita ad ognuno di noi per:
 
 * Imparare il linguaggio java e il paradigma ad oggetti;
 
-* Affinare ed acquisire *skill* di programmazione;
+* Affinare ed acquisire *skills* di programmazione;
 
 * Comprendere l'utilizzo di strumenti di version control come *Git e GitHub*;
 
@@ -455,21 +464,21 @@ Il denominatore comune tra tutti i membri del gruppo è la consapevolezza di ave
 
 È stato molto interessante mettersi alla prova nei limiti di tempo dei vari sprint, per sentirsi poi soddisfatti quando al termine funzionava tutto.
 
-Durante gli sprint, considerate le scarse conoscenze pregresse del linguaggio utilizzato, ci sono stati problemi durante gli sviluppi di alcune issue, ma grazie al lavoro di squadra non è stato difficile risolverli.
+Durante gli sprint, grazie a discrete conoscenze pregresse del linguaggio utilizzato, non abbiamo avuto grossi problemi nel portare a termine i vari issue, eccezion fatta per la fase di testing che abbiamo risolto grazie al lavoro di squadra.
 
-## 9.2 **Cosa ci ha resi insoddisfatti**
+## **Cosa ci ha resi insoddisfatti**
 
 La cosa che ha demoralizzato maggiormente è stata l'impossibilità di potersi incontrare giornalmente in università data la situazione **pandemica**. Infatti, almeno all'inizio, c'era quel velo di vergogna tra persone che non si erano mai viste. Ciò è sparito con il passare del tempo e le numerose call fatte. In particolare il rapporto si è consolidato nel mese di Maggio quando ci siamo incontrati per le prime volte in università.
 
-## 9.3 **Cosa ci ha fatto impazzire**
+## **Cosa ci ha fatto impazzire**
 
 Come già scritto, la situazione pandemica ha costretto tutti noi a svolgere questo progetto a distanza.
 
-A nome di tutto il gruppo ciò che ci ha fatto impazzire è stato il microfono e la connessione di **[Fabio Spaccavento](https://github.com/fabiospaccavento)** che ad ogni call non funzionava e noi ci divertivamo a prendere in giro.
+A nome di tutto il gruppo ciò che ci ha fatto impazzire è stato il microfono di **[Fabio Spaccavento](https://github.com/fabiospaccavento)** che ad ogni call non funzionava e noi ci divertivamo a prendere in giro.
 
 <br/>
 
-## 10. **Conclusione**
+## **Conclusione**
 
 Scherzi a parte, riteniamo che questo progetto sia stato un importante banco di prova. Nonostante le difficoltà siamo riusciti comunque a centrare gli obiettivi stabiliti e a trarre il meglio da questa esperienza formativa.
 
