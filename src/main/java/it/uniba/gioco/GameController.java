@@ -11,13 +11,27 @@ import it.uniba.utilities.Utilities;
  * Classe che gestisce l'interazione con l'utente e mostra i messaggi
  */
 public class GameController {
+    /**
+     * Model con la logica del gioco.
+     */
     private GameModel gameModel;
 
-    private Observer<Status> observerStatus = status -> stampaNuovoStato(status);
-    private Observer<Messaggio> observerMessages = msg -> stampaNuovoMessaggio(msg);
+    /**
+     * Observer in ascolto del soggetto che notifica i cambiamenti di stato dell'app.
+     */
+    private Observer<Status> observerStatus = status -> System.out.println(status.getMsg());;
+
+    /**
+     * Observer in ascolto del soggetto che notifica i messaggi utilizzati durante il gioco.
+     */
+    private Observer<Messaggio> observerMessages = msg -> System.out.println(msg.getMsg());;
 
     private boolean uscitaRichiesta = false;
 
+
+    /**
+     * Costruttore della classe.
+     */
     public GameController(final GameModel model) {
         this.gameModel = model;
 
@@ -37,10 +51,15 @@ public class GameController {
 
     }
 
+    /**
+     * Inizia una nuova partita.
+     */
     private void avviaNuovaPartita() {
         gameModel.startGame();
     }
-
+    /**
+     * Consente di abbandoare la partita chiedendo prima conferma all'utente.
+     */
     private void gestioneAbbandona() {
         Boolean risultato = null;
         System.out.println(Strings.CONFERMA_ABBANDONO);
@@ -60,10 +79,17 @@ public class GameController {
         }
     }
 
+    /**
+     * Esegue la stampa a schermo della damiera nello stato corrente.
+     */
     private void stampaDamiera() {
         System.out.println(gameModel.getDamiera());
     }
 
+    /**
+     * Esegue la stampa a schermo della damiera, nella quale non vi sono le pedine ma i numeri che
+     * identiifcano ciascuna casella.
+     */
     private void stampaNumeri() {
         int dim = gameModel.getDimDamiera();
         StringBuffer stringa = new StringBuffer();
@@ -91,16 +117,28 @@ public class GameController {
         }
         System.out.println(stringa.toString());
     }
+
+    /**
+     * Esegue la presa.
+     */
      private void presa(final String arg) {
         String[] caselle = arg.split("x");
         gameModel.eseguiPresa(caselle);
     }
 
 
+    /**
+     * Esegue lo spostamento semplice.
+     */
     private void spostamentoSemplice(final String arg) {
         String[] caselle = arg.split("-");
         gameModel.eseguiSpostamentoSemplice(Integer.parseInt(caselle[0]), Integer.parseInt(caselle[1]));
     }
+
+    /**
+     * Chiama il metodo relativo al comando passato come parametro con l'eventuale argomento.
+     * I comandi consentiti sono solamente quelli possibili duramente il game.
+     */
     private void comandiInGioco(final Comando cmd) {
         if (cmd == Comando.help) {
             System.out.println(Strings.HELP_MSG);
@@ -125,6 +163,11 @@ public class GameController {
         }
     }
 
+
+    /**
+     * Chiama il metodo relativo al comando passato come parametro con l'eventuale argomento.
+     * I comandi consentiti sono solamente quelli possibili furoi dal game.
+     */
     private void comandiFuoriGioco(final Comando cmd) {
         if (cmd == Comando.help) {
             System.out.println(Strings.HELP_MSG);
@@ -139,6 +182,10 @@ public class GameController {
         }
     }
 
+
+    /**
+     * Stampa a schermo il tempo di entrambi i giocatori.
+     */
     private void stampaTempoGiocatori() {
         long tempoBianco = gameModel.getCronometroBianco().getTempoTrascorsoMillis();
         long tempoNero = gameModel.getCronometroNero().getTempoTrascorsoMillis();
@@ -147,6 +194,10 @@ public class GameController {
         System.out.println(tempo);
     }
 
+
+    /**
+     * Consente di uscire dal gioco chiedendo prima conferma all'utente.
+     */
     private void esciDalGioco() {
         Boolean risultato = null;
 
@@ -166,14 +217,11 @@ public class GameController {
         uscitaRichiesta = risultato;
     }
 
-    private void stampaNuovoStato(final Status status) {
-        System.out.println(status.getMsg());
-    }
 
-    private void stampaNuovoMessaggio(final Messaggio msg) {
-        System.out.println(msg.getMsg());
-    }
-
+    /**
+     * Riceve in input un comando e a seconda dello stato del gioco lo esegue o meno.
+     * Se il comando non e' valido verra' mostrato a schermo un messaggio di errore.
+     */
     private void controlloComando(final Comando cmd) {
         if (cmd == null) {
             System.out.println(Strings.COMANDO_ERRATO);
@@ -186,7 +234,7 @@ public class GameController {
     }
 
     /**
-     *
+     * Esegue la stampa a schermo dello storico delle prese effettuate.
      */
      public void stampaPrese() {
         StringBuffer result = new StringBuffer();
@@ -202,7 +250,7 @@ public class GameController {
     }
 
     /**
-     *
+     * Esegue la stampa a schermo dello storico delle mosse effettuate.
      */
     public void stampaStoricoMosse() {
         if (gameModel.getStoricoMosse().size() <= 0) {
