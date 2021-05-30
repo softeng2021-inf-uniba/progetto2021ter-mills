@@ -13,7 +13,7 @@
 * [Stile architetturale adottato](#Stile-architetturale-adottato)
 * [Diagramma dei packages](#Diagramma-dei-packages)
 * [Commento delle decisioni prese](#Commento-delle-decisioni-prese)
-5. [O.O. Design](#O.O.-Design)
+5. [O.O. Design](#OO-Design)
 * [Diagramma delle classi e diagramma di sequenza](#Diagramma-delle-classi-e-diagramma-di-sequenza)
 * [Design pattern utilizzati](#Design-pattern-utilizzati)
 * [Commento delle decisioni prese](#Commento-delle-decisioni-prese)
@@ -53,9 +53,7 @@ L'applicazione della Dama Italiana è eseguita tramite **[Docker](https://hub.do
 
 ## **Requisiti specifici**
 
-Di seguito l'elenco dei requisiti specifici (funzionali e non funzionali)
-
-<br/>
+Di seguito l'elenco dei requisiti specifici (funzionali e non funzionali):
 
 ## **Requisiti funzionali**
 
@@ -151,7 +149,7 @@ Abbiamo deciso di usare il pattern architetturale **MVC** per disaccopiare la lo
 
 <br/>
 
-## **O.O. Design**
+## **OO Design**
 
 Di seguito vengono riportate le scelte fatte per una programmazione orientata agli oggetti.
 
