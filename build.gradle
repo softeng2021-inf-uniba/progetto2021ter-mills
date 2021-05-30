@@ -158,7 +158,7 @@ test {
 
 task fatJar(type: Jar) {
     manifest {
-        attributes 'Main-Class': 'it.uniba.main/appMain/AppMain'
+        attributes 'Main-Class': 'it.uniba.main/AppMain'
     }
     archiveBaseName = project.name + '-all'
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
@@ -167,4 +167,4 @@ task fatJar(type: Jar) {
 project.tasks.getByName('build').dependsOn fatJar
 
 // Main class
-mainClassName = 'it.uniba.main/appMain/AppMain'
+mainClassName = 'it.uniba.main/AppMain'
