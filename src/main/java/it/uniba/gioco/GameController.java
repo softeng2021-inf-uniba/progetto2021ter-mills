@@ -87,7 +87,7 @@ public class GameController {
     }
 
     /**
-     * Esegye la stampa a schermo della damiera, nella quale non vi sono le pedine ma i numeri che
+     * Esegue la stampa a schermo della damiera, nella quale non vi sono le pedine ma i numeri che
      * identiifcano ciascuna casella.
      */
     private void stampaNumeri() {
