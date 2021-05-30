@@ -93,9 +93,9 @@ public final class Strings {
    * Costanti per i vari tipi di errore.
    */
   public static final String COMANDO_ERRATO = "Comando errato";
-  public static final String ERRORE_COMANDO_FUORI_GIOCO = "Questo comando può essere utilizzato"
+  public static final String ERRORE_COMANDO_FUORI_GIOCO = "Questo comando può essere utilizzato "
       + "solamente fuori dalla partita";
-  public static final String ERRORE_COMANDO_IN_GIOCO = "Questo comando può essere utilizzato"
+  public static final String ERRORE_COMANDO_IN_GIOCO = "Questo comando può essere utilizzato "
       + "solamente durante la "
       + "partita\nInserire comando 'gioca' per iniziare una nuova partita";
   public static final String ERRORE_GENERICO = "Errore: ";
