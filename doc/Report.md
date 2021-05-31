@@ -98,7 +98,7 @@ I NFR (Non Functional Requirement) descrivono le caratteristiche di qualità del
 
 **Portabilità**
 
-Il deployment dell'applicazione è automatizzato grazie a **[Docker](https://hub.docker.com/)** basato su **[Alpine Linux](https://hub.docker.com/_/alpine)**. Tramite esso è possibile utiilizzare l'applicazione sulle seguenti **shell**:
+Il deployment dell'applicazione è automatizzato grazie a **[Docker](https://hub.docker.com/)** basato su **[Alpine Linux](https://hub.docker.com/_/alpine)**. Tramite esso è possibile utilizzare l'applicazione sulle seguenti **shell**:
 
 *  **Windows**: **[Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/it-it/windows/wsl/about)**, **[Git Bash](https://gitforwindows.org/)**, **[Windows Terminal](https://docs.microsoft.com/it-it/windows/terminal/get-started)**;
 * **MacOS** e **Linux**: qualunque terminale con supporto a UTF-8.
@@ -116,15 +116,15 @@ Il deployment dell'applicazione è automatizzato grazie a **[Docker](https://hub
 
 Il software prevede che l'utente conosca le regole generali del gioco della dama. 
 Il livello di protezione dagli errori dell'utente consiste nella rigorosa analisi dell'input con opportune notifiche di comandi o mosse errate.
-L'applicazione non genera eccezioni. Queste vengono tutte catturate e gestite. Eventualmente, vengono stampati messaggi di errore.
-
+Inoltre, l'applicazione gestisce tutte le eventuali eccezioni.
 
 **Manutenibilità**
 
-Il software è creato utilizzando le best practices del linguaggio **[O.O. Java](https://www.html.it/pag/50730/principi-di-oop/)** ed è suddiviso secondo 
-l'architettura 
-**[MVC](https://it.wikipedia.org/wiki/Model-view-controller)** in modo che le modifiche abbiano un minimo impatto sulle altre componenti.
-Il software è progettato in modo da poter essere utilizzato per l'implementazione futura di altri comandi.
+Il software è stato realizzato utilizzando le best practices del linguaggio **[O.O. Java](https://www.html.
+it/pag/50730/principi-di-oop/)** ed è strutturato secondo 
+il pattern architetturale
+**[MVC](https://it.wikipedia.org/wiki/Model-view-controller)**.
+Il software è progettato in modo da poter consentire, con semplicitá, l'implementazione di altri comandi in futuro.
 
 [Torna all'inizio](#Indice)
 <br/>
@@ -242,9 +242,10 @@ Inoltre, gli elementi che abbiamo scelto di non testare sono:
 
 ## **Manuale utente**
 
-L'applicazione 'Dama Italiana' mira a ricreare l'esperienza dell'omonimo gioco da tavolo, caratterizzata dalla simulazione su terminale della damiera e di tutti i suoi pezzi.
+L'applicazione 'Dama Italiana' mira a ricreare l'esperienza dell'omonimo gioco da tavolo, simulando su terminale la 
+damiera e i sui pezzi.
 
-Per lanciare l'applicazione, una volta **[scaricata](#Requisiti-non-funzionali)**, è possibile eseguirla tramite il comando:<center>
+Una volta **[scaricata]  l'applicazione(#Requisiti-non-funzionali)**, è possibile eseguirla tramite il comando:<center>
 
 ```docker run --rm -it docker.pkg.github.com/softeng2021-inf-uniba/progetto2021ter-mills/dama-mills:latest```
  </center>
@@ -259,7 +260,7 @@ Quando il programma sarà avviato verrà visualizzato il messaggio:<center>
 
 <br/>
 
-Se avviato correttammente da questo momento in poi si potranno inserire i seguenti comandi:
+Se avviato correttammente da questo momento in poi si potranno utilizzare i seguenti comandi:
 
 * ```help``` - comando che viene suggerito dal banner iniziale, e che se invocato mostra la lista dei comandi disponibili. Inoltre descrive la notazione algebrica utilizzata per eseguire le mosse.
 
@@ -420,7 +421,7 @@ Il progetto è stato diviso in quattro sprint. Dopo aver creato una **project bo
   * **In Progress**: nella quale si trovavano le issue in elaborazione.
   * **Review**: nella quale si trovavano le issue pronte per essere revisionate;
   * **Ready**: nella quale si trovavano le issue chiuse e pronte per la revisione da parte dei docenti;
-  * Done: nella quale si trovavano le issue chiuse e approovate dai docenti.
+  * **Done**: nella quale si trovavano le issue chiuse e approovate dai docenti.
 
 * Venivano aggiunte le user story dello sprint nello stato '*To Do*'.
 
