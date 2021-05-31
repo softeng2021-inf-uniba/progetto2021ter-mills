@@ -16,7 +16,7 @@
 5. [O.O. Design](#OO-Design)
 * [Diagramma delle classi e diagramma di sequenza](#Diagramma-delle-classi-e-diagramma-di-sequenza)
 * [Design pattern utilizzati](#Design-pattern-utilizzati)
-* [Commento delle decisioni prese](#Commento-delle-decisioni-prese)
+* [Commento delle decisioni prese](#Commento-delle-decisioni-prese-(2))
 6. [Riepilogo test](#Riepilogo-test)
 7. [Manuale utente](#Manuale-utente)
 8. [Processo di sviluppo e organizzazione del lavoro](#Processo-di-sviluppo-e-organizzazione-del-lavoro)
@@ -43,12 +43,14 @@ L'applicativo software, oggetto del documento, è stato sviluppato dal gruppo **
 
 L'applicazione della Dama Italiana è eseguita tramite **[Docker](https://hub.docker.com/)**.
 
+[Torna all'inizio](#Indice)
 <br/>
 
 ## **Modello di dominio**
 
 <center><img src = "../doc/drawings/modelloDiDominio.PNG"></center>
 
+[Torna all'inizio](#Indice)
 <br/>
 
 ## **Requisiti specifici**
@@ -112,6 +114,7 @@ Il deployment dell'applicazione è automatizzato grazie a **[Docker](https://hub
 
 L'applicazione non genera eccezioni. Queste vengono tutte catturate e gestite. Eventualmente, vengono stampati messaggi di errore.
 
+[Torna all'inizio](#Indice)
 <br/>
 
 ## **System Design**
@@ -147,6 +150,7 @@ Di seguito riportato il diagramma dei **[packages](https://it.wikipedia.org/wiki
 
 Abbiamo deciso di usare il pattern architetturale **MVC** per disaccopiare la logica e i dati del gioco dalla logica d'interfacciamento con l'utente.
 
+[Torna all'inizio](#Indice)
 <br/>
 
 ## **OO Design**
@@ -183,7 +187,7 @@ Il pattern Observer permette di definire una dipendenza uno a molti fra oggetti,
 Il pattern Observer trova applicazione nei casi in cui diversi oggetti (Observer) devono conoscere lo stato di un oggetto (Subject).
 In poche parole  abbiamo un oggetto che viene “osservato” (il subject) e tanti oggetti che “osservano” i cambiamenti di quest’ultimo (gli observers).
 
-## **Commento delle decisioni prese**
+## **Commento delle decisioni prese (2)**
 
 Il pattern precedentemente citato è stato utilizzato per mantenere un alto livello di consistenza fra classi correlate, senza produrre situazioni di forte dipendenza e di accoppiamento elevato.
 
@@ -194,6 +198,7 @@ Abbiamo creato quindi:
 * L'enumerativo ```Status```, che si occupa di gestire i cambiamenti di stato per quanto riguarda la partita;
 * L'enumerativo ```Messaggio```, utilizzato come argomento per segnalare cambi di stato.
 
+[Torna all'inizio](#Indice)
 <br/>
 
 ## **Riepilogo test**
@@ -220,6 +225,7 @@ Inoltre, gli elementi che abbiamo scelto di non testare sono:
 * ```Strings```, poichè è una classe contentente solo le stringhe utilizzate nel programma (tutte costanti);
 * Alcune eccezioni presenti, come nella classe ```GameModel``` e ```Cronometro```.
 
+[Torna all'inizio](#Indice)
 <br/>
 
 ## **Manuale utente**
@@ -381,6 +387,7 @@ In caso di mosse errate i messaggi visualizzati, a seconda dei casi, saranno i s
 
   ```"Hai selezionato una casella vuota"```</center>
 
+[Torna all'inizio](#Indice)
 <br/>
 
 ## **Processo di sviluppo e organizzazione del lavoro**
@@ -388,8 +395,6 @@ In caso di mosse errate i messaggi visualizzati, a seconda dei casi, saranno i s
 ## Processo di sviluppo
 
 Il programma è stato realizzato applicando la metodologia di **[Sviluppo Agile](https://it.wikipedia.org/wiki/Metodologia_agile)**. Quest'ultima è caratterizzata da **[Scrum](https://it.wikipedia.org/wiki/Scrum_(informatica))**, un framework di processo che prevede di dividere il progetto in blocchi rapidi di lavoro denominati **[Sprint](https://it.wikipedia.org/wiki/Scrum_(informatica)#Sprint)**, ognuno dei quali prevede un certo numero di funzionalità **([User Story](https://en.wikipedia.org/wiki/User_story))** richieste dal Product Owner. Tutte le user story sono contenute nella Product RoadMap del gruppo **mills** su **[GitHub](https://github.com/)**.
-
-<br/>
 
 ## **Suddivisione dei progetto**
 
@@ -442,6 +447,7 @@ La seconda è stata scelta poichè, essendo anche questa familiare, era il mezzo
 
 <center><img src = "../res/img/report-finale/whatsapp.jpeg"></center>
 
+[Torna all'inizio](#Indice)
 <br/>
 
 ## **Analisi retrospettiva**
@@ -474,6 +480,7 @@ Come già scritto, la situazione pandemica ha costretto tutti noi a svolgere que
 
 A nome di tutto il gruppo ciò che ci ha fatto impazzire è stato il microfono di **[Fabio Spaccavento](https://github.com/fabiospaccavento)** che ad ogni call non funzionava e noi ci divertivamo a prendere in giro.
 
+[Torna all'inizio](#Indice)
 <br/>
 
 ## **Conclusione**
