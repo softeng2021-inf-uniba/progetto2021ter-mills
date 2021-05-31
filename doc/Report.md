@@ -55,7 +55,7 @@ L'applicazione della Dama Italiana è eseguita tramite **[Docker](https://hub.do
 
 ## **Requisiti specifici**
 
-Di seguito l'elenco dei requisiti specifici (funzionali e non funzionali)
+Di seguito l'elenco dei requisiti specifici (funzionali e non funzionali):
 
 ## **Requisiti funzionali**
 
