@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class GameModel {
     /**
-     * Attributi utili alla classe.
+     * Attributi della classe.
      */
     private Damiera damiera;
     private boolean isPlaying;
@@ -31,15 +31,12 @@ public class GameModel {
     private int punteggioBianco;
     private int punteggioNero;
 
-    /**
-     * Attributi utili al subject.
-     */
     private Subject<Status> onStatusChanged;
     private Subject<Messaggio> onMessagesCalled;
 
     /**
      * Costruttore della classe.
-     * @param dimensioneDamiera dimensione della damiera.
+     * @param dimensioneDamiera dimensione della damiera ( lunghezza lato ).
      */
     public GameModel(final int dimensioneDamiera) {
         onStatusChanged = new Subject<>();
@@ -74,7 +71,7 @@ public class GameModel {
     /**
      * Prova a prendere una pedina.
      * @param posPedina posizione iniziale della pedina.
-     * @return la pedina.
+     * @return restituisce la pedina se riesce a gettarla, altrimenti null.
      */
     private Pedina tryGetPedina(final Posizione posPedina) {
         Pedina pedina = null;
@@ -146,8 +143,8 @@ public class GameModel {
 
     /**
      * Esegue lo spostamento semplice.
-     * @param partenza casella di partenza
-     * @param arrivo casella di arrivo
+     * @param partenza casella di partenza.
+     * @param arrivo casella di arrivo.
      */
     public void eseguiSpostamentoSemplice(final int partenza, final int arrivo) {
         Posizione posPartenza = Utilities.convertiPosizione(partenza, dimDamiera);
@@ -200,7 +197,7 @@ public class GameModel {
     }
 
     /**
-     * Abbandona la partita e termina la partita facendo vincere l'avversario.
+     * Termina la partita facendo vincere l'avversario.
      */
     public void abbandonaPartita() {
         if (isTurnoBianco) {
@@ -229,7 +226,6 @@ public class GameModel {
     }
 
     /**
-     *
      * @return restituisce true se la partita e' in esecuzione.
      */
     public boolean getIsPlaying() {
