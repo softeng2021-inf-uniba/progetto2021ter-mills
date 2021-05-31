@@ -94,6 +94,8 @@ L'applicazione, una volta avviata, risponde ai seguente requisiti:
 
 ## **Requisiti non funzionali**
 
+I NFR (Non Functional Requirement) descrivono le caratteristiche di qualità del prodotto software da sviluppare, i requisiti di sistema/ambiente, le tecnologie e gli standard di cui il software deve tenere conto.
+
 **Portabilità**
 
 Il deployment dell'applicazione è automatizzato grazie a **[Docker](https://hub.docker.com/)** basato su **[Alpine Linux](https://hub.docker.com/_/alpine)**. Tramite esso è possibile utiilizzare l'applicazione sulle seguenti **shell**:
@@ -110,9 +112,19 @@ Il deployment dell'applicazione è automatizzato grazie a **[Docker](https://hub
 
   ```docker run --rm -it docker.pkg.github.com/softeng2021-inf-uniba/progetto2021ter-mills/dama-mills:latest```</center>
 
-**Affidabilità**
+**Usabilità**
 
+Il software prevede che l'utente conosca le regole generali del gioco della dama. 
+Il livello di protezione dagli errori dell'utente consiste nella rigorosa analisi dell'input con opportune notifiche di comandi o mosse errate.
 L'applicazione non genera eccezioni. Queste vengono tutte catturate e gestite. Eventualmente, vengono stampati messaggi di errore.
+
+
+**Manutenibilità**
+
+Il software è creato utilizzando le best practices del linguaggio **[O.O. Java](https://www.html.it/pag/50730/principi-di-oop/)** ed è suddiviso secondo 
+l'architettura 
+**[MVC](https://it.wikipedia.org/wiki/Model-view-controller)** in modo che le modifiche abbiano un minimo impatto sulle altre componenti.
+Il software è progettato in modo da poter essere utilizzato per l'implementazione futura di altri comandi.
 
 [Torna all'inizio](#Indice)
 <br/>
