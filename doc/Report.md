@@ -7,13 +7,13 @@
 1. [Introduzione](#Introduzione)
 2. [Modello di dominio](#Modello-di-dominio)
 3. [Requisiti specifici](#Requisiti-specifici)
-* [Requisiti funzionali](#requisiti-funzionali)
-* [Requisiti non funzionali](#requisiti-non-funzionali)
+* [Requisiti funzionali](#Requisiti-funzionali)
+* [Requisiti non funzionali](#Requisiti-non-funzionali)
 4. [System Design](#System-Design)
 * [Stile architetturale adottato](#Stile-architetturale-adottato)
 * [Diagramma dei packages](#Diagramma-dei-packages)
 * [Commento delle decisioni prese](#Commento-delle-decisioni-prese)
-5. [O.O. Design](#O.O.-Design)
+5. [O.O. Design](#OO-Design)
 * [Diagramma delle classi e diagramma di sequenza](#Diagramma-delle-classi-e-diagramma-di-sequenza)
 * [Design pattern utilizzati](#Design-pattern-utilizzati)
 * [Commento delle decisioni prese](#Commento-delle-decisioni-prese-(2))
@@ -56,8 +56,6 @@ L'applicazione della Dama Italiana è eseguita tramite **[Docker](https://hub.do
 ## **Requisiti specifici**
 
 Di seguito l'elenco dei requisiti specifici (funzionali e non funzionali)
-
-<br/>
 
 ## **Requisiti funzionali**
 
@@ -155,7 +153,7 @@ Abbiamo deciso di usare il pattern architetturale **MVC** per disaccopiare la lo
 [Torna all'inizio](#Indice)
 <br/>
 
-## **O.O. Design**
+## **OO Design**
 
 Di seguito vengono riportate le scelte fatte per una programmazione orientata agli oggetti.
 
